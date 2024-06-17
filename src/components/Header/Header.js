@@ -10,11 +10,12 @@ const Header = () => {
   const location = useLocation();
   const { userId } = useParams();
   const [username, setUsername] = useState("Jane");
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/profile/666d5356f52a5e3a643a788d`);
+        const response = await axios.get(`${backendUrl}/api/users/profile/666d5356f52a5e3a643a788d`);
         setUsername(response.data.username);
       } catch (error) {
         console.error("Error fetching user data:", error);

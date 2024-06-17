@@ -9,11 +9,12 @@ const FoodChoice = ({ activeFilter }) => {
   const counter = useSelector((state) => state.counter);
   const selectedItems = useSelector((state) => state.selectedItems);
   const foodChoices = useSelector((state) => state.foodChoices);
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
     const fetchFoodChoices = async () => {
       try {
-        let url = 'http://localhost:5000/api/foods';
+        let url = '${backendUrl}/api/foods';
         if (activeFilter && activeFilter !== "All") {
           url += `?category=${activeFilter}`;
         }
@@ -21,7 +22,7 @@ const FoodChoice = ({ activeFilter }) => {
         console.log("Data from API: ", response.data);
         const foodChoicesWithAbsoluteImageUrl = response.data.map(food => ({
           ...food,
-          imageUrl: `http://localhost:5000${food.imageUrl.slice(1)}`
+          imageUrl: `${backendUrl}${food.imageUrl.slice(1)}`
         }));
         dispatch(setFoodChoices(foodChoicesWithAbsoluteImageUrl));
       } catch (error) {

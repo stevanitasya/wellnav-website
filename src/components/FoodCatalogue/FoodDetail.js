@@ -5,11 +5,12 @@ import axios from 'axios';
 const FoodDetail = () => {
   const { id } = useParams();
   const [foodItem, setFoodItem] = useState(null);
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
     const fetchFoodDetail = async () => { 
       try {
-        const response = await axios.get(`http://localhost:5000/api/foods/${id}`);
+        const response = await axios.get(`${backendUrl}/api/foods/${id}`);
         setFoodItem(response.data);
       } catch (error) {
         console.error('Error fetching food detail', error.response || error.message);

@@ -6,13 +6,14 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const ProfileHeader = () => {
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
   const [username, setUsername] = useState("");
   const { userId } = useParams();
 
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/profile/666fde9ca7d9380a078106a0`);
+        const response = await axios.get(`${backendUrl}/api/users/profile/666fde9ca7d9380a078106a0`);
         setUsername(response.data.username);
       } catch (error) {
         console.error("Error fetching profile data:", error);

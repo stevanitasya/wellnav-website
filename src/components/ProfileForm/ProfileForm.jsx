@@ -6,6 +6,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const ProfileForm = () => {
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
   const [isEditing, setIsEditing] = useState(false);
   const [initialProfileData, setInitialProfileData] = useState({
     username: "",
@@ -27,7 +28,7 @@ const ProfileForm = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/profile/666fde9ca7d9380a078106a0`);
+        const response = await axios.get(`${backendUrl}/api/users/profile/666fde9ca7d9380a078106a0`);
         setInitialProfileData({
           ...response.data,
           healthCondition: Array.isArray(response.data.healthCondition) ? response.data.healthCondition : [response.data.healthCondition]

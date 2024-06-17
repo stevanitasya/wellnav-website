@@ -15,6 +15,7 @@ import { setCalories, setNutrition } from "../../../redux/actions";
 
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
   const [foodLogs, setFoodLogs] = useState([]);
   const [nutritionSummary, setNutritionSummary] = useState({
     calories: 0,
@@ -38,7 +39,7 @@ const NutritionTrackingB = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/foodlogs/${userId}/${date}`);
+        const response = await axios.get(`h${backendUrl}/api/foodlogs/${userId}/${date}`);
         setFoodLogs(response.data.foodLogs);
         setNutritionSummary(response.data.nutritionSummary);
         dispatch(setCalories(response.data.nutritionSummary.calories, 2000));

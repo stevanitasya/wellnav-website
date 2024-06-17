@@ -6,12 +6,13 @@ import "./FoodCatalog.css";
 
 const FoodCatalog = ({ userId, token, activeFilter }) => {
   const [foodItems, setFoodItems] = useState([]); 
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
  
   useEffect(() => {
     const fetchArticle = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/foods/recommended/${userId}`, 
+          `${backendUrl}/api/foods/recommended/${userId}`, 
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -14,11 +14,12 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const userId = "666fde9ca7d9380a078106a0"; // Replace with actual userId
   const date = new Date().toISOString().split('T')[0]; // Get today's date
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
     const fetchFoodLogs = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/foodlogs/${userId}/${date}`);
+        const response = await axios.get(`${backendUrl}/${userId}/${date}`);
         dispatch(setFoodLogs(response.data.foodLogs));
         dispatch(setNutritionSummary(response.data.nutritionSummary));
       } catch (error) {

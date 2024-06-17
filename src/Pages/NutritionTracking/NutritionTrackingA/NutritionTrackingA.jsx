@@ -12,6 +12,7 @@ import "./NutritionTrackingA.css";
 
 function NutritionTrackingA() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
   const userId = "666fde9ca7d9380a078106a0"; 
   const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan"];
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ function NutritionTrackingA() {
         foodId: item._id,
         mealType,
       };
-      return axios.post('http://localhost:5000/api/foodlogs/add', addFood);
+      return axios.post('${backendUrl}/api/foodlogs/add', addFood);
     });
 
     try {
