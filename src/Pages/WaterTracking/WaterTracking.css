@@ -1,0 +1,257 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Water-Container {
+  border-radius: 30px;
+  color: rgb(0, 0, 0);
+  flex: 1;
+  margin-left: 5vh;
+}
+
+.Water-Container h1 {
+  margin-bottom: 0px;
+}
+.Water-Container p {
+  margin-top: 5px;
+}
+.Water-content {
+  display: flex;
+}
+.daily-target {
+  display: flex;
+  align-items: center;
+  margin-left: 9vh;
+  padding: 10px;
+  border-radius: 5px;
+  color: #000000;
+}
+
+.daily-target p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.daily-target h3 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.left-section {
+  flex: 1;
+  /* padding-right: 10vh; */
+}
+
+.right-section {
+  /* flex: 1; */
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #294c2b;
+  margin-left: 9vh;
+  padding: 5vh;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+  color: white;
+  margin-bottom: 5vh;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  padding: 1vh 2px;
+  width: 100%;
+}
+.form-section form label,
+.form-section form .Amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: white;
+}
+.Waktu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-left: 10vh;
+  color: white;
+}
+
+.form-section form input {
+  padding: 8px;
+  text-align: left;
+  margin-top: 5px;
+  margin-left: 40vh;
+  flex: 1;
+}
+
+.form-section form button {
+  align-self: flex-end;
+  padding: 8px 130px;
+  margin-top: 10px;
+  background-color: #ef723d;
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.form-section form button:hover {
+  background-color: #c0c0c0;
+  color: #000000;
+}
+
+.no-arrows {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  margin: 0;
+  padding-right: 15vh;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.no-arrows::placeholder {
+  color: #ccc;
+  font-size: 15px;
+  font-weight: bold;
+}
+.no-arrows::-webkit-outer-spin-button,
+.no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-time::-webkit-calendar-picker-indicator:hover {
+  background-color: #b44b23;
+  border-radius: 50%;
+}
+
+.custom-time::-webkit-calendar-picker-indicator:active {
+  background-color: #b44b23;
+}
+.custom-time {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* table  */
+.log-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f0dd98;
+  border-radius: 10px;
+  color: #000000;
+  max-width: 100%;
+  padding: 5vh 10vh 19vh;
+  margin-top: -22vh;
+}
+.log-section h3 {
+  font-size: 25px;
+  margin-bottom: 4vh;
+  margin-top: 1vh;
+  font-weight: 600;
+}
+.Air-img {
+  transform: translate(10%, -15%);
+  width: 12vh;
+  margin-top: 6vh;
+  margin-left: 37vh;
+  object-fit: cover;
+  z-index: 1;
+}
+.log-water table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.log-section th,
+.log-section td {
+  font-size: 15px;
+  border: 1px solid #000000;
+  padding: 10px 22vh;
+  text-align: left;
+}
+
+/* Glass */
+.water-glass-section {
+  position: relative;
+  margin-top: 20px;
+}
+
+.water-glass {
+  width: 17vh;
+  height: 50vh;
+  border: 3px solid #294c2b;
+  margin: 20px auto;
+  position: relative;
+  background: #e0e0e0;
+  margin-left: 25vh;
+  margin-right: 20vh;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.water-level {
+  background: #ef723d;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  transition: height 0.3s ease-in-out;
+}
+.total-intake {
+  display: flex;
+  align-items: center;
+  margin-left: 23vh;
+  padding: 10px;
+  border-radius: 5px;
+  color: #000000;
+}
+
+.total-intake p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.total-intake h3 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+/* .total-intake {
+  margin-bottom: 10px;
+  display: flex;
+  text-align: center;
+  padding-right: 25px;
+  font-size: 30px;
+  font-weight: bold;
+} */
+.congratulations {
+  font-size: 17px;
+  font-weight: 900;
+  padding-left: 15vh;
+  padding-top: 10px;
+  color: #294c2b;
+}

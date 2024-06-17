@@ -1,0 +1,72 @@
+.food-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.food-choice-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F0DD98;
+  padding: 20px;
+  border-radius: 12px;
+  width: 240px;
+  margin: 20px;
+  position: relative;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  height: 400px; /* Tambahkan tinggi yang sama untuk semua kartu */
+}
+
+.food-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.food-details {
+  flex-grow: 1; /* Memastikan elemen detail mengisi ruang yang tersisa */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Pusatkan vertikal */
+  width: 100%;
+}
+
+.food-details h3 {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+}
+
+.food-details p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.button-group {
+  width: 100%;
+}
+
+.add-button {
+  background-color: #EF723D;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto; /* Dorong tombol ke bawah */
+}
+
+.add-button.selected {
+  background-color: #2A4B2D;
+}

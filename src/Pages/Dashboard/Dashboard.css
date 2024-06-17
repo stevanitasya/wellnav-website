@@ -1,0 +1,106 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Dashboard-Container {
+  margin-left: 5vh;
+}
+.Dashboard-Container h1 {
+  margin-left: 10vh;
+  margin-bottom: 0px;
+}
+.Dashboard-Container p {
+  margin-left: 10vh;
+  margin-top: 5px;
+}
+.Dashboard-Content {
+  display: flex;
+}
+
+.Dashboard-Left {
+  flex: 1;
+}
+.Dashboard-Right {
+  flex: 0.9;
+}
+.Dashboard-Req {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f0dd98;
+  margin-top: 5vh;
+  margin-left: 10vh;
+  padding: 30px 10px 50px;
+  border-radius: 10px;
+}
+.Dashboard-Req h1 {
+  font-size: 30px;
+}
+
+.Dashboard-Req img.DashboardSalad-img {
+  position: absolute;
+  transform: translate(100%, -30%);
+  max-width: 50vh;
+  height: auto;
+  object-fit: cover;
+  index: 1;
+}
+.Dashboard-Req a {
+  padding: 5px 10px;
+  background-color: #ef723d;
+  margin-left: 10vh;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+  color: #fff;
+}
+.Dashboard-Req a:hover {
+  background-color: #294c2b;
+}
+
+.Dashboard-Fitur {
+  display: flex;
+  margin-top: 6vh;
+  margin-left: 10vh;
+}
+.Dashboard-Pengukur {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f0dd98;
+  color: #ffffff;
+  padding: 10vh;
+  border-radius: 20px;
+}
+.Dashboard-Nutrisi h1,
+.Dashboard-Reminder h1,
+.Dashboard-Kalori h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  margin-left: 0;
+}
+.Dashboard-Reminder {
+  margin-left: 10vh;
+}
+.Dashboard-Pengingat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #294c2b;
+  color: #ffffff;
+  padding: 42px;
+  border-radius: 20px;
+}
+.Dashboard-Pengingat h1 {
+  font-size: 35px;
+}
+.Dashboard-Pengingat p {
+  font-size: 20px;
+  margin-left: 0;
+}

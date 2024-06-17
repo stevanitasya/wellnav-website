@@ -1,0 +1,51 @@
+.KalenderDashboard-Container {
+  display: flex;
+  justify-content: center;
+  background-color: #f0dd98;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 5vh;
+  margin-left: 15vh;
+  margin-right: 5vh;
+}
+.KalenderDashboard {
+  display: flex;
+  flex-direction: column;
+}
+.Kalender-month {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "Marko One", sans-serif;
+}
+.Kalender-week {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: "Marmelad", sans-serif;
+}
+.Kalender-day {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 15px;
+  padding-block: 15px;
+  width: 50px;
+  gap: 10px;
+  font-family: "Marmelad", sans-serif;
+}
+.Kalenderday-name {
+  font-size: 16px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+}
+
+.Kalenderday-number {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.Kalender-current {
+  background-color: #294c2b;
+  color: white;
+  border-radius: 20px;
+}

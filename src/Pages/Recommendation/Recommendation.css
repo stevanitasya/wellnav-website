@@ -1,0 +1,109 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Recommendation-Container {
+  margin-left: 5vh;
+}
+
+.Recommendation-Container p {
+  margin-top: 5px;
+}
+.Recommendation-Container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+.Recommendation-Section {
+  max-width: 100%;
+  padding-right: 93vh;
+  padding-left: 50vh;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #f0dd98;
+  font-size: 20px;
+}
+.Recommendation-Section h1 {
+  white-space: nowrap;
+}
+
+.Recommendation-Section p {
+  font-weight: bold;
+  color: #294c2b;
+  font-size: 20px;
+}
+
+.Rekomendasi-img {
+  position: absolute;
+  transform: translate(10%, -10%);
+  width: 50vh;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.Food-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.Food-Section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 20px;
+}
+.String-img {
+  position: absolute;
+  transform: translate(-65%, 50%);
+  width: 60vh;
+  object-fit: cover;
+  z-index: 1;
+}
+.Food-Section .right-img {
+  position: absolute;
+  transform: translate(135%, 50%);
+}
+.center-text {
+  padding-top: 20px;
+  padding-left: 40vh;
+  font-size: 20px;
+  font-weight: bold;
+  color: #294c2b;
+}
+.Food-Section2 {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3vh;
+}
+
+.Food-Section2 p {
+  padding: 5px 40px;
+  border-radius: 30px;
+  background-color: #dddcdb;
+  color: #294c2b;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.Food-Section2 p:hover {
+  background-color: #294c2b;
+  color: #fff;
+}
+
+.Food-Section2 p.active {
+  background-color: #ef723d;
+  color: #ffffff;
+}

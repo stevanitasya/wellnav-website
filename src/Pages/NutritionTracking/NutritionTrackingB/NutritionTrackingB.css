@@ -1,0 +1,48 @@
+
+
+  .personalize-section {
+    padding: 20px 0px 20px 0px;
+    background-color: #F0DD98;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height:100px;
+  }
+
+  .chart-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+  }
+
+  .chart-description{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+  }
+
+  .chef-picture{
+    max-width: 360px;
+    position: absolute;
+top:-2px;
+left:350px
+    /* flex-grow: 1 ; */
+    /* transform: translateY(20px);  */
+  }
+
+.chart-meal-type{
+/* add different font type here */
+}
+
+.chart-calorie-left{
+/* add different font type here */
+}
+
+.warning-section{
+  padding: 20px 0px 20px 0px;
+  background-color: #F0DD98;
+}

@@ -1,0 +1,54 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 250px;
+  height: 100%;
+  background-color: #294c2b;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 11vh;
+  gap: 2vh;
+}
+.sidebar-menu li a {
+  display: block;
+  padding: 20px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.sidebar.open .sidebar-menu li a:hover {
+  background-color: #f0dd98;
+  color: #000000;
+  text-decoration: none;
+}
+.sidebar-menu li:last-child {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  color: #fff;
+}

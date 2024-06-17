@@ -1,0 +1,95 @@
+.Profile {
+  display: flex;
+  flex-direction: column;
+  margin-top:20px;
+  margin-right: 115px;
+}
+
+.Profile-Field {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-bottom: 20px;
+}
+
+.Profile-Label,
+.Profile-Colon,
+.Profile-Data {
+  padding: 20px;
+  box-sizing: border-box;
+
+}
+
+.Profile-Label {
+  flex: 0 0 25%; 
+  display: flex;
+  justify-content: center;
+}
+
+.Profile-Colon {
+  flex: 0 0 5%;
+}
+
+.Profile-Data {
+  background-color: #F0DD98;
+  border-radius: 10px;
+  padding: 15px 25px;
+  
+  height:70px;
+  display: flex;
+  align-items: center;
+}
+
+/* New class for the editing state */
+.Profile-Data.editing {
+  background-color: #D3C77C; /* Change to your desired background color for editing state */
+}
+
+.Profile-Field h1 {
+  margin-bottom: 0px;
+  font-size: 28px;
+}
+
+/* Styling for the input fields during editing */
+.Profile-Input {
+  background-color: #D3C77C;
+  border: none;
+  padding:0px;
+}
+
+.Profile-Input:focus {
+  outline: none;
+}
+
+.field-and-error-msg{
+  flex: 0 0 50%;
+  height:70px;
+
+}
+
+.Profile-Error {
+  color: red;
+  font-size: 16px;
+  align-self: flex-start; /* Align error messages to the start */
+}
+
+.edit-profile-button-position{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-profile-button {
+  padding: 5px 5px;
+  background-color: #EF723D;
+  color: #fff;
+  border:none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+  width:150px;
+}
+
+.edit-profile-button h1{
+  margin-bottom: 0px;
+font-size:20px;
+}

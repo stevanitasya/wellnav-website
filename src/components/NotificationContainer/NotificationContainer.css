@@ -1,0 +1,27 @@
+.notification-container {
+    display: flex;
+ 
+    background-color: #F0DD98;
+    color: white;
+    /* padding: 20px 0px 20px 70px; */
+    border-radius: 30px;
+    max-width: 1800px;
+    margin: 20px 80px;
+    height: 230px;
+  }
+
+  .notification-image {
+    display: flex;
+   align-items: center;
+  }
+
+  .notification-image img {
+max-width:160px;
+  }
+
+  .notification-info{
+    display: flex;
+    justify-content: center;
+    color:#8C2020;
+    flex-direction: column;
+  }

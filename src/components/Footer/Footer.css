@@ -1,0 +1,27 @@
+.Footer {
+  background-color: #294c2b;
+  padding: 20px;
+  padding-top: 40px;
+  color: #ffffff;
+}
+.Footer h1 {
+  /* margin-bottom: 50px; */
+  margin-left: 13vh;
+}
+.Footer-Section a,
+.Footer-Section {
+  display: flex;
+  color: #fffdfd;
+  gap: 10vh;
+  text-decoration: none;
+}
+.Footer-Section h1 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 25px;
+  margin-left: 13vh;
+}
+.Footer-Section p {
+  font-size: 20px;
+  margin-left: 13vh;
+}

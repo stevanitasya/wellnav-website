@@ -1,0 +1,90 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.input-row {
+  display: flex;
+  justify-content: center;
+  gap:30px;
+  width:100%;
+}
+
+.input-group-signup {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 30px;
+  width:45%;
+}
+
+
+.input-field {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  font-size: 1rem;
+  height:75px;
+ width: 100%;
+
+  background-color: #EFEFEF;
+  font-size: 24px;
+}
+
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.submit-button {
+  padding: 15px 30px;
+  background-color: #EF723D;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 45%;
+}
+
+.submit-button h1{
+margin-bottom: 0px;
+font-size: 35px;
+}
+.signin-link {
+  margin-top: 20px;
+  font-size: 35px;
+}
+
+.signin-link span {
+  margin-right: 5px;
+}
+
+.signin-link button {
+  color: #EF723D;
+  text-decoration: none;
+  background-color: white;
+}
+
+.link-button{
+  border:none;
+ 
+}
+
+.login-methods {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.login-method {
+  width: 60px;
+  height: 60px;
+  background-color: #D9D9D9;
+  border-radius: 50%;
+  margin: 0 10px;
+}

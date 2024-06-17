@@ -1,0 +1,77 @@
+/* ProfileHeader.css */
+.container-profile-position{
+    display: flex;
+    justify-content: center;
+}
+
+.container-profile {
+    background-color: #F0DD98;
+    display: flex;
+    padding: 20px;
+    border-radius: 8px;
+    width: 85%;
+    height: 180px;
+  }
+  
+  .edit-profile-picture{
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+transform: translateY(60px); 
+  }
+
+  .profile-picture-edit {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  
+  .button {
+    transform: translateY(-10px); 
+    padding: 5px 5px;
+    background-color: #EF723D;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    width:120px;
+  }
+  .button h1{
+    margin-bottom: 0px;
+font-size:16px;
+  }
+
+  .profile-greeting{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .profile-greeting h1{
+    font-size: 48px;
+  }
+
+  .profile-greeting p{
+    font-size: 20px;
+  }
+  
+  
+
+
+  .sample-image {
+    width: 220px;
+    height: 280px;
+    /* position:absolute; */
+    transform: translateY(-120px);
+    /* transform: translateX(500px); */
+    /* display: flex;
+    align-items: flex-end; */
+  }
+
+  .greeting-and-image{
+    display: flex;
+    gap:280px;
+  }

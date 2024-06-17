@@ -1,0 +1,72 @@
+.Food-Catalog {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-left: 15vh;
+  gap: 10px;
+  margin-right: 50px;
+}
+
+.FoodCatalog-Column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.Food-Recommendation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  background-color: #f0dd98;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 3vh;
+}
+
+.SaladCatalog-img {
+  width: 224px;
+  height: 201px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.Food-name {
+  color: inherit;
+  position: relative;
+  left: 20px;
+  margin: 0;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.Food-name:hover {
+  color: #EF723D; 
+}
+
+.Food-detail {
+  position: relative;
+  left: 20px;
+  margin: 0;
+  font-weight: bold;
+  color: #7c7c7c;
+}
+
+.heart-icon {
+  width: 20px;
+  height: 10px;
+  margin-left: 20px;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+  cursor: pointer;
+}
+.heart-icon-outline {
+  fill: none;
+  stroke: black;
+  stroke-width: 2px;
+}
+
+.heart-icon-full {
+  fill: red;
+}

@@ -1,0 +1,53 @@
+.nutrition-chart-position{
+  display: flex;
+  justify-content: center;
+}
+
+.nutrition-chart-container {
+  background-color: #294C2B;
+  padding: 35px;
+  margin: 0px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 700px;
+  height: 150px;
+}
+
+.nutrition-chart-items {
+  display: flex;
+}
+
+.nutrition-chart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.nutrition-chart-header {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.doughnut-chart-wrapper {
+  width: 30px;
+  height:30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nutrition-chart-content {
+  display: flex;
+  align-items: center;
+}
+
+.nutrition-value {
+  color: white;
+  font-size: 1rem;
+  margin-left: 10px; /* Add space between chart and value */
+}

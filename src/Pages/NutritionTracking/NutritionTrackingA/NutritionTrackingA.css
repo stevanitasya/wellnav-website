@@ -1,0 +1,68 @@
+ 
+  .filter-section {
+    display: flex;
+  flex-direction: row;
+  margin-left: 15vh;
+  gap:10px;
+  margin-bottom: 15px;
+  }
+
+  .filter-button {
+    background-color: #DDDCDB;
+    border: none;
+    padding: 2px 20px;
+    cursor: pointer;
+    border-radius: 100px;
+  }
+  
+  .filter-button.active {
+    background-color: #F0DD98;
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height:100px;
+  }
+  
+  .choose-meal-title{
+    margin-left: 15vh;
+    margin-bottom: 5vh;
+    font-size: 30px;
+  }
+
+  .big-add-button{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 50px 30px 0px;
+   
+  }
+
+  .big-add-button button{
+    background-color: #EF723D;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 120px;
+    height: 40px;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .circle {
+    width: 30px;
+    height: 30px;
+    background-color: #2A4B2D;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .circle-text {
+    color: white;
+  }

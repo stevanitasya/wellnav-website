@@ -1,0 +1,194 @@
+.Landing-Header {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  margin-left: 15vh;
+}
+.Landing-Header h1 {
+  margin-right: 75vh;
+}
+.Landing-Header p {
+  font-size: 20px;
+  margin-left: 100px;
+  font-weight: 500;
+}
+.Landing-Header a {
+  text-decoration: none;
+  color: black;
+  font-family: "Marko One", sans-serif;
+  display: inline-block;
+}
+.Landing-Header a:hover {
+  color: #ef723d;
+}
+
+.Landing-AboutUs,
+.Landing-FAQ,
+.Landing-Home {
+  border-bottom: 5px solid #294c2b;
+  border-radius: 3px;
+}
+/* PENGENALAN */
+.Landing-Content {
+  background-color: #294c2b;
+  color: #fff;
+  border-radius: 30px;
+  margin-top: 4vh;
+  margin-left: 15vh;
+  margin-right: 20vh;
+  padding: 20px 80px 50px;
+}
+.Landing-Content h1 {
+  font-size: 35px;
+}
+.Landing-Content p {
+  font-size: 20px;
+  margin-top: 3vh;
+  margin-bottom: 4vh;
+}
+.Landing-Content a {
+  padding: 8px 70px;
+  background-color: #ef723d;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+}
+.Landing-Content a:hover {
+  background-color: #f0dd98;
+  color: #000000;
+}
+.Landing-Content .Home-img {
+  position: absolute;
+  transform: translate(137%, -17%);
+  width: 100%;
+  max-width: 60vh;
+  object-fit: cover;
+  index: 1;
+}
+/* ABOUT US */
+.Landing-About {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 5px;
+  max-width: 100%;
+  font-size: 20px;
+}
+.Landing-About p {
+  border-radius: 10px;
+  max-width: 100%;
+  font-size: 20px;
+}
+.Landing-About a {
+  padding: 8px 10px;
+  background-color: #ef723d;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+  color: #fff;
+}
+.Landing-About a:hover {
+  background-color: #f0dd98;
+  color: #000000;
+}
+
+/* PENJELASAN FITUR */
+.Landing-Why {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 20px;
+  margin-left: 39vh;
+}
+.spacing-br br {
+  content: "";
+  display: block;
+  margin-bottom: 15px;
+}
+.LString-img {
+  position: absolute;
+  transform: translate(-65%, -20%);
+  width: 100%;
+  max-width: 67vh;
+  object-fit: cover;
+  z-index: 1;
+}
+.Center-Why {
+  text-align: center;
+  width: 100%;
+  padding-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+}
+.Landing-Why .right-img {
+  position: absolute;
+  transform: translate(115%, -50%);
+  width: 100%;
+}
+.Landing-Fitur {
+  background-color: #f0dd98;
+  /* padding-bottom: 5vh; */
+  margin-bottom: -20px;
+  margin-top: -8vh;
+}
+.FiturContent-Left,
+.FiturContent-Right {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 15vh;
+  margin-right: 15vh;
+}
+
+.FiturContent-Left {
+  justify-content: flex-start;
+}
+
+.FiturContent-Right {
+  justify-content: flex-end;
+}
+/* .Notifikasi-img */
+.Pelacakan-img,
+.Kalori-img {
+  width: 100%;
+  max-width: 45vh;
+  height: auto;
+  margin-right: 20px;
+  margin-top: 5vh;
+  margin-right: 7vh;
+}
+.Notifikasi-img {
+  width: 100%;
+  max-width: 45vh;
+  height: auto;
+  margin-right: 20px;
+  margin-top: 5vh;
+  margin-right: 7vh;
+  margin-bottom: 70px;
+}
+.FiturContent-Right .Kalori-img {
+  margin-left: 10vh;
+  width: 100%;
+}
+
+.Text-Content {
+  max-width: 100%;
+}
+
+.Text-Content h1 {
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.Text-Content p {
+  font-size: 20px;
+}

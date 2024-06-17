@@ -1,0 +1,119 @@
+.FAQ-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 2vh;
+}
+
+.FAQ-header {
+  flex-shrink: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.FAQ-header h1 {
+  font-weight: bold;
+  font-size: 28px;
+}
+.FAQ-header p {
+  font-weight: lighter;
+  font-size: 18px;
+}
+.FAQ-section {
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: #f0dd98;
+  box-sizing: border-box;
+  position: relative;
+  padding: 20px;
+  max-width: 130vh;
+  min-height: 58vh;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.FAQ-item {
+  border-bottom: 1px solid #8c8c8c;
+  padding: 10px 10px 20px 10px;
+  overflow: hidden;
+}
+
+.FAQ-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+}
+
+.FAQ-icon .FAQd-img {
+  transition: transform 0.3s ease;
+  margin-right: 30px;
+  width: 20px;
+}
+
+.FAQ-icon.active .FAQd-img {
+  transform: rotate(180deg);
+}
+
+.FAQ-answer {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  padding-right: 50px;
+  font-size: 18px;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.FAQ-item.expanded .FAQ-answer {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.FAQ-footer {
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.FAQ-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position: absolute; */
+  background-color: #ef723d;
+  width: 35vh;
+  height: 6vh;
+  padding: 10px;
+  bottom: 20px;
+  margin-left: 370px;
+  left: 51%;
+  border-radius: 10px;
+}
+
+.FAQ-email p {
+  margin: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+.FAQ-email button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 0px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.FAQ-email button:hover {
+  background-color: #f0dd98;
+}
