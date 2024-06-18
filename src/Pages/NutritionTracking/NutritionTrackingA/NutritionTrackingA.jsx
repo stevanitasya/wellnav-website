@@ -16,8 +16,8 @@ function NutritionTrackingA() {
   const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan"];
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counter);
-  const selectedItems = useSelector((state) => state.selectedItems);
-  const mealType = useSelector((state) => state.mealType); 
+  const selectedItems = useSelector((state) => state.selectedItems || []);
+  const mealType = useSelector((state) => state.mealType) || "defaultMealType";
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
