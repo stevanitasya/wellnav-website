@@ -1,4 +1,3 @@
-// src/components/FoodCatalog/FoodCatalog.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Salad from "../../Assets/Salad.png";
@@ -7,15 +6,15 @@ import "./FoodCatalog.css";
 import { useSelector } from "react-redux";
 
 const FoodCatalog = ({ activeFilter }) => {
-  const [foodItems, setFoodItems] = useState([]); 
+  const [foodItems, setFoodItems] = useState([]);
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const token = useSelector((state) => state.auth.token);
+  const token = useSelector((state) => state.auth.token); // Fetch token from Redux store
 
   useEffect(() => {
     const fetchArticle = async () => {
       try {
         const response = await axios.get(
-          `${backendUrl}/api/foods/recommended`, 
+          `${backendUrl}/api/foods/recommended`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -32,8 +31,10 @@ const FoodCatalog = ({ activeFilter }) => {
       }
     };
 
-    fetchArticle();
-  }, [token, activeFilter]);
+    if (token) { // Fetch only if token is available
+      fetchArticle();
+    }
+  }, [activeFilter, token]);
 
   return (
     <div className="Food-Catalog">
