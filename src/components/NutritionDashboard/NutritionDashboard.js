@@ -8,9 +8,9 @@ import "./NutritionDashboard.css";
 const NutritionDashboard = () => {
   const nutritionSummary = useSelector((state) => state.nutritionSummary);
 
-  if (!nutritionSummary) {
-    return <div>Loading...</div>;
-  }
+  // if (!nutritionSummary) {
+  //   return <div>Loading...</div>;
+  // }
 
   const { carbohydrates = 0, protein = 0, fat = 0 } = nutritionSummary;
 
