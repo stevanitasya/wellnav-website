@@ -1,4 +1,3 @@
-// src/components/NutritionDashboard/NutritionDashboard.js
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Karbohidrat from "../../Assets/Karbohidrat.png";
@@ -9,19 +8,25 @@ import "./NutritionDashboard.css";
 const NutritionDashboard = () => {
   const nutritionSummary = useSelector((state) => state.nutritionSummary);
 
+  if (!nutritionSummary) {
+    return <div>Loading...</div>;
+  }
+
+  const { carbohydrates = 0, protein = 0, fat = 0 } = nutritionSummary;
+
   return (
     <div className="Dashboard-Nutrisi">
       <h1>Pelacakan Nutrisi</h1>
-      <div className="Dashboard-Pelacakan"> 
+      <div className="Dashboard-Pelacakan">
         <div className="Pelacakan-Item">
           <img src={Karbohidrat} alt="Karbohidrat" className="Karbohidrat-img" />
           <div className="Pelacakan-Text">
             <div className="Pelacakan-Header">
-              <p>Karbohidrat: {nutritionSummary.carbohydrates}g</p>
-              <span className="Percentage">{nutritionSummary.carbohydrates}g</span>
+              <p>Karbohidrat: {carbohydrates}g</p>
+              <span className="Percentage">{carbohydrates}g</span>
             </div>
             <div className="Progress-Bar">
-              <div className="Progress" style={{ width: `${(nutritionSummary.carbohydrates / 300) * 100}%` }}></div>
+              <div className="Progress" style={{ width: `${(carbohydrates / 300) * 100}%` }}></div>
             </div>
           </div>
         </div>
@@ -29,11 +34,11 @@ const NutritionDashboard = () => {
           <img src={Protein} alt="Protein" className="Protein-img" />
           <div className="Pelacakan-Text">
             <div className="Pelacakan-Header">
-              <p>Protein: {nutritionSummary.protein}g</p>
-              <span className="Percentage">{nutritionSummary.protein}g</span>
+              <p>Protein: {protein}g</p>
+              <span className="Percentage">{protein}g</span>
             </div>
             <div className="Progress-Bar">
-              <div className="Progress" style={{ width: `${(nutritionSummary.protein / 100) * 100}%` }}></div>
+              <div className="Progress" style={{ width: `${(protein / 100) * 100}%` }}></div>
             </div>
           </div>
         </div>
@@ -41,11 +46,11 @@ const NutritionDashboard = () => {
           <img src={Lemak} alt="Lemak" className="Lemak-img" />
           <div className="Pelacakan-Text">
             <div className="Pelacakan-Header">
-              <p>Lemak: {nutritionSummary.fat}g</p>
-              <span className="Percentage">{nutritionSummary.fat}g</span>
+              <p>Lemak: {fat}g</p>
+              <span className="Percentage">{fat}g</span>
             </div>
             <div className="Progress-Bar">
-              <div className="Progress" style={{ width: `${(nutritionSummary.fat / 70) * 100}%` }}></div>
+              <div className="Progress" style={{ width: `${(fat / 70) * 100}%` }}></div>
             </div>
           </div>
         </div>

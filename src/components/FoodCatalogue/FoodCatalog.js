@@ -7,30 +7,24 @@ import "./FoodCatalog.css";
 const FoodCatalog = ({ activeFilter }) => {
   const [foodItems, setFoodItems] = useState([]); 
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const token = localStorage.getItem("token");
-
+ 
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(
-          `${backendUrl}/api/foods/recommended`, 
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-            params: {
-              category: activeFilter === "All" ? undefined : activeFilter,
-            },
-          }
-        );
-        setFoodItems(response.data);
+        const response = await axios.get(`${backendUrl}/api/foods/recommended`, {
+          params: {
+            category: activeFilter === "All" ? undefined : activeFilter,
+          },
+        });
+        const { foods } = response.data;
+        setFoodItems(foods);
       } catch (error) {
         console.error("Error fetching foods", error.response || error.message);
       }
     };
 
     fetchArticle();
-  }, [token, activeFilter, backendUrl]);
+  }, [activeFilter]);
 
   return (
     <div className="Food-Catalog">
@@ -38,8 +32,10 @@ const FoodCatalog = ({ activeFilter }) => {
         foodItems.map((item) => (
           <div className="FoodCatalog-Column" key={item._id}>
             <div className="Food-Recommendation">
-              <img src={item.imageUrl || Salad} alt={item.name} className="SaladCatalog-img" />
-              <p className="Food-name">{item.name}</p>
+              <img src={item.imageUrl || Salad} alt={item.title} className="SaladCatalog-img" />
+              <a href={item.link} className="Food-name" target="_blank" rel="noopener noreferrer">
+                {item.title}
+              </a>
               <p className="Food-detail">{item.content}</p>
               <HeartIcon />
             </div>
