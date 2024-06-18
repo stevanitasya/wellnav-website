@@ -13,7 +13,7 @@ const WaterTracking = () => {
   const [totalIntake, setTotalIntake] = useState(0);
   const dailyTarget = 2000;
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const userId = "666fde9ca7d9380a078106a0"; // Replace with actual user ID from your authentication system
+  const userId = "666fd729a7d9380a07810628"; // Replace with actual user ID from your authentication system
 
   useEffect(() => {
     axios.get(`${backendUrl}/api/watertrackings/${userId}`)

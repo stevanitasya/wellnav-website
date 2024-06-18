@@ -12,7 +12,7 @@ import { setFoodLogs, setNutritionSummary } from "../../redux/actions";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const userId = "666fde9ca7d9380a078106a0"; // Replace with actual userId
+  const userId = "666fd729a7d9380a07810628"; // Replace with actual userId
   const date = new Date().toISOString().split('T')[0]; // Get today's date
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 

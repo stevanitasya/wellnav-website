@@ -24,7 +24,7 @@ const NutritionTrackingB = () => {
     fat: 0,
   });
 
-  const userId = "666fde9ca7d9380a078106a0"; // Example userId, replace with actual userId
+  const userId = "666fd729a7d9380a07810628"; // Example userId, replace with actual userId
 
   const getCurrentDate = () => {
     const date = new Date();

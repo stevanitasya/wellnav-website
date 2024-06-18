@@ -13,7 +13,7 @@ import "./NutritionTrackingA.css";
 function NutritionTrackingA() {
   const [activeFilter, setActiveFilter] = useState("All");
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const userId = "666fde9ca7d9380a078106a0"; 
+  const userId = "666fd729a7d9380a07810628"; 
   const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan"];
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counter);

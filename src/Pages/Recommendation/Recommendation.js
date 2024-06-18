@@ -9,7 +9,7 @@ import "./Recommendation.css";
 const Recommendation = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const userId = "666fde9ca7d9380a078106a0"; 
+  const userId = "666fd729a7d9380a07810628"; 
   const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NmZkNzI5YTdkOTM4MGEwNzgxMDYyOCIsImlhdCI6MTcxODYwNTY5NiwiZXhwIjoxNzIxMTk3Njk2fQ.ES9k_fxTcMi0W822uFQzbtzXArhiJVCvSMYSuwzfQ28"; // Gantilah dengan token otorisasi yang valid
   const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan", "Favorites"];
 
