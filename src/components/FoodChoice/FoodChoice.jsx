@@ -7,8 +7,8 @@ import "./FoodChoice.css";
 const FoodChoice = ({ activeFilter }) => {
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counter);
-  const selectedItems = useSelector((state) => state.selectedItems);
-  const foodChoices = useSelector((state) => state.foodChoices);
+  const selectedItems = useSelector((state) => state.selectedItems || []);
+  const foodChoices = useSelector((state) => state.foodChoices || []);
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const FoodChoice = ({ activeFilter }) => {
     };
 
     fetchFoodChoices();
-  }, [dispatch, activeFilter]);
+  }, [dispatch, activeFilter, backendUrl]);
 
   const handleButtonClick = (id) => {
     const isSelected = selectedItems.some((item) => item._id === id);
