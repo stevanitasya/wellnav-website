@@ -8,7 +8,7 @@ const FoodChoice = ({ activeFilter }) => {
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counter);
   const selectedItems = useSelector((state) => state.selectedItems);
-  const foodChoices = useSelector((state) => state.foodChoices) || [];
+  const foodChoices = useSelector((state) => state.foodChoices) || []; // Ensure foodChoices is defined
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const FoodChoice = ({ activeFilter }) => {
     };
 
     fetchFoodChoices();
-  }, [dispatch, activeFilter]);
+  }, [dispatch, activeFilter, backendUrl]);
 
   const handleButtonClick = (id) => {
     const isSelected = selectedItems.some((item) => item._id === id);
@@ -45,34 +45,32 @@ const FoodChoice = ({ activeFilter }) => {
 
   return (
     <div className="food-choices">
-      {foodChoices.map((item) => (
-        <div key={item._id} className="food-choice-container">
-          <img
-            src={item.imageUrl || "https://via.placeholder.com/150"}
-            alt={item.name}
-            className="food-image"
-          />
-          <div className="food-details">
-            <h3>{item.name}</h3>
-            <p>{item.calories} kkal {item.carbohydrates}g</p>
-            <p>{item.protein}g {item.fat}g</p>
+      {foodChoices.length > 0 ? (
+        foodChoices.map((item) => (
+          <div key={item._id} className="food-choice-container">
+            <img
+              src={item.imageUrl || "https://via.placeholder.com/150"}
+              alt={item.name}
+              className="food-image"
+            />
+            <div className="food-details">
+              <h3>{item.name}</h3>
+              <p>{item.calories} kkal {item.carbohydrates}g</p>
+              <p>{item.protein}g {item.fat}g</p>
+            </div>
+            <div className="button-group">
+              <button
+                className={`add-button ${selectedItems.some((selectedItem) => selectedItem._id === item._id) ? "selected" : ""}`}
+                onClick={() => handleButtonClick(item._id)}
+              >
+                Tambah
+              </button>
+            </div>
           </div>
-          <div className="button-group">
-            <button
-              className={`add-button ${
-                selectedItems.some(
-                  (selectedItem) => selectedItem._id === item._id
-                )
-                  ? "selected"
-                  : ""
-              }`}
-              onClick={() => handleButtonClick(item._id)}
-            >
-              Tambah
-            </button>
-          </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <p>No food items found.</p>
+      )}
     </div>
   );
 };

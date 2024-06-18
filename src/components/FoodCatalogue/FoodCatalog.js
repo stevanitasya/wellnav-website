@@ -37,27 +37,17 @@ const FoodCatalog = ({ activeFilter }) => {
   }, [activeFilter, token]);
 
   return (
-    <div className="food-choices">
-      {foodChoices.length > 0 ? (
-        foodChoices.map((item) => (
-          <div key={item._id} className="food-choice-container">
-            <img
-              src={item.imageUrl || "https://via.placeholder.com/150"}
-              alt={item.name}
-              className="food-image"
-            />
-            <div className="food-details">
-              <h3>{item.name}</h3>
-              <p>{item.calories} kkal {item.carbohydrates}g</p>
-              <p>{item.protein}g {item.fat}g</p>
-            </div>
-            <div className="button-group">
-              <button
-                className={`add-button ${selectedItems.some((selectedItem) => selectedItem._id === item._id) ? "selected" : ""}`}
-                onClick={() => handleButtonClick(item._id)}
-              >
-                Tambah
-              </button>
+    <div className="Food-Catalog">
+      {foodItems.length > 0 ? (
+        foodItems.map((item) => (
+          <div className="FoodCatalog-Column" key={item._id}>
+            <div className="Food-Recommendation">
+              <img src={item.imageUrl || Salad} alt={item.title} className="SaladCatalog-img" />
+              <a href={item.link} className="Food-name" target="_blank" rel="noopener noreferrer">
+                {item.title}
+              </a>
+              <p className="Food-detail">{item.content}</p>
+              <HeartIcon />
             </div>
           </div>
         ))
@@ -66,7 +56,6 @@ const FoodCatalog = ({ activeFilter }) => {
       )}
     </div>
   );
-  
 };
 
 export default FoodCatalog;
