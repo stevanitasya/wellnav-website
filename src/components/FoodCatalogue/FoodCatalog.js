@@ -1,20 +1,22 @@
+// src/components/FoodCatalog/FoodCatalog.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import Salad from "../../Assets/Salad.png";
 import HeartIcon from "./HeartIcon";
 import "./FoodCatalog.css";
-import { useSelector } from "react-redux";
 
 const FoodCatalog = ({ activeFilter }) => {
   const [foodItems, setFoodItems] = useState([]);
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const token = useSelector((state) => state.auth.token); // Assuming you store token in redux state
+  const userId = useSelector((state) => state.auth.user?._id);
+  const token = useSelector((state) => state.auth.token);
 
   useEffect(() => {
     const fetchArticle = async () => {
       try {
         const response = await axios.get(
-          `${backendUrl}/api/foods/recommended`,
+          `${backendUrl}/api/foods/recommended`, 
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -32,7 +34,7 @@ const FoodCatalog = ({ activeFilter }) => {
     };
 
     fetchArticle();
-  }, [token, activeFilter]);
+  }, [userId, token, activeFilter]);
 
   return (
     <div className="Food-Catalog">
