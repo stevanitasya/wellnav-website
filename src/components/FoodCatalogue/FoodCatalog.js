@@ -1,15 +1,14 @@
 // src/components/FoodCatalog/FoodCatalog.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import Salad from "../../Assets/Salad.png";
 import HeartIcon from "./HeartIcon";
 import "./FoodCatalog.css";
+import { useSelector } from "react-redux";
 
 const FoodCatalog = ({ activeFilter }) => {
-  const [foodItems, setFoodItems] = useState([]);
+  const [foodItems, setFoodItems] = useState([]); 
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const userId = useSelector((state) => state.auth.user?._id);
   const token = useSelector((state) => state.auth.token);
 
   useEffect(() => {
@@ -34,7 +33,7 @@ const FoodCatalog = ({ activeFilter }) => {
     };
 
     fetchArticle();
-  }, [userId, token, activeFilter]);
+  }, [token, activeFilter]);
 
   return (
     <div className="Food-Catalog">
