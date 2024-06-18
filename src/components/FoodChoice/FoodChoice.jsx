@@ -14,7 +14,7 @@ const FoodChoice = ({ activeFilter }) => {
   useEffect(() => {
     const fetchFoodChoices = async () => {
       try {
-        let url = '${backendUrl}/api/foods';
+        let url = `${backendUrl}/api/foods`;
         if (activeFilter && activeFilter !== "All") {
           url += `?category=${activeFilter}`;
         }

@@ -34,7 +34,7 @@ const SignUpForm = () => {
 
   const onSubmit = async (values, { setSubmitting, setErrors, setStatus }) => {
     try {
-      const response = await axios.post('${backendUrl}/api/users/signup', values);
+      const response = await axios.post(`${backendUrl}/api/users/signup`, values);
       console.log(response.data);
       setStatus({ success: true });
       navigate("/sign-in");

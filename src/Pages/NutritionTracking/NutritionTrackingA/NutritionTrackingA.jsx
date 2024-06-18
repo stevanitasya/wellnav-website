@@ -47,7 +47,7 @@ function NutritionTrackingA() {
         foodId: item._id,
         mealType,
       };
-      return axios.post('${backendUrl}/api/foodlogs/add', addFood);
+      return axios.post(`${backendUrl}/api/foodlogs/add`, addFood);
     });
 
     try {
