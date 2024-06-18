@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bacc7de3.css",
+    "main.js": "/static/js/main.a320c668.js",
+    "static/js/453.602ff949.chunk.js": "/static/js/453.602ff949.chunk.js",
+    "static/media/Home.png": "/static/media/Home.e6a426ed780eb4bdbaed.png",
+    "static/media/Anggota2.png": "/static/media/Anggota2.4be0dc3f9874a4d17348.png",
+    "static/media/Anggota3.png": "/static/media/Anggota3.1c6a452d18246755243e.png",
+    "static/media/Salad.png": "/static/media/Salad.964d51d4f4c5fc76dbe7.png",
+    "static/media/Anggota1.png": "/static/media/Anggota1.51bf5e9065235f5380bf.png",
+    "static/media/Profile.png": "/static/media/Profile.ce4e3e535da065933c5b.png",
+    "static/media/FiturKalori.png": "/static/media/FiturKalori.016ab7def21dc6cf3526.png",
+    "static/media/FiturPelacakan.png": "/static/media/FiturPelacakan.32d6a31dd55a48a64e70.png",
+    "static/media/FiturNotifikasi.png": "/static/media/FiturNotifikasi.0418799dd463fd9ffde1.png",
+    "static/media/Protein.png": "/static/media/Protein.3134340b1a580358362e.png",
+    "static/media/Rekomendasi.png": "/static/media/Rekomendasi.fa562a205d3e74773599.png",
+    "static/media/Lemak.png": "/static/media/Lemak.071ac5e08610d88fd844.png",
+    "static/media/ProfileImage.png": "/static/media/ProfileImage.07cd52b468ab54ae3339.png",
+    "static/media/Karbohidrat.png": "/static/media/Karbohidrat.efac78be72921a733237.png",
+    "static/media/Air.png": "/static/media/Air.277294a298a3a6c6c8a0.png",
+    "index.html": "/index.html",
+    "main.bacc7de3.css.map": "/static/css/main.bacc7de3.css.map",
+    "main.a320c668.js.map": "/static/js/main.a320c668.js.map",
+    "453.602ff949.chunk.js.map": "/static/js/453.602ff949.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bacc7de3.css",
+    "static/js/main.a320c668.js"
+  ]
+}
