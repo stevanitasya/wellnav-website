@@ -39,7 +39,7 @@ const NutritionTrackingB = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`h${backendUrl}/api/foodlogs/666fd729a7d9380a07810628/2024-06-17`);
+        const response = await axios.get(`${backendUrl}/api/foodlogs/666fd729a7d9380a07810628/2024-06-17`);
         setFoodLogs(response.data.foodLogs);
         setNutritionSummary(response.data.nutritionSummary);
         dispatch(setCalories(response.data.nutritionSummary.calories, 2000));
