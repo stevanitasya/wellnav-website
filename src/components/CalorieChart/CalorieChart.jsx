@@ -10,7 +10,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const CalorieChart = () => {
   const { takenCalories, recommendedCalories } = useSelector((state) => state);
 
-  const remainingCalories = Math.max(recommendedCalories - takenCalories, 0);
+  const remainingCalories = Math.max(recommendedCalories - takenCalories, 0); 
 
   const data = {
     labels: ["Calories Taken", "Remaining Calories"],

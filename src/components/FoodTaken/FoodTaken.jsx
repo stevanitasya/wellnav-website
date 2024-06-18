@@ -7,7 +7,7 @@ const FoodTaken = () => {
   const selectedItems = useSelector((state) => state.selectedItems);
 
   return (
-    <div className="food-taken">
+    <div className="food-taken"> 
       <div className="food-taken-text">Makanan yang dikonsumsi</div>
       <div className="food-choices-container">
         {selectedItems.map((item) => (

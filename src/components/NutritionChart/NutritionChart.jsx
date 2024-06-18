@@ -11,7 +11,7 @@ const NutritionChart = () => {
   const {
     takenCalories,
     recommendedCalories,
-    takenCarbohydrates,
+    takenCarbohydrates, 
     takenProtein,
     takenFat, 
   } = useSelector((state) => state);
