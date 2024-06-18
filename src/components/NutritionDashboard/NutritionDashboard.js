@@ -12,7 +12,7 @@ const NutritionDashboard = () => {
   return (
     <div className="Dashboard-Nutrisi">
       <h1>Pelacakan Nutrisi</h1>
-      <div className="Dashboard-Pelacakan">
+      <div className="Dashboard-Pelacakan"> 
         <div className="Pelacakan-Item">
           <img src={Karbohidrat} alt="Karbohidrat" className="Karbohidrat-img" />
           <div className="Pelacakan-Text">

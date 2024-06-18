@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useLocation } from "react-router-dom";
 import CollapseSideBar from "../../components/CollapseSideBar/CollapseSideBar";
 import Header from "../../components/Header/Header";
 import Air from "../../Assets/Air.png";
@@ -13,36 +12,38 @@ const WaterTracking = () => {
   const [totalIntake, setTotalIntake] = useState(0);
   const dailyTarget = 2000;
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const userId = "666fd729a7d9380a07810628"; // Replace with actual user ID from your authentication system
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    axios.get(`${backendUrl}/api/watertrackings/${userId}`)
-      .then(response => {
-        setWaterIntakes(response.data);
-        const total = response.data.reduce((acc, intake) => acc + intake.amount, 0);
-        setTotalIntake(total);
-      })
-      .catch(error => console.error('Error fetching data:', error));
-  }, [userId]);
+    axios.get(`${backendUrl}/api/watertrackings/today`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(response => {
+      setWaterIntakes(response.data.waterLogs);
+      setTotalIntake(response.data.totalAmount);
+    })
+    .catch(error => console.error('Error fetching data:', error));
+  }, [backendUrl, token]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const intakeAmount = parseInt(amount);
 
     const newIntake = {
-      userId,
       amount: intakeAmount,
       date: new Date().toISOString(), // Ensure date is in ISO string format
     };
- 
-    axios.post('http://localhost:5000/api/watertrackings', newIntake)
-      .then(response => {
-        setWaterIntakes([...waterIntakes, { amount: intakeAmount, date: new Date().toISOString() }]);
-        setTotalIntake(totalIntake + intakeAmount);
-        setAmount("");
-        setTime("");
-      })
-      .catch(error => console.error('Error posting data:', error));
+
+    axios.post(`${backendUrl}/api/watertrackings`, newIntake, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(response => {
+      setWaterIntakes([...waterIntakes, { amount: intakeAmount, date: new Date().toISOString() }]);
+      setTotalIntake(totalIntake + intakeAmount);
+      setAmount("");
+      setTime("");
+    })
+    .catch(error => console.error('Error posting data:', error));
   };
 
   return (

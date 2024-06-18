@@ -24,8 +24,6 @@ const NutritionTrackingB = () => {
     fat: 0,
   });
 
-  const userId = "666fd729a7d9380a07810628"; // Example userId, replace with actual userId
-
   const getCurrentDate = () => {
     const date = new Date();
     const year = date.getFullYear();
@@ -39,7 +37,11 @@ const NutritionTrackingB = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/api/foodlogs/666fd729a7d9380a07810628/2024-06-17`);
+        const token = localStorage.getItem('token');
+        const config = {
+          headers: { Authorization: `Bearer ${token}` }
+        };
+        const response = await axios.get(`${backendUrl}/api/foodlogs/${date}`, config);
         setFoodLogs(response.data.foodLogs);
         setNutritionSummary(response.data.nutritionSummary);
         dispatch(setCalories(response.data.nutritionSummary.calories, 2000));
@@ -48,9 +50,9 @@ const NutritionTrackingB = () => {
         console.error('Error fetching data:', error);
       }
     };
-
+  
     fetchData();
-  }, [dispatch, userId, date]);
+  }, [dispatch, date]);  
 
   const remainingCalories = 2000 - nutritionSummary.calories;
 

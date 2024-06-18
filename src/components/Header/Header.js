@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 import "./Header.css";
@@ -8,24 +8,24 @@ import Profile from "../../Assets/Profile.png";
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { userId } = useParams();
   const [username, setUsername] = useState("Jane");
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/api/users/profile/666d5356f52a5e3a643a788d`);
+        const response = await axios.get(`${backendUrl}/api/users/profile`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
         setUsername(response.data.username);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
     };
 
-    if (userId) {
-      fetchUserData();
-    }
-  }, [userId]);
+    fetchUserData();
+  }, [backendUrl, token]);
 
   const navigateToProfile = () => {
     navigate("/profile");

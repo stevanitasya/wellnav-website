@@ -13,13 +13,13 @@ import "./NutritionTrackingA.css";
 function NutritionTrackingA() {
   const [activeFilter, setActiveFilter] = useState("All");
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const userId = "666fd729a7d9380a07810628"; 
   const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan"];
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counter);
   const selectedItems = useSelector((state) => state.selectedItems);
   const mealType = useSelector((state) => state.mealType); 
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
@@ -43,11 +43,12 @@ function NutritionTrackingA() {
 
     const addFoodPromises = selectedItems.map(item => {
       const addFood = {
-        userId,
         foodId: item._id,
         mealType,
       };
-      return axios.post(`${backendUrl}/api/foodlogs/add`, addFood);
+      return axios.post(`${backendUrl}/api/foodlogs/add`, addFood, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
     });
 
     try {

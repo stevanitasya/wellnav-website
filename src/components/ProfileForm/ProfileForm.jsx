@@ -3,7 +3,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "../../components/ProfileForm/ProfileForm.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
 const ProfileForm = () => {
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
@@ -14,7 +13,7 @@ const ProfileForm = () => {
     age: "",
     healthCondition: [],
   });
-  const { userId } = useParams();
+  const token = localStorage.getItem("token");
 
   const profileSchema = Yup.object().shape({
     username: Yup.string().required("Username is required"),
@@ -28,7 +27,9 @@ const ProfileForm = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/api/users/profile/666fde9ca7d9380a078106a0`);
+        const response = await axios.get(`${backendUrl}/api/users/profile`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
         setInitialProfileData({
           ...response.data,
           healthCondition: Array.isArray(response.data.healthCondition) ? response.data.healthCondition : [response.data.healthCondition]
@@ -39,7 +40,7 @@ const ProfileForm = () => {
     };
 
     fetchProfileData();
-  }, [userId]);
+  }, [backendUrl, token]);
 
   const handleEditClick = (formik) => {
     if (isEditing) {
@@ -60,7 +61,9 @@ const ProfileForm = () => {
       validationSchema={profileSchema}
       onSubmit={async (values) => {
         try {
-          await axios.put(`http://localhost:5000/api/users/profile/${userId}`, values);
+          await axios.put(`${backendUrl}/api/users/profile`, values, {
+            headers: { Authorization: `Bearer ${token}` }
+          });
           setIsEditing(false);
         } catch (error) {
           console.error("Error updating profile data:", error);

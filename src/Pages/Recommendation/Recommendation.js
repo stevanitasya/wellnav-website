@@ -5,17 +5,14 @@ import CollapseSideBar from "../../components/CollapseSideBar/CollapseSideBar";
 import FoodCatalog from "../../components/FoodCatalogue/FoodCatalog";
 import Header from "../../components/Header/Header";
 import "./Recommendation.css";
- 
+
 const Recommendation = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const userId = "666fd729a7d9380a07810628"; 
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NmZkNzI5YTdkOTM4MGEwNzgxMDYyOCIsImlhdCI6MTcxODYwNTY5NiwiZXhwIjoxNzIxMTk3Njk2fQ.ES9k_fxTcMi0W822uFQzbtzXArhiJVCvSMYSuwzfQ28"; // Gantilah dengan token otorisasi yang valid
   const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan", "Favorites"];
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
-  }; 
+  };
 
   return (
     <div className="App">
@@ -49,7 +46,7 @@ const Recommendation = () => {
             ))}
           </div>
         </div>
-        <FoodCatalog userId={userId} token={token} activeFilter={activeFilter} />
+        <FoodCatalog activeFilter={activeFilter} />
       </div>
     </div>
   );
