@@ -11,13 +11,15 @@ const FoodCatalog = ({ activeFilter }) => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/api/foods/recommended`, {
-          params: {
-            category: activeFilter === "All" ? undefined : activeFilter,
-          },
-        });
-        const { foods } = response.data;
-        setFoodItems(foods);
+        const response = await axios.get(
+          `${backendUrl}/api/foods/recommended`, 
+          {
+            params: {
+              category: activeFilter === "All" ? undefined : activeFilter,
+            },
+          }
+        );
+        setFoodItems(response.data);
       } catch (error) {
         console.error("Error fetching foods", error.response || error.message);
       }
