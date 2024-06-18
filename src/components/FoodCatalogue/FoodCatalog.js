@@ -1,3 +1,5 @@
+// src/components/FoodCatalog/FoodCatalog.js
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Salad from "../../Assets/Salad.png";
@@ -19,7 +21,8 @@ const FoodCatalog = ({ activeFilter }) => {
             },
           }
         );
-        setFoodItems(response.data);
+        const { articles } = response.data;
+        setFoodItems(articles);
       } catch (error) {
         console.error("Error fetching foods", error.response || error.message);
       }
