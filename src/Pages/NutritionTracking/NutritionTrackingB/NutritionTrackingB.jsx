@@ -25,22 +25,25 @@ const NutritionTrackingB = () => {
   });
 
   useEffect(() => {
-    const calculateNutritionSummary = () => {
-      const summary = selectedItems.reduce((acc, item) => {
-        acc.calories += item.calories || 0;
-        acc.carbohydrates += item.carbohydrates || 0;
-        acc.protein += item.protein || 0;
-        acc.fat += item.fat || 0;
-        return acc;
-      }, { calories: 0, carbohydrates: 0, protein: 0, fat: 0 });
-
-      setNutritionSummary(summary);
-      dispatch(setCalories(summary.calories, 2000));
-      dispatch(setNutrition(summary.carbohydrates, summary.protein, summary.fat));
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const config = {
+          headers: { Authorization: `Bearer ${token}` },
+        };
+        const today = new Date().toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+        const response = await axios.get(`${backendUrl}/api/foodlogs/${today}`, config);
+        const { foodLogs, nutritionSummary } = response.data;
+        setNutritionSummary(nutritionSummary);
+        dispatch(setCalories(nutritionSummary.calories, 2000));
+        dispatch(setNutrition(nutritionSummary.carbohydrates, nutritionSummary.protein, nutritionSummary.fat));
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
 
-    calculateNutritionSummary();
-  }, [selectedItems, dispatch]);
+    fetchData();
+  }, [dispatch, backendUrl]);
 
   const remainingCalories = 2000 - nutritionSummary.calories;
 
@@ -59,7 +62,11 @@ const NutritionTrackingB = () => {
         </div>
       </div>
       <div className="personalize-section">
-        <NutritionChart />
+        <NutritionChart 
+          takenCarbohydrates={nutritionSummary.carbohydrates}
+          takenProtein={nutritionSummary.protein}
+          takenFat={nutritionSummary.fat}
+        />
         <FoodTaken selectedItems={selectedItems} />
       </div>
       <div className="warning-section">
