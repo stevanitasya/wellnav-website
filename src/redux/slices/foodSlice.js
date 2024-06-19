@@ -6,6 +6,11 @@ const initialState = {
   selectedItems: [],
   counter: 0,
   mealType: "Sarapan",
+  takenCalories: 0,
+  recommendedCalories: 2000,
+  takenCarbohydrates: 0,
+  takenProtein: 0,
+  takenFat: 0,
 };
 
 const foodSlice = createSlice({
