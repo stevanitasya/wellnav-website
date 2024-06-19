@@ -25,24 +25,22 @@ const NutritionTrackingB = () => {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const config = {
-          headers: { Authorization: `Bearer ${token}` },
-        };
-        const response = await axios.get(`${backendUrl}/api/foodlogs/today`, config);
-        const { foodLogs, nutritionSummary } = response.data;
-        setNutritionSummary(nutritionSummary);
-        dispatch(setCalories({ takenCalories: nutritionSummary.calories, recommendedCalories: 2000 }));
-        dispatch(setNutrition({ takenCarbohydrates: nutritionSummary.carbohydrates, takenProtein: nutritionSummary.protein, takenFat: nutritionSummary.fat }));
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+    const calculateNutritionSummary = () => {
+      const summary = selectedItems.reduce((acc, item) => {
+        acc.calories += item.calories || 0;
+        acc.carbohydrates += item.carbohydrates || 0;
+        acc.protein += item.protein || 0;
+        acc.fat += item.fat || 0;
+        return acc;
+      }, { calories: 0, carbohydrates: 0, protein: 0, fat: 0 });
+
+      setNutritionSummary(summary);
+      dispatch(setCalories(summary.calories, 2000));
+      dispatch(setNutrition(summary.carbohydrates, summary.protein, summary.fat));
     };
 
-    fetchData();
-  }, [dispatch, backendUrl]);
+    calculateNutritionSummary();
+  }, [selectedItems, dispatch]);
 
   const remainingCalories = 2000 - nutritionSummary.calories;
 
@@ -51,7 +49,7 @@ const NutritionTrackingB = () => {
       <CollapseSideBar />
       <Header />
       <div className="chart-container">
-        <img src={chefPicture} className="chef-picture" alt="Chef" />
+        <img src={chefPicture} className="chef-picture" />
         <CalorieChart takenCalories={nutritionSummary.calories} recommendedCalories={2000} />
         <div className="chart-description">
           <div className="chart-meal-type">Sarapan</div>

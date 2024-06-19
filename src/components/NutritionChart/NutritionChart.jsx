@@ -8,15 +8,9 @@ import { useSelector } from "react-redux";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const NutritionChart = () => {
-  const {
-    takenCalories,
-    recommendedCalories,
-    takenCarbohydrates,
-    takenProtein,
-    takenFat,
-  } = useSelector((state) => state.food);
+  const { takenCalories, takenCarbohydrates, takenProtein, takenFat } = useSelector((state) => state.food);
 
-  const remainingCalories = recommendedCalories - takenCalories;
+  const remainingCalories = 2000 - takenCalories;
   const remainingCarbohydrates = 300 - takenCarbohydrates; // Assuming 300g is the daily recommended intake
   const remainingProtein = 100 - takenProtein; // Assuming 100g is the daily recommended intake
   const remainingFat = 70 - takenFat; // Assuming 70g is the daily recommended intake
@@ -68,10 +62,7 @@ const NutritionChart = () => {
             <div className="nutrition-chart-content">
               <div className="doughnut-chart-wrapper">
                 <Doughnut
-                  data={createChartData(
-                    takenCarbohydrates,
-                    remainingCarbohydrates
-                  )}
+                  data={createChartData(takenCarbohydrates, remainingCarbohydrates)}
                   options={options}
                 />
               </div>
