@@ -7,14 +7,14 @@ import { useSelector } from "react-redux";
 // Register the necessary Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const NutritionChart = () => { 
+const NutritionChart = () => {
   const {
     takenCalories,
     recommendedCalories,
-    takenCarbohydrates, 
+    takenCarbohydrates,
     takenProtein,
-    takenFat, 
-  } = useSelector((state) => state);
+    takenFat,
+  } = useSelector((state) => state.food);
 
   const remainingCalories = recommendedCalories - takenCalories;
   const remainingCarbohydrates = 300 - takenCarbohydrates; // Assuming 300g is the daily recommended intake

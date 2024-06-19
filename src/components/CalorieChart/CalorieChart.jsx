@@ -1,5 +1,4 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import "./CalorieChart.css";
@@ -7,27 +6,25 @@ import "./CalorieChart.css";
 // Register the necessary Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const CalorieChart = () => {
-  const { takenCalories, recommendedCalories } = useSelector((state) => state);
-
-  const remainingCalories = Math.max(recommendedCalories - takenCalories, 0); 
+const CalorieChart = ({ takenCalories, recommendedCalories }) => {
+  const remainingCalories = Math.max(recommendedCalories - takenCalories, 0);
 
   const data = {
     labels: ["Calories Taken", "Remaining Calories"],
-    datasets: [ 
+    datasets: [
       {
         data: [takenCalories, remainingCalories],
         backgroundColor: ["#EF723D", "#F0DD98"],
         hoverBackgroundColor: ["#EF723D", "#F0DD98"],
-      }, 
+      },
     ],
   };
 
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    cutout: "85%", 
-    plugins: { 
+    cutout: "85%",
+    plugins: {
       tooltip: {
         enabled: true,
       },

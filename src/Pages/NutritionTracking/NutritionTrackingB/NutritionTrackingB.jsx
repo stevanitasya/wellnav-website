@@ -31,12 +31,11 @@ const NutritionTrackingB = () => {
         const config = {
           headers: { Authorization: `Bearer ${token}` },
         };
-        const response = await axios.get(`${backendUrl}/api/foodlogs/${new Date().toISOString().split('T')[0]}`, config);
-        const foodLogs = response.data.foodLogs;
-        const summary = response.data.nutritionSummary;
-        setNutritionSummary(summary);
-        dispatch(setCalories({ takenCalories: summary.calories, recommendedCalories: 2000 }));
-        dispatch(setNutrition({ takenCarbohydrates: summary.carbohydrates, takenProtein: summary.protein, takenFat: summary.fat }));
+        const response = await axios.get(`${backendUrl}/api/foodlogs/today`, config);
+        const { foodLogs, nutritionSummary } = response.data;
+        setNutritionSummary(nutritionSummary);
+        dispatch(setCalories({ takenCalories: nutritionSummary.calories, recommendedCalories: 2000 }));
+        dispatch(setNutrition({ takenCarbohydrates: nutritionSummary.carbohydrates, takenProtein: nutritionSummary.protein, takenFat: nutritionSummary.fat }));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -52,7 +51,7 @@ const NutritionTrackingB = () => {
       <CollapseSideBar />
       <Header />
       <div className="chart-container">
-        <img src={chefPicture} className="chef-picture" />
+        <img src={chefPicture} className="chef-picture" alt="Chef" />
         <CalorieChart takenCalories={nutritionSummary.calories} recommendedCalories={2000} />
         <div className="chart-description">
           <div className="chart-meal-type">Sarapan</div>
@@ -63,7 +62,7 @@ const NutritionTrackingB = () => {
       </div>
       <div className="personalize-section">
         <NutritionChart />
-        <FoodTaken />
+        <FoodTaken selectedItems={selectedItems} />
       </div>
       <div className="warning-section">
         <WarningMessage />
