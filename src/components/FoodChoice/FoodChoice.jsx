@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setFoodChoices, setSelectedItems } from "../../redux/slices/foodSlice"; // Tambahkan setSelectedItems
+import { setFoodChoices, setSelectedItems, incrementCounter, decrementCounter } from "../../redux/slices/foodSlice";
 import "./FoodChoice.css";
 
 const FoodChoice = ({ activeFilter }) => {
@@ -38,6 +38,11 @@ const FoodChoice = ({ activeFilter }) => {
       : [...selectedItems, foodChoices.find((item) => item._id === id)];
 
     dispatch(setSelectedItems(newSelectedItems));
+    if (isSelected) {
+      dispatch(decrementCounter());
+    } else {
+      dispatch(incrementCounter());
+    }
   };
 
   return (
