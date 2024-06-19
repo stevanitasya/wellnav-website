@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setFoodChoices, setSelectedItems } from "../../redux/slices/foodSlice"; // Adjust the import path if necessary
+import { setFoodChoices, setSelectedItems, incrementCounter, decrementCounter } from "../../redux/slices/foodSlice";
 import "./FoodChoice.css";
 
 const FoodChoice = ({ activeFilter }) => {
   const dispatch = useDispatch();
-  const foodChoices = useSelector((state) => state.food.foodChoices || []);
-  const selectedItems = useSelector((state) => state.food.selectedItems || []);
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  const foodChoices = useSelector((state) => state.food.foodChoices);
+  const selectedItems = useSelector((state) => state.food.selectedItems);
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
   useEffect(() => {
     const fetchFoodChoices = async () => {
@@ -38,6 +39,7 @@ const FoodChoice = ({ activeFilter }) => {
       : [...selectedItems, foodChoices.find((item) => item._id === id)];
 
     dispatch(setSelectedItems(newSelectedItems));
+    dispatch(isSelected ? decrementCounter() : incrementCounter());
   };
 
   return (
