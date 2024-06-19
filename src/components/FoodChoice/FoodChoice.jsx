@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setFoodChoices, setSelectedItems, incrementCounter, decrementCounter } from "../../redux/slices/foodSlice";
+import { setFoodChoices } from "../../redux/actions";
 import "./FoodChoice.css";
 
 const FoodChoice = ({ activeFilter }) => {
   const dispatch = useDispatch();
-  const foodChoices = useSelector((state) => state.food.foodChoices);
-  const selectedItems = useSelector((state) => state.food.selectedItems);
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const foodChoices = useSelector((state) => state.foodChoices);
+  const selectedItems = useSelector((state) => state.selectedItems);
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
   useEffect(() => {
     const fetchFoodChoices = async () => {
@@ -18,13 +19,13 @@ const FoodChoice = ({ activeFilter }) => {
           url += `?category=${activeFilter}`;
         }
         const response = await axios.get(url);
-        const foodChoicesWithAbsoluteImageUrl = response.data.map(food => ({
+        const foodChoicesWithAbsoluteImageUrl = response.data.map((food) => ({
           ...food,
-          imageUrl: `${backendUrl}${food.imageUrl.slice(1)}`
+          imageUrl: `${backendUrl}${food.imageUrl.slice(1)}`,
         }));
         dispatch(setFoodChoices(foodChoicesWithAbsoluteImageUrl));
       } catch (error) {
-        console.error('Error fetching food choices:', error);
+        console.error("Error fetching food choices:", error);
       }
     };
 
@@ -38,11 +39,6 @@ const FoodChoice = ({ activeFilter }) => {
       : [...selectedItems, foodChoices.find((item) => item._id === id)];
 
     dispatch(setSelectedItems(newSelectedItems));
-    if (isSelected) {
-      dispatch(decrementCounter());
-    } else {
-      dispatch(incrementCounter());
-    }
   };
 
   return (
@@ -50,15 +46,29 @@ const FoodChoice = ({ activeFilter }) => {
       {foodChoices.length > 0 ? (
         foodChoices.map((item) => (
           <div key={item._id} className="food-choice-container">
-            <img src={item.imageUrl || "https://via.placeholder.com/150"} alt={item.name} className="food-image" />
+            <img
+              src={item.imageUrl || "https://via.placeholder.com/150"}
+              alt={item.name}
+              className="food-image"
+            />
             <div className="food-details">
               <h3>{item.name}</h3>
-              <p>{item.calories} kkal {item.carbohydrates}g</p>
-              <p>{item.protein}g {item.fat}g</p>
+              <p>
+                {item.calories} kkal {item.carbohydrates}g
+              </p>
+              <p>
+                {item.protein}g {item.fat}g
+              </p>
             </div>
             <div className="button-group">
               <button
-                className={`add-button ${selectedItems.some((selectedItem) => selectedItem._id === item._id) ? "selected" : ""}`}
+                className={`add-button ${
+                  selectedItems.some(
+                    (selectedItem) => selectedItem._id === item._id
+                  )
+                    ? "selected"
+                    : ""
+                }`}
                 onClick={() => handleButtonClick(item._id)}
               >
                 Tambah

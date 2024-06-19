@@ -8,7 +8,13 @@ import "./Recommendation.css";
 
 const Recommendation = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-  const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan", "Favorites"];
+  const filters = [
+    "Semua",
+    "Rendah Kalori",
+    "Bebas Gluten",
+    "Vegan",
+    "Favorit",
+  ];
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
@@ -20,10 +26,15 @@ const Recommendation = () => {
       <div className="Recommendation-Header">
         <Header />
         <div className="Recommendation-Container">
-          <img src={Rekomendasi} alt="Rekomendasi" className="Rekomendasi-img" />
+          <img
+            src={Rekomendasi}
+            alt="Rekomendasi"
+            className="Rekomendasi-img"
+          />
           <div className="Recommendation-Section">
             <h1>
-              Rekomendasi Makanan <br />Hari ini
+              Rekomendasi Makanan <br />
+              Hari ini
             </h1>
             <p>Start a healthy life</p>
           </div>

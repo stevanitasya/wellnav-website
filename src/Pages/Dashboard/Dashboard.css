@@ -32,7 +32,7 @@ body,
   align-items: flex-start;
   background-color: #f0dd98;
   margin-top: 5vh;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
   margin-left: 10vh;
   padding: 30px 10px 50px;
   border-radius: 10px;
@@ -43,7 +43,7 @@ body,
 
 .Dashboard-Req img.DashboardSalad-img {
   position: absolute;
-  transform: translate(95%, -35%);
+  transform: translate(95%, -32%);
   max-width: 50vh;
   height: auto;
   object-fit: cover;
@@ -67,7 +67,7 @@ body,
 
 .Dashboard-Fitur {
   display: flex;
-  margin-top: 6vh;
+  margin-top: 2vh;
   margin-left: 10vh;
 }
 .Dashboard-Pengukur {

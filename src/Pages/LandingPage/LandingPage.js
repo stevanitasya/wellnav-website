@@ -5,6 +5,7 @@ import Home from "../../Assets/Home.png";
 import FiturPelacakan from "../../Assets/FiturPelacakan.png";
 import FiturKalori from "../../Assets/FiturKalori.png";
 import FiturNotifikasi from "../../Assets/FiturNotifikasi.png";
+import FiturPelacakanAir from "../../Assets/FiturPelacakan Air.png";
 import String from "../../Assets/string.png";
 import "./LandingPage.css";
 
@@ -127,9 +128,9 @@ function LandingPage() {
 
           <div className="FiturContent-Left">
             <img
-              src={FiturNotifikasi}
-              alt="FiturNotifikasi"
-              className="Notifikasi-img"
+              src={FiturPelacakanAir}
+              alt="FiturPelacakanAir"
+              className="PelacakanAir-img"
             />
             <div className="Text-Content">
               <h1>Pelacakan Jumlah Air Putih</h1>
