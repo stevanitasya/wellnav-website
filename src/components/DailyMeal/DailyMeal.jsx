@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import "./DailyMeal.css";
 import exampleImage from "../../Assets/Salad.png";
 import { useNavigate } from "react-router-dom";
-import { setMealType } from "../../redux/actions"; 
+import { setMealType } from "../../redux/slices/foodSlice"; // Pastikan ini benar
 
 const DailyMeal = () => {
   const navigate = useNavigate();

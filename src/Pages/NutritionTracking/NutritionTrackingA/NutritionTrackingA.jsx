@@ -8,7 +8,7 @@ import FoodChoice from "../../../components/FoodChoice/FoodChoice";
 import SearchBar from "../../../components/SearchBar/SearchBar";
 import profilePicture from "../../../Assets/Salad.png";
 import Header from "../../../components/Header/Header";
-import { incrementCounter, decrementCounter, setSelectedItems } from "../../../redux/slices/foodSlice";
+import { incrementCounter, decrementCounter, setSelectedItems, setFoodChoices } from "../../../redux/slices/foodSlice";
 import "./NutritionTrackingA.css";
 
 function NutritionTrackingA() {
@@ -17,6 +17,7 @@ function NutritionTrackingA() {
   const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan"];
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.food.counter);
+  const foodChoices = useSelector((state) => state.food.foodChoices);
   const selectedItems = useSelector((state) => state.food.selectedItems || []);
   const mealType = useSelector((state) => state.food.mealType) || "Sarapan";
   const navigate = useNavigate();
