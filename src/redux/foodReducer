@@ -1,0 +1,22 @@
+const initialState = {
+  foodChoices: [],
+  selectedItems: [],
+  counter: 0,
+};
+
+const foodReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'SET_FOOD_CHOICES':
+      return { ...state, foodChoices: action.payload };
+    case 'SET_SELECTED_ITEMS':
+      return { ...state, selectedItems: action.payload };
+    case 'INCREMENT_COUNTER':
+      return { ...state, counter: state.counter + 1 };
+    case 'DECREMENT_COUNTER':
+      return { ...state, counter: state.counter - 1 };
+    default:
+      return state;
+  }
+};
+
+export default foodReducer;
