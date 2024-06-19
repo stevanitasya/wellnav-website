@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setFoodChoices } from "../../redux/actions";
+import { setFoodChoices, setSelectedItems } from "../../redux/slices/foodSlice"; // Tambahkan setSelectedItems
 import "./FoodChoice.css";
 
 const FoodChoice = ({ activeFilter }) => {
   const dispatch = useDispatch();
-  const foodChoices = useSelector((state) => state.foodChoices);
-  const selectedItems = useSelector((state) => state.selectedItems);
+  const foodChoices = useSelector((state) => state.food.foodChoices);
+  const selectedItems = useSelector((state) => state.food.selectedItems);
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
