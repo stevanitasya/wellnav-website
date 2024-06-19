@@ -7,8 +7,8 @@ import "./FoodChoice.css";
 const FoodChoice = ({ activeFilter }) => {
   const dispatch = useDispatch();
   const [foodChoices, setFoodChoices] = useState([]);
-  const counter = useSelector((state) => state.counter || 0);
-  const selectedItems = useSelector((state) => state.selectedItems || []);
+  const counter = useSelector((state) => state.counter);
+  const selectedItems = useSelector((state) => state.selectedItems);
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
@@ -24,10 +24,9 @@ const FoodChoice = ({ activeFilter }) => {
           ...food,
           imageUrl: `${backendUrl}${food.imageUrl.slice(1)}`
         }));
-        setFoodChoices(foodChoicesWithAbsoluteImageUrl);
         dispatch(setFoodChoices(foodChoicesWithAbsoluteImageUrl));
       } catch (error) {
-        console.error('Error fetching food choices:', error);
+        console.error('Error fetching food choices:', error.message);
       }
     };
 
@@ -46,7 +45,7 @@ const FoodChoice = ({ activeFilter }) => {
 
   return (
     <div className="food-choices">
-      {foodChoices.length > 0 ? (
+      {foodChoices && foodChoices.length > 0 ? (
         foodChoices.map((item) => (
           <div key={item._id} className="food-choice-container">
             <img
