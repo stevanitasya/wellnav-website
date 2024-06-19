@@ -6,9 +6,9 @@ import "./FoodChoice.css";
 
 const FoodChoice = ({ activeFilter }) => {
   const dispatch = useDispatch();
-  const [foodChoices, setFoodChoices] = useState([]);
+  const foodChoices = useSelector((state) => state.foodChoices || []);
   const counter = useSelector((state) => state.counter);
-  const selectedItems = useSelector((state) => state.selectedItems);
+  const selectedItems = useSelector((state) => state.selectedItems || []);
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
@@ -26,12 +26,12 @@ const FoodChoice = ({ activeFilter }) => {
         }));
         dispatch(setFoodChoices(foodChoicesWithAbsoluteImageUrl));
       } catch (error) {
-        console.error('Error fetching food choices:', error.message);
+        console.error('Error fetching food choices:', error);
       }
     };
 
     fetchFoodChoices();
-  }, [dispatch, activeFilter, backendUrl]);
+  }, [dispatch, activeFilter]);
 
   const handleButtonClick = (id) => {
     const isSelected = selectedItems.some((item) => item._id === id);
