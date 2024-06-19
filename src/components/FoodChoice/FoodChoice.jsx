@@ -38,7 +38,7 @@ const FoodChoice = ({ activeFilter }) => {
       ? selectedItems.filter((item) => item._id !== id)
       : [...selectedItems, foodChoices.find((item) => item._id === id)];
 
-    // dispatch(setSelectedItems(newSelectedItems));
+    dispatch(setSelectedItems(newSelectedItems));
   };
 
   return (
