@@ -27,6 +27,15 @@ const foodSlice = createSlice({
     setMealType: (state, action) => {
       state.mealType = action.payload;
     },
+    setCalories: (state, action) => {
+      state.takenCalories = action.payload.takenCalories;
+      state.recommendedCalories = action.payload.recommendedCalories;
+    },
+    setNutrition: (state, action) => {
+      state.takenCarbohydrates = action.payload.takenCarbohydrates;
+      state.takenProtein = action.payload.takenProtein;
+      state.takenFat = action.payload.takenFat;
+    },
   },
 });
 
@@ -36,6 +45,8 @@ export const {
   incrementCounter,
   decrementCounter,
   setMealType,
+  setCalories,
+  setNutrition,
 } = foodSlice.actions;
 
 export default foodSlice.reducer;

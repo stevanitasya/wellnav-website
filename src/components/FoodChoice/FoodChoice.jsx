@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setFoodChoices } from "../../redux/actions";
+import { setFoodChoices, setSelectedItems } from "../../redux/actions";
 import "./FoodChoice.css";
 
 const FoodChoice = ({ activeFilter }) => {
