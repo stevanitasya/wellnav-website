@@ -31,11 +31,12 @@ const NutritionTrackingB = () => {
         const config = {
           headers: { Authorization: `Bearer ${token}` },
         };
-        const response = await axios.get(`${backendUrl}/api/foodlogs`, config);
-        const { foodLogs, nutritionSummary } = response.data;
-        setNutritionSummary(nutritionSummary);
-        dispatch(setCalories(nutritionSummary.calories, 2000));
-        dispatch(setNutrition(nutritionSummary.carbohydrates, nutritionSummary.protein, nutritionSummary.fat));
+        const response = await axios.get(`${backendUrl}/api/foodlogs/${new Date().toISOString().split('T')[0]}`, config);
+        const foodLogs = response.data.foodLogs;
+        const summary = response.data.nutritionSummary;
+        setNutritionSummary(summary);
+        dispatch(setCalories({ takenCalories: summary.calories, recommendedCalories: 2000 }));
+        dispatch(setNutrition({ takenCarbohydrates: summary.carbohydrates, takenProtein: summary.protein, takenFat: summary.fat }));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -62,7 +63,7 @@ const NutritionTrackingB = () => {
       </div>
       <div className="personalize-section">
         <NutritionChart />
-        <FoodTaken selectedItems={selectedItems} />
+        <FoodTaken />
       </div>
       <div className="warning-section">
         <WarningMessage />
