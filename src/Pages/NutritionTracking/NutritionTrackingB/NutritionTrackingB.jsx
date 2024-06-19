@@ -1,18 +1,18 @@
 // src/pages/NutritionTrackingB.jsx
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
-import CollapseSideBar from "../../../components/CollapseSideBar/CollapseSideBar";
-import "./NutritionTrackingB.css";
-import SearchBar from "../../../components/SearchBar/SearchBar";
-import profilePicture from "../../../Assets/Salad.png";
-import CalorieChart from "../../../components/CalorieChart/CalorieChart";
-import NutritionChart from "../../../components/NutritionChart/NutritionChart";
-import FoodTaken from "../../../components/FoodTaken/FoodTaken";
-import WarningMessage from "../../../components/WarningMessage/WarningMessage";
-import chefPicture from "../../../Assets/Rekomendasi.png";
-import Header from "../../../components/Header/Header";
-import { setCalories, setNutrition } from "../../../redux/slices/foodSlice"; // Pastikan impor dari foodSlice
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
+import CollapseSideBar from '../../../components/CollapseSideBar/CollapseSideBar';
+import './NutritionTrackingB.css';
+import SearchBar from '../../../components/SearchBar/SearchBar';
+import profilePicture from '../../../Assets/Salad.png';
+import CalorieChart from '../../../components/CalorieChart/CalorieChart';
+import NutritionChart from '../../../components/NutritionChart/NutritionChart';
+import FoodTaken from '../../../components/FoodTaken/FoodTaken';
+import WarningMessage from '../../../components/WarningMessage/WarningMessage';
+import chefPicture from '../../../Assets/Rekomendasi.png';
+import Header from '../../../components/Header/Header';
+import { setCalories, setNutrition } from '../../../redux/actions';
 
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,6 @@ const NutritionTrackingB = () => {
     protein: 0,
     fat: 0,
   });
-  const selectedItems = useSelector((state) => state.food.selectedItems); // Pastikan ini ada
 
   const getCurrentDate = () => {
     const date = new Date();
@@ -32,9 +31,9 @@ const NutritionTrackingB = () => {
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const day = date.getDate().toString().padStart(2, '0');
     return `${year}-${month}-${day}`;
-  }; 
+  };
 
-  const date = getCurrentDate(); // Get current date
+  const date = getCurrentDate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,9 +51,9 @@ const NutritionTrackingB = () => {
         console.error('Error fetching data:', error);
       }
     };
-  
+
     fetchData();
-  }, [dispatch, date]);  
+  }, [dispatch, date]);
 
   const remainingCalories = 2000 - nutritionSummary.calories;
 
@@ -74,7 +73,7 @@ const NutritionTrackingB = () => {
       </div>
       <div className="personalize-section">
         <NutritionChart />
-        <FoodTaken selectedItems={selectedItems} /> {/* Pastikan ini dipass */}
+        <FoodTaken foodLogs={foodLogs} />
       </div>
       <div className="warning-section">
         <WarningMessage />
