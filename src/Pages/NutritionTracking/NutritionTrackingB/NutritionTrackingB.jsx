@@ -1,23 +1,22 @@
-// src/pages/NutritionTrackingB.jsx
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
-import CollapseSideBar from '../../../components/CollapseSideBar/CollapseSideBar';
-import './NutritionTrackingB.css';
-import SearchBar from '../../../components/SearchBar/SearchBar';
-import profilePicture from '../../../Assets/Salad.png';
-import CalorieChart from '../../../components/CalorieChart/CalorieChart';
-import NutritionChart from '../../../components/NutritionChart/NutritionChart';
-import FoodTaken from '../../../components/FoodTaken/FoodTaken';
-import WarningMessage from '../../../components/WarningMessage/WarningMessage';
-import chefPicture from '../../../Assets/Rekomendasi.png';
-import Header from '../../../components/Header/Header';
-import { setCalories, setNutrition } from '../../../redux/actions';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+import CollapseSideBar from "../../../components/CollapseSideBar/CollapseSideBar";
+import "./NutritionTrackingB.css";
+import SearchBar from "../../../components/SearchBar/SearchBar";
+import profilePicture from "../../../Assets/Salad.png";
+import CalorieChart from "../../../components/CalorieChart/CalorieChart";
+import NutritionChart from "../../../components/NutritionChart/NutritionChart";
+import FoodTaken from "../../../components/FoodTaken/FoodTaken";
+import WarningMessage from "../../../components/WarningMessage/WarningMessage";
+import chefPicture from "../../../Assets/Rekomendasi.png";
+import Header from "../../../components/Header/Header";
+import { setCalories, setNutrition } from "../../../redux/slices/foodSlice";
 
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const [foodLogs, setFoodLogs] = useState([]);
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  const selectedItems = useSelector((state) => state.food.selectedItems);
   const [nutritionSummary, setNutritionSummary] = useState({
     calories: 0,
     carbohydrates: 0,
@@ -25,35 +24,25 @@ const NutritionTrackingB = () => {
     fat: 0,
   });
 
-  const getCurrentDate = () => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const day = date.getDate().toString().padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  };
-
-  const date = getCurrentDate();
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem("token");
         const config = {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}` },
         };
-        const response = await axios.get(`${backendUrl}/api/foodlogs/${date}`, config);
-        setFoodLogs(response.data.foodLogs);
-        setNutritionSummary(response.data.nutritionSummary);
-        dispatch(setCalories(response.data.nutritionSummary.calories, 2000));
-        dispatch(setNutrition(response.data.nutritionSummary.carbohydrates, response.data.nutritionSummary.protein, response.data.nutritionSummary.fat));
+        const response = await axios.get(`${backendUrl}/api/foodlogs`, config);
+        const { foodLogs, nutritionSummary } = response.data;
+        setNutritionSummary(nutritionSummary);
+        dispatch(setCalories(nutritionSummary.calories, 2000));
+        dispatch(setNutrition(nutritionSummary.carbohydrates, nutritionSummary.protein, nutritionSummary.fat));
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, [dispatch, date]);
+  }, [dispatch, backendUrl]);
 
   const remainingCalories = 2000 - nutritionSummary.calories;
 
@@ -73,7 +62,7 @@ const NutritionTrackingB = () => {
       </div>
       <div className="personalize-section">
         <NutritionChart />
-        <FoodTaken foodLogs={foodLogs} />
+        <FoodTaken selectedItems={selectedItems} />
       </div>
       <div className="warning-section">
         <WarningMessage />
