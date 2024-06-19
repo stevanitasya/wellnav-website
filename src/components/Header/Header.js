@@ -7,16 +7,18 @@ import Profile from "../../Assets/Profile.png";
 
 const Header = () => {
   const navigate = useNavigate();
+  const [query, setQuery] = useState("");
   const location = useLocation();
   const [username, setUsername] = useState("Jane");
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(`${backendUrl}/api/users/profile`, {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}` },
         });
         setUsername(response.data.username);
       } catch (error) {
@@ -24,7 +26,9 @@ const Header = () => {
       }
     };
 
-    fetchUserData();
+    if (token) {
+      fetchUserData();
+    }
   }, [backendUrl, token]);
 
   const navigateToProfile = () => {
@@ -33,17 +37,30 @@ const Header = () => {
 
   const handleSearch = (event) => {
     if (event.key === "Enter") {
-      const query = event.target.value.toLowerCase();
+      const query = event.target.value.toLowerCase().trim();
       if (query.includes("dashboard")) {
         navigate("/dashboard");
-      } else if (query.includes("recommendation")) {
+      } else if (query.includes("rekomendasi")) {
         navigate("/recommendation");
-      } else if (query.includes("remindernotification")) {
-        navigate("/reminder-notification");
-      } else if (query.includes("nutritiontracking")) {
-        navigate("/nutrition-tracking");
-      } else if (query.includes("water tracking")) {
-        navigate("/water-tracking");
+      } else if (
+        query.includes("Pengingat") ||
+        query.includes("Reminder Notification")
+      ) {
+        navigate("/ReminderNotification");
+      } else if (
+        query.includes("Nutrition Tracking") ||
+        query.includes("pelacakan nutrisi")
+      ) {
+        navigate("/NutritionTracking");
+      } else if (
+        query.includes("water tracking") ||
+        query.includes("pelacakan air putih")
+      ) {
+        navigate("/WaterTracking");
+      } else if (query.includes("About Us")) {
+        navigate("/AboutUs");
+      } else if (query.includes("landing page") || query.includes("Home")) {
+        navigate("/LandingPage");
       } else {
         alert("Page not found");
       }
@@ -60,7 +77,13 @@ const Header = () => {
         {location.pathname !== "/profile" && (
           <div className="Header-Search">
             <FaSearch className="Search-Icon" />
-            <input type="text" placeholder="Cari" onKeyDown={handleSearch} />
+            <input
+              type="text"
+              placeholder="Cari"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={handleSearch}
+            />
           </div>
         )}
         <div className="Profile-Icon">

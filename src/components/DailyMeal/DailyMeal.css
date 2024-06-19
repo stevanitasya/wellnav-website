@@ -1,62 +1,67 @@
-.daily-meals{
-  padding: 40px 220px 20px 220px;
+.daily-meals {
+  padding: 50px 200px 50px 220px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.daily-meals-container{
-display: flex;
-flex-direction: column;
-gap:30px;
-align-items: center;
+.daily-meals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
 }
 
 .daily-meal-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #294C2B;
+  background-color: #294c2b;
   color: white;
-  padding: 20px 0px 20px 70px;
+  padding: 0px 0px 0px 70px;
   border-radius: 16px;
-  width: 1100px;
-  height: 250px;
+  width: 1000px;
+  height: 200px;
 }
 
-.personalize-meal-text{
+.personalize-meal-text {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 20px;
+}
+.personalize-meal-text h1 {
+  font-size: 30px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 .daily-meal-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap:16px;
+  gap: 16px;
 }
 
-.meal-type{
+.meal-type {
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 30px;
+  font-family: "Marko One", sans-serif;
 }
 
-  .add-button button {
-    background-color: #EF723D;
-    color: white; 
-    border: none; 
-    text-align: center; 
-    text-decoration: none; 
-    display: inline-block; 
-    font-size: 16px; 
-    cursor: pointer; 
-    border-radius: 8px; 
-  }
-  
-
+.add-button button {
+  background-color: #ef723d;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 8px;
+}
 
 .daily-meal-image img {
-  max-width: 170px;
+  max-width: 250px;
   border-radius: 100%;
 }

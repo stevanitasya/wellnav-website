@@ -40,7 +40,7 @@ body,
 .Rekomendasi-img {
   position: absolute;
   transform: translate(10%, -10%);
-  width: 50vh;
+  width: 53vh;
   object-fit: cover;
   z-index: 1;
 }

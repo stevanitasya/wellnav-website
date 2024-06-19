@@ -6,23 +6,25 @@ import Air from "../../Assets/Air.png";
 import "./WaterTracking.css";
 
 const WaterTracking = () => {
-  const [waterIntakes, setWaterIntakes] = useState([]); 
+  const [waterIntakes, setWaterIntakes] = useState([]);
   const [amount, setAmount] = useState("");
   const [time, setTime] = useState("");
   const [totalIntake, setTotalIntake] = useState(0);
   const dailyTarget = 2000;
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    axios.get(`${backendUrl}/api/watertrackings/today`, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    .then(response => {
-      setWaterIntakes(response.data.waterLogs);
-      setTotalIntake(response.data.totalAmount);
-    })
-    .catch(error => console.error('Error fetching data:', error));
+    axios
+      .get(`${backendUrl}/api/watertrackings/today`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        setWaterIntakes(response.data.waterLogs);
+        setTotalIntake(response.data.totalAmount);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
   }, [backendUrl, token]);
 
   const handleSubmit = (e) => {
@@ -34,16 +36,20 @@ const WaterTracking = () => {
       date: new Date().toISOString(), // Ensure date is in ISO string format
     };
 
-    axios.post(`${backendUrl}/api/watertrackings`, newIntake, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    .then(response => {
-      setWaterIntakes([...waterIntakes, { amount: intakeAmount, date: new Date().toISOString() }]);
-      setTotalIntake(totalIntake + intakeAmount);
-      setAmount("");
-      setTime("");
-    })
-    .catch(error => console.error('Error posting data:', error));
+    axios
+      .post(`${backendUrl}/api/watertrackings`, newIntake, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        setWaterIntakes([
+          ...waterIntakes,
+          { amount: intakeAmount, date: new Date().toISOString() },
+        ]);
+        setTotalIntake(totalIntake + intakeAmount);
+        setAmount("");
+        setTime("");
+      })
+      .catch((error) => console.error("Error posting data:", error));
   };
 
   return (
@@ -85,7 +91,9 @@ const WaterTracking = () => {
                       required
                     />
                   </label>
-                  <button type="submit">Tambah</button>
+                  <label>
+                    <button type="submit">Tambah</button>
+                  </label>
                 </form>
               </div>
               <img src={Air} alt="Air" className="Air-img" />

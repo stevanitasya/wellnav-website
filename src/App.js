@@ -6,6 +6,7 @@ import WaterTracking from "./Pages/WaterTracking/WaterTracking";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import FAQ from "./Pages/FAQ/FAQ";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Header from "./components/Header/Header";
 import NutritionTracking from "./Pages/NutritionTracking/NutritionTracking/NutritionTracking";
 import NutritionTrackingA from "./Pages/NutritionTracking/NutritionTrackingA/NutritionTrackingA";
 import NutritionTrackingB from "./Pages/NutritionTracking/NutritionTrackingB/NutritionTrackingB";
@@ -25,12 +26,22 @@ function App() {
           <Route path="WaterTracking" element={<WaterTracking />} />
           <Route path="/LandingPage" element={<LandingPage />} />
           <Route path="/nutrition-tracking" element={<NutritionTracking />} />
-          <Route path="/nutrition-tracking/food-choices" element={<NutritionTrackingA />} />
-          <Route path="/nutrition-tracking/food-choices/nutrition-data" element={<NutritionTrackingB />} />
+          <Route path="/Header" element={<Header />} />
+          <Route
+            path="/nutrition-tracking/food-choices"
+            element={<NutritionTrackingA />}
+          />
+          <Route
+            path="/nutrition-tracking/food-choices/nutrition-data"
+            element={<NutritionTrackingB />}
+          />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/FAQ" element={<FAQ />} />
           <Route path="/AboutUs" element={<AboutUs />} />
-          <Route path="/reminder-notification" element={<ReminderNotification />} />
+          <Route
+            path="/reminder-notification"
+            element={<ReminderNotification />}
+          />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/profile" element={<Profile />} />

@@ -53,36 +53,37 @@ body,
   /* flex: 1; */
 }
 
+/* FORM */
 .form-section {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  align-items: flex-start;
   background-color: #294c2b;
-  margin-left: 9vh;
-  padding: 5vh;
   border-radius: 30px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-}
-
-.form-section h2 {
-  color: white;
-  margin-bottom: 5vh;
+  margin-left: 9vh;
+  width: 100%;
+  padding: 30px;
+  color: #ffffff;
 }
 
 .form-section form {
   display: flex;
   flex-direction: column;
-  padding: 1vh 2px;
   width: 100%;
+  max-width: 800px;
 }
+
 .form-section form label,
 .form-section form .Amount {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  max-width: 800px;
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   color: white;
 }
 .Waktu {
@@ -92,36 +93,20 @@ body,
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 10px;
-  padding-top: 20px;
   padding-left: 10vh;
   color: white;
 }
-
 .form-section form input {
-  padding: 8px;
-  text-align: left;
-  margin-top: 5px;
-  margin-left: 40vh;
+  padding: 10px;
+  height: 50px;
+  width: 100%;
+  width: calc(100% - 10vh);
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: none;
+  margin-left: 20vh;
   flex: 1;
 }
-
-.form-section form button {
-  align-self: flex-end;
-  padding: 8px 130px;
-  margin-top: 10px;
-  background-color: #ef723d;
-  font-size: 15px;
-  font-weight: 800;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.form-section form button:hover {
-  background-color: #c0c0c0;
-  color: #000000;
-}
-
 .no-arrows {
   -moz-appearance: textfield;
   -webkit-appearance: none;
@@ -140,6 +125,10 @@ body,
   -webkit-appearance: none;
   margin: 0;
 }
+.no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .custom-time::-webkit-calendar-picker-indicator:hover {
   background-color: #b44b23;
@@ -153,7 +142,43 @@ body,
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+.form-section form button {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 220px;
+  margin-left: 38vh;
+  height: 50px;
+  margin-bottom: -4vh;
+  background-color: #ef723d;
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+.form-section form button:hover {
+  background-color: #f0dd98;
+  color: #000000;
+}
 
+@media (max-width: 768px) {
+  .form-section form label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-section form input,
+  .form-section form button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .form-section form button {
+    margin-top: 10px;
+  }
+}
 /* table  */
 .log-section {
   display: flex;
@@ -164,18 +189,18 @@ body,
   color: #000000;
   max-width: 100%;
   padding: 5vh 10vh 19vh;
-  margin-top: -22vh;
+  margin-top: -24vh;
 }
 .log-section h3 {
   font-size: 25px;
   margin-bottom: 4vh;
-  margin-top: 1vh;
+  margin-top: 2vh;
   font-weight: 600;
 }
 .Air-img {
   transform: translate(10%, -15%);
-  width: 12vh;
-  margin-top: 6vh;
+  width: 11vh;
+  margin-top: 7vh;
   margin-left: 37vh;
   object-fit: cover;
   z-index: 1;

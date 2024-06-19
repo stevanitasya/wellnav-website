@@ -1,8 +1,9 @@
 .Profile {
   display: flex;
   flex-direction: column;
-  margin-top:20px;
+  margin-top: 20px;
   margin-right: 115px;
+  margin-top: 30px;
 }
 
 .Profile-Field {
@@ -17,11 +18,10 @@
 .Profile-Data {
   padding: 20px;
   box-sizing: border-box;
-
 }
 
 .Profile-Label {
-  flex: 0 0 25%; 
+  flex: 0 0 25%;
   display: flex;
   justify-content: center;
 }
@@ -31,18 +31,17 @@
 }
 
 .Profile-Data {
-  background-color: #F0DD98;
+  background-color: #faecbc;
   border-radius: 10px;
   padding: 15px 25px;
-  
-  height:70px;
+  height: 60px;
   display: flex;
   align-items: center;
 }
 
 /* New class for the editing state */
 .Profile-Data.editing {
-  background-color: #D3C77C; /* Change to your desired background color for editing state */
+  background-color: #d3c77c; /* Change to your desired background color for editing state */
 }
 
 .Profile-Field h1 {
@@ -52,19 +51,18 @@
 
 /* Styling for the input fields during editing */
 .Profile-Input {
-  background-color: #D3C77C;
+  background-color: #d3c77c;
   border: none;
-  padding:0px;
+  padding: 0px;
 }
 
 .Profile-Input:focus {
   outline: none;
 }
 
-.field-and-error-msg{
+.field-and-error-msg {
   flex: 0 0 50%;
-  height:70px;
-
+  height: 70px;
 }
 
 .Profile-Error {
@@ -73,23 +71,23 @@
   align-self: flex-start; /* Align error messages to the start */
 }
 
-.edit-profile-button-position{
+.edit-profile-button-position {
   display: flex;
   justify-content: flex-end;
 }
 
 .edit-profile-button {
   padding: 5px 5px;
-  background-color: #EF723D;
+  background-color: #ef723d;
   color: #fff;
-  border:none;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
   height: 40px;
-  width:150px;
+  width: 150px;
 }
 
-.edit-profile-button h1{
+.edit-profile-button h1 {
   margin-bottom: 0px;
-font-size:20px;
+  font-size: 20px;
 }
