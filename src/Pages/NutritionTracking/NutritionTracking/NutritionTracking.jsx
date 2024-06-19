@@ -6,7 +6,7 @@ import SearchBar from "../../../components/SearchBar/SearchBar";
 import Calendar from "../../../components/Calendar/Calendar";
 import DailyMeal from "../../../components/DailyMeal/DailyMeal"; 
 import Header from "../../../components/Header/Header";
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"; 
 
 function NutritionTracking() {
   return (
