@@ -1,5 +1,5 @@
-// src/Pages/NutritionTracking/NutritionTrackingA.jsx
-import React, { useState } from "react";
+// src/pages/NutritionTrackingA.jsx
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -8,7 +8,7 @@ import FoodChoice from "../../../components/FoodChoice/FoodChoice";
 import SearchBar from "../../../components/SearchBar/SearchBar";
 import profilePicture from "../../../Assets/Salad.png";
 import Header from "../../../components/Header/Header";
-import { incrementCounter, decrementCounter, setSelectedItems } from "../../../redux/actions";
+import { incrementCounter, decrementCounter, setSelectedItems } from "../../../redux/slices/foodSlice";
 import "./NutritionTrackingA.css";
 
 function NutritionTrackingA() {
@@ -16,11 +16,15 @@ function NutritionTrackingA() {
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
   const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan"];
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
-  const selectedItems = useSelector((state) => state.selectedItems || []);
-  const mealType = useSelector((state) => state.mealType) || "Sarapan"; // Pastikan default diatur dengan benar
+  const counter = useSelector((state) => state.food.counter);
+  const selectedItems = useSelector((state) => state.food.selectedItems || []);
+  const mealType = useSelector((state) => state.food.mealType) || "Sarapan";
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    document.title = `Pilih ${mealType} hari ini`;
+  }, [mealType]);
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
@@ -82,7 +86,6 @@ function NutritionTrackingA() {
       </div>
       <FoodChoice
         activeFilter={activeFilter}
-        mealType={mealType} // meneruskan mealType ke FoodChoice
         counter={counter}
         onCounterChange={handleCounterChange}
         onSelectedItemsChange={handleSelectedItemsChange}

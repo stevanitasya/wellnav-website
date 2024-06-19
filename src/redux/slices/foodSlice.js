@@ -5,6 +5,7 @@ const initialState = {
   foodChoices: [],
   selectedItems: [],
   counter: 0,
+  mealType: "Sarapan",
 };
 
 const foodSlice = createSlice({
@@ -23,6 +24,9 @@ const foodSlice = createSlice({
     decrementCounter: (state) => {
       state.counter -= 1;
     },
+    setMealType: (state, action) => {
+      state.mealType = action.payload;
+    },
   },
 });
 
@@ -31,6 +35,7 @@ export const {
   setSelectedItems,
   incrementCounter,
   decrementCounter,
+  setMealType,
 } = foodSlice.actions;
 
 export default foodSlice.reducer;
