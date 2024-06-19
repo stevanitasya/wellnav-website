@@ -1,3 +1,4 @@
+// src/pages/NutritionTrackingB.jsx
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
@@ -11,7 +12,7 @@ import FoodTaken from "../../../components/FoodTaken/FoodTaken";
 import WarningMessage from "../../../components/WarningMessage/WarningMessage";
 import chefPicture from "../../../Assets/Rekomendasi.png";
 import Header from "../../../components/Header/Header";
-import { setCalories, setNutrition } from "../../../redux/actions";
+import { setCalories, setNutrition } from "../../../redux/slices/foodSlice"; // Pastikan impor dari foodSlice
 
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const NutritionTrackingB = () => {
     protein: 0,
     fat: 0,
   });
+  const selectedItems = useSelector((state) => state.food.selectedItems); // Pastikan ini ada
 
   const getCurrentDate = () => {
     const date = new Date();
@@ -72,7 +74,7 @@ const NutritionTrackingB = () => {
       </div>
       <div className="personalize-section">
         <NutritionChart />
-        <FoodTaken foodLogs={foodLogs} />
+        <FoodTaken selectedItems={selectedItems} /> {/* Pastikan ini dipass */}
       </div>
       <div className="warning-section">
         <WarningMessage />
