@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+// src/Pages/NutritionTracking/NutritionTrackingA.jsx
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -7,7 +8,7 @@ import FoodChoice from "../../../components/FoodChoice/FoodChoice";
 import SearchBar from "../../../components/SearchBar/SearchBar";
 import profilePicture from "../../../Assets/Salad.png";
 import Header from "../../../components/Header/Header";
-import { incrementCounter, decrementCounter, setSelectedItems, setMealType } from "../../../redux/actions";
+import { incrementCounter, decrementCounter, setSelectedItems } from "../../../redux/actions";
 import "./NutritionTrackingA.css";
 
 function NutritionTrackingA() {
@@ -17,13 +18,9 @@ function NutritionTrackingA() {
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counter);
   const selectedItems = useSelector((state) => state.selectedItems || []);
-  const mealType = useSelector((state) => state.mealType) || "Sarapan";
+  const mealType = useSelector((state) => state.mealType) || "Sarapan"; // Pastikan default diatur dengan benar
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
-
-  useEffect(() => {
-    dispatch(setMealType("Sarapan")); // Set mealType as needed
-  }, [dispatch]);
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
@@ -85,6 +82,7 @@ function NutritionTrackingA() {
       </div>
       <FoodChoice
         activeFilter={activeFilter}
+        mealType={mealType} // meneruskan mealType ke FoodChoice
         counter={counter}
         onCounterChange={handleCounterChange}
         onSelectedItemsChange={handleSelectedItemsChange}

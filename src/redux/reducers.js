@@ -17,7 +17,7 @@ const initialState = {
   counter: 0,
   selectedItems: [],
   foodChoices: [],
-  mealType: "Sarapan",
+  mealType: 'Sarapan',
   takenCalories: 0,
   recommendedCalories: 2000,
   takenCarbohydrates: 0,

@@ -1,13 +1,13 @@
+// src/components/FoodChoice/FoodChoice.js
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { incrementCounter, decrementCounter, setSelectedItems, setFoodChoices } from "../../redux/actions";
 import "./FoodChoice.css";
 
-const FoodChoice = ({ activeFilter }) => {
+const FoodChoice = ({ activeFilter, mealType }) => {
   const dispatch = useDispatch();
-  const foodChoices = useSelector((state) => state.foodChoices || []);
-  const counter = useSelector((state) => state.counter);
+  const [foodChoices, setFoodChoices] = useState([]);
   const selectedItems = useSelector((state) => state.selectedItems || []);
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
@@ -15,15 +15,20 @@ const FoodChoice = ({ activeFilter }) => {
     const fetchFoodChoices = async () => {
       try {
         let url = `${backendUrl}/api/foods`;
+        const params = {};
         if (activeFilter && activeFilter !== "All") {
-          url += `?category=${activeFilter}`;
+          params.category = activeFilter;
         }
-        const response = await axios.get(url);
+        if (mealType && mealType !== "defaultMealType") {
+          params.mealType = mealType;
+        }
+        const response = await axios.get(url, { params });
         console.log("Data from API: ", response.data);
         const foodChoicesWithAbsoluteImageUrl = response.data.map(food => ({
           ...food,
           imageUrl: `${backendUrl}${food.imageUrl.slice(1)}`
         }));
+        setFoodChoices(foodChoicesWithAbsoluteImageUrl);
         dispatch(setFoodChoices(foodChoicesWithAbsoluteImageUrl));
       } catch (error) {
         console.error('Error fetching food choices:', error);
@@ -31,7 +36,7 @@ const FoodChoice = ({ activeFilter }) => {
     };
 
     fetchFoodChoices();
-  }, [dispatch, activeFilter]);
+  }, [dispatch, activeFilter, mealType, backendUrl]);
 
   const handleButtonClick = (id) => {
     const isSelected = selectedItems.some((item) => item._id === id);
@@ -45,7 +50,7 @@ const FoodChoice = ({ activeFilter }) => {
 
   return (
     <div className="food-choices">
-      {foodChoices && foodChoices.length > 0 ? (
+      {foodChoices.length > 0 ? (
         foodChoices.map((item) => (
           <div key={item._id} className="food-choice-container">
             <img
@@ -60,13 +65,7 @@ const FoodChoice = ({ activeFilter }) => {
             </div>
             <div className="button-group">
               <button
-                className={`add-button ${
-                  selectedItems.some(
-                    (selectedItem) => selectedItem._id === item._id
-                  )
-                    ? "selected"
-                    : ""
-                }`}
+                className={`add-button ${selectedItems.some(selectedItem => selectedItem._id === item._id) ? "selected" : ""}`}
                 onClick={() => handleButtonClick(item._id)}
               >
                 Tambah
