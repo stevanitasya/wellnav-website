@@ -13,10 +13,17 @@ const FoodCatalog = ({ activeFilter }) => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/api/foods/recommended`, {
-          headers: { Authorization: `Bearer ${token}` },
-          params: { category: activeFilter === "Semua" ? undefined : activeFilter },
-        });
+        const response = await axios.get(
+          `${backendUrl}/api/foods/recommended`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            params: {
+              category: activeFilter === "All" ? undefined : activeFilter,
+            },
+          }
+        );
         const { articles } = response.data;
         setFoodItems(articles);
       } catch (error) {
