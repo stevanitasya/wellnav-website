@@ -9,21 +9,20 @@ const FoodCatalog = ({ activeFilter }) => {
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
-    const fetchArticle = async () => {
+    const fetchArticles = async () => {
       try {
         const response = await axios.get(`${backendUrl}/api/foods/recommended`, {
           params: {
             category: activeFilter === "All" ? undefined : activeFilter,
           },
         });
-        const { articles } = response.data;
-        setFoodItems(articles);
+        setFoodItems(response.data);
       } catch (error) {
         console.error("Error fetching foods", error.response || error.message);
       }
     };
 
-    fetchArticle();
+    fetchArticles();
   }, [activeFilter]);
 
   return (
