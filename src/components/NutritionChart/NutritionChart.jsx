@@ -8,15 +8,23 @@ import { useSelector } from "react-redux";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const NutritionChart = () => {
+  const nutritionSummary = useSelector((state) => state.food.nutritionSummary);
   const {
-    takenCarbohydrates,
-    takenProtein,
-    takenFat,
-  } = useSelector((state) => state.food);
+    calories: takenCalories,
+    carbohydrates: takenCarbohydrates,
+    protein: takenProtein,
+    fat: takenFat,
+  } = nutritionSummary;
 
-  const remainingCarbohydrates = 300 - takenCarbohydrates; // Assuming 300g is the daily recommended intake
-  const remainingProtein = 100 - takenProtein; // Assuming 100g is the daily recommended intake
-  const remainingFat = 70 - takenFat; // Assuming 70g is the daily recommended intake
+  const recommendedCalories = 2000;
+  const recommendedCarbohydrates = 300; // Assuming 300g is the daily recommended intake
+  const recommendedProtein = 100; // Assuming 100g is the daily recommended intake
+  const recommendedFat = 70; // Assuming 70g is the daily recommended intake
+
+  const remainingCalories = recommendedCalories - takenCalories;
+  const remainingCarbohydrates = recommendedCarbohydrates - takenCarbohydrates;
+  const remainingProtein = recommendedProtein - takenProtein;
+  const remainingFat = recommendedFat - takenFat;
 
   const createChartData = (taken, remaining) => ({
     labels: ["Intake", "Remaining"],
@@ -49,11 +57,26 @@ const NutritionChart = () => {
       <div className="nutrition-chart-container">
         <div className="nutrition-chart-items">
           <div className="nutrition-chart-item">
+            <div className="nutrition-chart-header">Kalori</div>
+            <div className="nutrition-chart-content">
+              <div className="doughnut-chart-wrapper">
+                <Doughnut
+                  data={createChartData(takenCalories, remainingCalories)}
+                  options={options}
+                />
+              </div>
+              <div className="nutrition-value">{takenCalories} kkal</div>
+            </div>
+          </div>
+          <div className="nutrition-chart-item">
             <div className="nutrition-chart-header">Karbohidrat</div>
             <div className="nutrition-chart-content">
               <div className="doughnut-chart-wrapper">
                 <Doughnut
-                  data={createChartData(takenCarbohydrates, remainingCarbohydrates)}
+                  data={createChartData(
+                    takenCarbohydrates,
+                    remainingCarbohydrates
+                  )}
                   options={options}
                 />
               </div>

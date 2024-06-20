@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 import CollapseSideBar from "../../../components/CollapseSideBar/CollapseSideBar";
 import "./NutritionTrackingB.css";
 import SearchBar from "../../../components/SearchBar/SearchBar";
@@ -10,14 +11,13 @@ import FoodTaken from "../../../components/FoodTaken/FoodTaken";
 import WarningMessage from "../../../components/WarningMessage/WarningMessage";
 import chefPicture from "../../../Assets/Rekomendasi.png";
 import Header from "../../../components/Header/Header";
-import { setCalories, setNutrition } from "../../../redux/slices/foodSlice";
-import axios from 'axios';
+import { setCalories, setNutrition, setNutritionSummary } from "../../../redux/slices/foodSlice";
 
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
   const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
   const selectedItems = useSelector((state) => state.food.selectedItems);
-  const [nutritionSummary, setNutritionSummary] = useState({
+  const [nutritionSummary, setNutritionSummaryState] = useState({
     calories: 0,
     carbohydrates: 0,
     protein: 0,
@@ -32,10 +32,11 @@ const NutritionTrackingB = () => {
           headers: { Authorization: `Bearer ${token}` },
         };
         const response = await axios.get(`${backendUrl}/api/foodlogs/${new Date().toISOString().split('T')[0]}`, config);
-        const { nutritionSummary } = response.data;
-        setNutritionSummary(nutritionSummary);
+        const { foodLogs, nutritionSummary } = response.data;
+        setNutritionSummaryState(nutritionSummary);
         dispatch(setCalories(nutritionSummary.calories, 2000));
         dispatch(setNutrition(nutritionSummary.carbohydrates, nutritionSummary.protein, nutritionSummary.fat));
+        dispatch(setNutritionSummary(nutritionSummary));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
