@@ -18,18 +18,21 @@ const Dashboard = () => {
     fat: 0,
     calories: 0
   });
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchFoodLogs = async () => {
       try {
-        const response = await axios.get('https://wellnav-backend.vercel.app/api/foodlogs/today');
-        setFoodLogs(response.data.foodLogs);
-        setNutritionSummary(response.data.nutritionSummary);
+        const response = await axios.get('https://wellnav-backend.vercel.app/api/foodlogs/today'  + new Date().toISOString().split('T')[0], {
+          headers: {
+             Authorization: `Bearer ${token}`
+          }
+        });
+        setFoodLogs(response.data);
       } catch (error) {
-        console.error('Error fetching food logs:', error);
+        console.error("Error fetching food logs:", error);
       }
-    };
-
+    };    
     fetchFoodLogs();
   }, []);
 
