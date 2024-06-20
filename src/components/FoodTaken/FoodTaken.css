@@ -40,8 +40,11 @@
 
 .food-image2 {
   display: flex;
-  max-width: 30%;
-  border-radius: 100%;
+    width: 53%;
+    border-radius: 100%;
+    margin-top: 1px;
+    margin-left: 11px;
+    margin-right: 18px;
 }
 
 .food-details {
