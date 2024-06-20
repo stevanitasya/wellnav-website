@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 import CollapseSideBar from "../../../components/CollapseSideBar/CollapseSideBar";
 import "./NutritionTrackingB.css";
 import SearchBar from "../../../components/SearchBar/SearchBar";
@@ -12,6 +11,7 @@ import WarningMessage from "../../../components/WarningMessage/WarningMessage";
 import chefPicture from "../../../Assets/Rekomendasi.png";
 import Header from "../../../components/Header/Header";
 import { setCalories, setNutrition } from "../../../redux/slices/foodSlice";
+import axios from 'axios';
 
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
@@ -32,10 +32,10 @@ const NutritionTrackingB = () => {
           headers: { Authorization: `Bearer ${token}` },
         };
         const response = await axios.get(`${backendUrl}/api/foodlogs/${new Date().toISOString().split('T')[0]}`, config);
-        const { foodLogs, nutritionSummary } = response.data;
+        const { nutritionSummary } = response.data;
         setNutritionSummary(nutritionSummary);
         dispatch(setCalories(nutritionSummary.calories, 2000));
-        dispatch(setNutrition(nutritionSummary.calories, nutritionSummary.carbohydrates, nutritionSummary.protein, nutritionSummary.fat));
+        dispatch(setNutrition(nutritionSummary.carbohydrates, nutritionSummary.protein, nutritionSummary.fat));
       } catch (error) {
         console.error("Error fetching data:", error);
       }

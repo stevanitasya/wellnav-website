@@ -9,14 +9,11 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const NutritionChart = () => {
   const {
-    takenCalories,
-    recommendedCalories,
     takenCarbohydrates,
     takenProtein,
     takenFat,
   } = useSelector((state) => state.food);
 
-  const remainingCalories = recommendedCalories - takenCalories;
   const remainingCarbohydrates = 300 - takenCarbohydrates; // Assuming 300g is the daily recommended intake
   const remainingProtein = 100 - takenProtein; // Assuming 100g is the daily recommended intake
   const remainingFat = 70 - takenFat; // Assuming 70g is the daily recommended intake
@@ -52,26 +49,11 @@ const NutritionChart = () => {
       <div className="nutrition-chart-container">
         <div className="nutrition-chart-items">
           <div className="nutrition-chart-item">
-            <div className="nutrition-chart-header">Kalori</div>
-            <div className="nutrition-chart-content">
-              <div className="doughnut-chart-wrapper">
-                <Doughnut
-                  data={createChartData(takenCalories, remainingCalories)}
-                  options={options}
-                />
-              </div>
-              <div className="nutrition-value">{takenCalories} kkal</div>
-            </div>
-          </div>
-          <div className="nutrition-chart-item">
             <div className="nutrition-chart-header">Karbohidrat</div>
             <div className="nutrition-chart-content">
               <div className="doughnut-chart-wrapper">
                 <Doughnut
-                  data={createChartData(
-                    takenCarbohydrates,
-                    remainingCarbohydrates
-                  )}
+                  data={createChartData(takenCarbohydrates, remainingCarbohydrates)}
                   options={options}
                 />
               </div>
