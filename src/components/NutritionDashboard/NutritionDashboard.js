@@ -5,10 +5,10 @@ import Protein from "../../Assets/Protein.png";
 import Lemak from "../../Assets/Lemak.png";
 import "./NutritionDashboard.css";
 
-const NutritionDashboard = () => {
-  const nutritionSummary = useSelector((state) => state.nutritionSummary || { carbohydrates: 0, protein: 0, fat: 0 });
+const NutritionDashboard = ({ nutritionSummary = {} }) => {
+  const { calories = 0, carbohydrates = 0, protein = 0, fat = 0 } = nutritionSummary;
 
-  const { carbohydrates, protein, fat } = nutritionSummary;
+  // const { carbohydrates, protein, fat } = nutritionSummary;
 
   return (
     <div className="Dashboard-Nutrisi">
