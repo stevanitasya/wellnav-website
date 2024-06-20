@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import CollapseSideBar from "../../components/CollapseSideBar/CollapseSideBar";
 import Salad from "../../Assets/Salad.png";
 import "./Dashboard.css";
@@ -7,90 +9,65 @@ import KalenderDashboard from "../../components/KalenderDashboard/KalenderDashbo
 import CalorieChart from "../../components/CalorieChart/CalorieChart";
 import NutritionDashboard from "../../components/NutritionDashboard/NutritionDashboard";
 import Header from "../../components/Header/Header";
-import axios from "axios";
+import { setFoodLogs, setNutritionSummary } from "../../redux/actions"; // Import actions
 
 const Dashboard = () => {
-  const [dailyCalories, setDailyCalories] = useState(0);
-  const [nutritionSummary, setNutritionSummary] = useState({
-    carbohydrates: 0,
-    protein: 0,
-    fat: 0,
-  });
-
-  // Assume the user ID is stored in local storage
-  const userId = localStorage.getItem("userid");
+  const dispatch = useDispatch();
+  const backendUrl = "http://localhost:5000"; // Use your backend URL
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchUserData = async () => {
       try {
-        const response = await axios.get(`https://wellnav-backend.vercel.app/api/dashboard?userid=${userId}`);
-        setDailyCalories(response.data.dailyCalories || 0);
-        setNutritionSummary(response.data.nutritionSummary || {
-          carbohydrates: 0,
-          protein: 0,
-          fat: 0,
-        });
+        const response = await axios.get(`${backendUrl}/api/users/dashboard?userid=666fd729a7d9380a07810628`);
+
+        dispatch(setFoodLogs(response.data.foodLogs));
+        dispatch(setNutritionSummary(response.data.nutritionSummary));
       } catch (error) {
         console.error("Error fetching food logs:", error);
       }
     };
 
-    fetchData();
-  }, [userId]);
+    fetchUserData();
+  }, [dispatch, backendUrl]);
+
+  const { takenCalories, recommendedCalories } = useSelector((state) => state);
 
   return (
     <div className="App">
       <CollapseSideBar />
-
       <div className="Dashboard-Header">
         <Header />
         <div className="Dashboard-Container">
           <div className="Dashboard-Content">
-            {/* KIRI */}
             <div className="Dashboard-Left">
               <div className="Dashboard-Req">
-                <img
-                  src={Salad}
-                  alt="DashboardSalad"
-                  className="DashboardSalad-img"
-                />
-                <h1>
-                  Rekomendasi <br /> Makanan Hari ini.
-                </h1>
-
+                <img src={Salad} alt="DashboardSalad" className="DashboardSalad-img" />
+                <h1>Rekomendasi <br /> Makanan Hari ini.</h1>
                 <Link to="/Recommendation">Lainnya...</Link>
               </div>
-
               <div className="Dashboard-Fitur">
-                {/* KALORI */}
                 <div className="Dashboard-Kalori">
                   <h1>Jumlah Kalori</h1>
                   <div className="Dashboard-Pengukur">
-                    <CalorieChart takenCalories={dailyCalories} recommendedCalories={2000} />
+                    <CalorieChart takenCalories={takenCalories} recommendedCalories={recommendedCalories} />
                   </div>
                 </div>
-                {/* REMINDER */}
                 <div className="Dashboard-Reminder">
                   <h1>Pengingat</h1>
                   <div className="spacing-br">
                     <div className="Dashboard-Pengingat">
-                      <h1>
-                        Sudahkah <br /> anda
-                        <br /> minum?
-                      </h1>
+                      <h1>Sudahkah <br /> anda <br /> minum?</h1>
                       <p>4 Liter/hari</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            {/* KANAN*/}
             <div className="Dashboard-Right">
               <div className="Dashboard-Calender">
                 <KalenderDashboard />
               </div>
-              {/* PELACKAN NUTRISI*/}
-              <NutritionDashboard nutritionSummary={nutritionSummary} />
+              <NutritionDashboard />
             </div>
           </div>
         </div>
