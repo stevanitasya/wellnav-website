@@ -1,31 +1,37 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setFoodLogs, setNutritionSummary } from "../../redux/actions";
-import CalorieChart from "../../components/CalorieChart/CalorieChart";
-import NutritionDashboard from "../../components/NutritionDashboard/NutritionDashboard";
-import Header from "../../components/Header/Header";
-import CollapseSideBar from "../../components/CollapseSideBar/CollapseSideBar";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import CollapseSideBar from '../../components/CollapseSideBar/CollapseSideBar';
+import Salad from '../../Assets/Salad.png';
+import './Dashboard.css';
+import KalenderDashboard from '../../components/KalenderDashboard/KalenderDashboard';
+import CalorieChart from '../../components/CalorieChart/CalorieChart';
+import NutritionDashboard from '../../components/NutritionDashboard/NutritionDashboard';
+import Header from '../../components/Header/Header';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
-  const { takenCalories, recommendedCalories } = useSelector((state) => state);
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  const [foodLogs, setFoodLogs] = useState([]);
+  const [nutritionSummary, setNutritionSummary] = useState({
+    carbohydrates: 0,
+    protein: 0,
+    fat: 0,
+    calories: 0
+  });
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchFoodLogs = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/api/foodlogs/` + new Date().toISOString().split('T')[0]);
-        dispatch(setFoodLogs(response.data.foodLogs));
-        dispatch(setNutritionSummary(response.data.nutritionSummary));
+        const response = await axios.get('https://wellnav-backend.vercel.app/api/foodlogs/today');
+        setFoodLogs(response.data.foodLogs);
+        setNutritionSummary(response.data.nutritionSummary);
       } catch (error) {
-        console.error("Error fetching food logs:", error);
+        console.error('Error fetching food logs:', error);
       }
     };
 
-    fetchUserData();
-  }, [dispatch]);
+    fetchFoodLogs();
+  }, []);
 
   return (
     <div className="App">
@@ -34,29 +40,40 @@ const Dashboard = () => {
         <Header />
         <div className="Dashboard-Container">
           <div className="Dashboard-Content">
+            {/* KIRI */}
             <div className="Dashboard-Left">
               <div className="Dashboard-Req">
-                <h1>Rekomendasi Makanan Hari ini.</h1>
+                <img src={Salad} alt="DashboardSalad" className="DashboardSalad-img" />
+                <h1>Rekomendasi <br /> Makanan Hari ini.</h1>
                 <Link to="/Recommendation">Lainnya...</Link>
               </div>
               <div className="Dashboard-Fitur">
+                {/* KALORI */}
                 <div className="Dashboard-Kalori">
                   <h1>Jumlah Kalori</h1>
                   <div className="Dashboard-Pengukur">
-                    <CalorieChart takenCalories={takenCalories} recommendedCalories={recommendedCalories} />
+                    <CalorieChart takenCalories={nutritionSummary.calories} />
                   </div>
                 </div>
+                {/* REMINDER */}
                 <div className="Dashboard-Reminder">
                   <h1>Pengingat</h1>
-                  <div className="Dashboard-Pengingat">
-                    <h1>Sudahkah anda minum?</h1>
-                    <p>4 Liter/hari</p>
+                  <div className="spacing-br">
+                    <div className="Dashboard-Pengingat">
+                      <h1>Sudahkah <br /> anda <br /> minum?</h1>
+                      <p>4 Liter/hari</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            {/* KANAN */}
             <div className="Dashboard-Right">
-              <NutritionDashboard />
+              <div className="Dashboard-Calender">
+                <KalenderDashboard />
+              </div>
+              {/* PELACAKAN NUTRISI */}
+              <NutritionDashboard nutritionSummary={nutritionSummary} />
             </div>
           </div>
         </div>
