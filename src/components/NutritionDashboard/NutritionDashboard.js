@@ -1,15 +1,11 @@
+// src/components/NutritionDashboard/NutritionDashboard.js
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Karbohidrat from "../../Assets/Karbohidrat.png";
 import Protein from "../../Assets/Protein.png";
 import Lemak from "../../Assets/Lemak.png";
 import "./NutritionDashboard.css";
 
-const NutritionDashboard = () => {
-  const nutritionSummary = useSelector((state) => state.nutritionSummary || { carbohydrates: 0, protein: 0, fat: 0 });
-
-  const { carbohydrates, protein, fat } = nutritionSummary;
-
+const NutritionDashboard = ({ carbohydrates, protein, fat }) => {
   return (
     <div className="Dashboard-Nutrisi">
       <h1>Pelacakan Nutrisi</h1>
