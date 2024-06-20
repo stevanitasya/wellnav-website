@@ -4,7 +4,7 @@ import axios from "axios";
 import { setFoodChoices, setSelectedItems } from "../../redux/slices/foodSlice";
 import "./FoodChoice.css";
 
-const FoodChoice = ({ activeFilter }) => {
+const FoodChoice = ({ activeFilter, onSelectedItemsChange }) => {
   const dispatch = useDispatch();
   const foodChoices = useSelector((state) => state.food.foodChoices);
   const selectedItems = useSelector((state) => state.food.selectedItems);
@@ -14,7 +14,7 @@ const FoodChoice = ({ activeFilter }) => {
     const fetchFoodChoices = async () => {
       try {
         let url = `${backendUrl}/api/foods`;
-        if (activeFilter && activeFilter !== "All") {
+        if (activeFilter && activeFilter !== "Semua") {
           url += `?category=${activeFilter}`;
         }
         const response = await axios.get(url);
@@ -38,6 +38,7 @@ const FoodChoice = ({ activeFilter }) => {
       : [...selectedItems, foodChoices.find((item) => item._id === id)];
 
     dispatch(setSelectedItems(newSelectedItems));
+    onSelectedItemsChange(newSelectedItems);
   };
 
   return (

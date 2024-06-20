@@ -4,19 +4,16 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import CollapseSideBar from "../../../components/CollapseSideBar/CollapseSideBar";
 import FoodChoice from "../../../components/FoodChoice/FoodChoice";
-import SearchBar from "../../../components/SearchBar/SearchBar";
-import profilePicture from "../../../Assets/Salad.png";
 import Header from "../../../components/Header/Header";
-import { incrementCounter, decrementCounter, setSelectedItems, setFoodChoices } from "../../../redux/slices/foodSlice";
+import { incrementCounter, decrementCounter, setSelectedItems } from "../../../redux/slices/foodSlice";
 import "./NutritionTrackingA.css";
 
 function NutritionTrackingA() {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("Semua");
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan"];
+  const filters = ["Semua", "Rendah Kalori", "Bebas Gluten", "Vegan"];
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.food.counter);
-  const foodChoices = useSelector((state) => state.food.foodChoices);
   const selectedItems = useSelector((state) => state.food.selectedItems || []);
   const mealType = useSelector((state) => state.food.mealType) || "Sarapan";
   const navigate = useNavigate();
@@ -30,22 +27,12 @@ function NutritionTrackingA() {
     setActiveFilter(filter);
   };
 
-  const handleCounterChange = (newCounter) => {
-    if (newCounter > counter) {
-      dispatch(incrementCounter());
-    } else {
-      dispatch(decrementCounter());
-    }
-  };
-
   const handleSelectedItemsChange = (newSelectedItems) => {
     dispatch(setSelectedItems(newSelectedItems));
   };
 
   const handleTracking = async (e) => {
     if (e) e.preventDefault();
-    console.log("Tombol diklik!");
-
     const addFoodPromises = selectedItems.map(item => {
       const addFood = {
         foodId: item._id,
@@ -65,7 +52,7 @@ function NutritionTrackingA() {
   };
 
   const navigateToNutritionTrackingB = async () => {
-    await handleTracking(); // Tidak mengirimkan event
+    await handleTracking();
   };
 
   return (
@@ -86,10 +73,7 @@ function NutritionTrackingA() {
       </div>
       <FoodChoice
         activeFilter={activeFilter}
-        counter={counter}
-        onCounterChange={handleCounterChange}
         onSelectedItemsChange={handleSelectedItemsChange}
-        onTracking={handleTracking}
       />
       {selectedItems.length > 0 && (
         <div className="big-add-button">
