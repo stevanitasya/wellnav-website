@@ -93,7 +93,7 @@ function NutritionTrackingA() {
       />
       {selectedItems.length > 0 && (
         <div className="big-add-button">
-          <button onClick={() => navigate("/nutrition-tracking/food-choices/nutrition-data")}>
+          <button onClick={navigateToNutritionTrackingB}>
             Tambah
             <div className="circle">
               <span className="circle-text">{counter}</span>
