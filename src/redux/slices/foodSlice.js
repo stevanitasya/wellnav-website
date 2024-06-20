@@ -61,6 +61,7 @@ export const {
   setMealType,
   setCalories,
   setNutrition,
+  setNutritionSummary,
 } = foodSlice.actions;
 
 export default foodSlice.reducer;
