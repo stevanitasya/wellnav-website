@@ -23,7 +23,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchFoodLogs = async () => {
       try {
-        const response = await axios.get('https://wellnav-backend.vercel.app/api/foodlogs'  + new Date().toISOString().split('T')[0], {
+        const response = await axios.get('https://wellnav-backend.vercel.app/api/foodlogs/'  + new Date().toISOString().split('T')[0], {
           headers: {
              Authorization: `Bearer ${token}`
           }
