@@ -11,11 +11,12 @@ import { Link } from "react-router-dom";
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { takenCalories, recommendedCalories } = useSelector((state) => state);
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/foodlogs/" + new Date().toISOString().split('T')[0]);
+        const response = await axios.get(`${backendUrl}/api/foodlogs/` + new Date().toISOString().split('T')[0]);
         dispatch(setFoodLogs(response.data.foodLogs));
         dispatch(setNutritionSummary(response.data.nutritionSummary));
       } catch (error) {
