@@ -5,8 +5,8 @@ import './NutritionChart.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const NutritionChart = ({ nutritionSummary }) => {
-  const { calories, carbohydrates, protein, fat } = nutritionSummary;
+const NutritionChart = ({ nutritionSummary = {} }) => {
+  const { calories = 0, carbohydrates = 0, protein = 0, fat = 0 } = nutritionSummary;
 
   const createChartData = (taken, remaining) => ({
     labels: ['Intake', 'Remaining'],

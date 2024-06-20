@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 import CollapseSideBar from "../../../components/CollapseSideBar/CollapseSideBar";
 import "./NutritionTrackingB.css";
 import SearchBar from "../../../components/SearchBar/SearchBar";
@@ -11,13 +10,14 @@ import FoodTaken from "../../../components/FoodTaken/FoodTaken";
 import WarningMessage from "../../../components/WarningMessage/WarningMessage";
 import chefPicture from "../../../Assets/Rekomendasi.png";
 import Header from "../../../components/Header/Header";
-import { setCalories, setNutrition, setNutritionSummary } from "../../../redux/slices/foodSlice";
+import { setCalories, setNutritionSummary } from "../../../redux/actions";
+import axios from "axios";
 
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
   const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
   const selectedItems = useSelector((state) => state.food.selectedItems);
-  const [nutritionSummary, setNutritionSummaryState] = useState({
+  const [nutritionSummary, setNutritionSummary] = useState({
     calories: 0,
     carbohydrates: 0,
     protein: 0,
@@ -31,11 +31,10 @@ const NutritionTrackingB = () => {
         const config = {
           headers: { Authorization: `Bearer ${token}` },
         };
-        const response = await axios.get(`${backendUrl}/api/foodlogs/${new Date().toISOString().split('T')[0]}`, config);
+        const response = await axios.get(`${backendUrl}/api/foodlogs`, config);
         const { foodLogs, nutritionSummary } = response.data;
-        setNutritionSummaryState(nutritionSummary);
+        setNutritionSummary(nutritionSummary);
         dispatch(setCalories(nutritionSummary.calories, 2000));
-        dispatch(setNutrition(nutritionSummary.carbohydrates, nutritionSummary.protein, nutritionSummary.fat));
         dispatch(setNutritionSummary(nutritionSummary));
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -62,7 +61,7 @@ const NutritionTrackingB = () => {
         </div>
       </div>
       <div className="personalize-section">
-        <NutritionChart />
+        <NutritionChart nutritionSummary={nutritionSummary} />
         <FoodTaken selectedItems={selectedItems} />
       </div>
       <div className="warning-section">
