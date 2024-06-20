@@ -8,22 +8,17 @@ import { useSelector } from "react-redux";
 const FoodCatalog = ({ activeFilter }) => {
   const [foodItems, setFoodItems] = useState([]);
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const token = useSelector((state) => state.auth.token); // Fetch token from Redux store
+  const userId = useSelector((state) => state.auth.userId); // Fetch userId from Redux store
 
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(
-          `${backendUrl}/api/foods/recommended`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-            params: {
-              category: activeFilter === "All" ? undefined : activeFilter,
-            },
-          }
-        );
+        const response = await axios.get(`${backendUrl}/api/foods/recommended`, {
+          params: {
+            category: activeFilter === "All" ? undefined : activeFilter,
+            userId: userId, // Pass userId as a query parameter
+          },
+        });
         const { articles } = response.data;
         setFoodItems(articles);
       } catch (error) {
@@ -31,10 +26,10 @@ const FoodCatalog = ({ activeFilter }) => {
       }
     };
 
-    if (token) { // Fetch only if token is available
+    if (userId) { // Fetch only if userId is available
       fetchArticle();
     }
-  }, [activeFilter, token]);
+  }, [activeFilter, userId]);
 
   return (
     <div className="Food-Catalog">
