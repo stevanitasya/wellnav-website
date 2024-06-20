@@ -1,37 +1,21 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
-import CollapseSideBar from "../../components/CollapseSideBar/CollapseSideBar";
-import Salad from "../../Assets/Salad.png";
-import "./Dashboard.css";
-import KalenderDashboard from "../../components/KalenderDashboard/KalenderDashboard";
+import { useDispatch, useSelector } from "react-redux";
+import { setFoodLogs, setNutritionSummary } from "../../redux/actions";
 import CalorieChart from "../../components/CalorieChart/CalorieChart";
 import NutritionDashboard from "../../components/NutritionDashboard/NutritionDashboard";
 import Header from "../../components/Header/Header";
-import { setFoodLogs, setNutritionSummary } from "../../redux/actions";
+import CollapseSideBar from "../../components/CollapseSideBar/CollapseSideBar";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
-  const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  const { takenCalories, recommendedCalories } = useSelector((state) => state);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userResponse = await axios.get(
-          `${backendUrl}/api/users/profile`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
-        const userId = userResponse.data._id;
-
-        const response = await axios.get(`${backendUrl}/api/users/dashboard`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-
+        const response = await axios.get("http://localhost:5000/api/foodlogs/" + new Date().toISOString().split('T')[0]);
         dispatch(setFoodLogs(response.data.foodLogs));
         dispatch(setNutritionSummary(response.data.nutritionSummary));
       } catch (error) {
@@ -40,9 +24,7 @@ const Dashboard = () => {
     };
 
     fetchUserData();
-  }, [dispatch, token, backendUrl]);
-
-  const { takenCalories, recommendedCalories } = useSelector((state) => state);
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -53,43 +35,26 @@ const Dashboard = () => {
           <div className="Dashboard-Content">
             <div className="Dashboard-Left">
               <div className="Dashboard-Req">
-                <img
-                  src={Salad}
-                  alt="DashboardSalad"
-                  className="DashboardSalad-img"
-                />
-                <h1>
-                  Rekomendasi <br /> Makanan Hari ini.
-                </h1>
+                <h1>Rekomendasi Makanan Hari ini.</h1>
                 <Link to="/Recommendation">Lainnya...</Link>
               </div>
               <div className="Dashboard-Fitur">
                 <div className="Dashboard-Kalori">
                   <h1>Jumlah Kalori</h1>
                   <div className="Dashboard-Pengukur">
-                    <CalorieChart
-                      takenCalories={takenCalories}
-                      recommendedCalories={recommendedCalories}
-                    />
+                    <CalorieChart takenCalories={takenCalories} recommendedCalories={recommendedCalories} />
                   </div>
                 </div>
                 <div className="Dashboard-Reminder">
                   <h1>Pengingat</h1>
-                  <div className="spacing-br">
-                    <div className="Dashboard-Pengingat">
-                      <h1>
-                        Sudahkah <br /> anda <br /> minum?
-                      </h1>
-                      <p>4 Liter/hari</p>
-                    </div>
+                  <div className="Dashboard-Pengingat">
+                    <h1>Sudahkah anda minum?</h1>
+                    <p>4 Liter/hari</p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="Dashboard-Right">
-              <div className="Dashboard-Calender">
-                <KalenderDashboard />
-              </div>
               <NutritionDashboard />
             </div>
           </div>
