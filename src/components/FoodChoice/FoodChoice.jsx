@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setFoodChoices, setSelectedItems } from "../../redux/slices/foodSlice";
+import { setFoodChoices, setSelectedItems, incrementCounter, decrementCounter } from "../../redux/slices/foodSlice";
 import "./FoodChoice.css";
 
-const FoodChoice = ({ activeFilter, onSelectedItemsChange }) => {
+const FoodChoice = ({ activeFilter }) => {
   const dispatch = useDispatch();
   const foodChoices = useSelector((state) => state.food.foodChoices);
   const selectedItems = useSelector((state) => state.food.selectedItems);
@@ -14,7 +14,7 @@ const FoodChoice = ({ activeFilter, onSelectedItemsChange }) => {
     const fetchFoodChoices = async () => {
       try {
         let url = `${backendUrl}/api/foods`;
-        if (activeFilter && activeFilter !== "Semua") {
+        if (activeFilter && activeFilter !== "All") {
           url += `?category=${activeFilter}`;
         }
         const response = await axios.get(url);
@@ -38,7 +38,12 @@ const FoodChoice = ({ activeFilter, onSelectedItemsChange }) => {
       : [...selectedItems, foodChoices.find((item) => item._id === id)];
 
     dispatch(setSelectedItems(newSelectedItems));
-    onSelectedItemsChange(newSelectedItems);
+
+    if (isSelected) {
+      dispatch(decrementCounter());
+    } else {
+      dispatch(incrementCounter());
+    }
   };
 
   return (
