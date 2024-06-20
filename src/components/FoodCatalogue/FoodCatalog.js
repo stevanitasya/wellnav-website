@@ -4,7 +4,7 @@ import Salad from "../../Assets/Salad.png";
 import HeartIcon from "./HeartIcon";
 import "./FoodCatalog.css";
 
-const FoodCatalog = ({ activeFilter }) => {
+const FoodCatalog = ({ activeFilter, userId }) => {
   const [foodItems, setFoodItems] = useState([]);
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
@@ -13,17 +13,20 @@ const FoodCatalog = ({ activeFilter }) => {
       try {
         const response = await axios.get(`${backendUrl}/api/foods/recommended`, {
           params: {
+            userId,
             category: activeFilter === "All" ? undefined : activeFilter,
           },
         });
-        setFoodItems(response.data);
+        setFoodItems(response.data.articles); // Access the articles array from the response
       } catch (error) {
         console.error("Error fetching foods", error.response || error.message);
       }
     };
 
-    fetchArticles();
-  }, [activeFilter]);
+    if (userId) {
+      fetchArticles();
+    }
+  }, [activeFilter, userId]);
 
   return (
     <div className="Food-Catalog">
