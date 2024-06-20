@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import CollapseSideBar from "../../components/CollapseSideBar/CollapseSideBar";
 import Salad from "../../Assets/Salad.png";
@@ -9,40 +8,29 @@ import KalenderDashboard from "../../components/KalenderDashboard/KalenderDashbo
 import CalorieChart from "../../components/CalorieChart/CalorieChart";
 import NutritionDashboard from "../../components/NutritionDashboard/NutritionDashboard";
 import Header from "../../components/Header/Header";
-import { setFoodLogs, setNutritionSummary } from "../../redux/actions";
+import { setDashboardData } from "../../redux/slices/dashboardSlice";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
-  const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userResponse = await axios.get(
-          `${backendUrl}/api/users/profile`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
-        const userId = userResponse.data._id;
-
         const response = await axios.get(`${backendUrl}/api/users/dashboard`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-
-        dispatch(setFoodLogs(response.data.foodLogs));
-        dispatch(setNutritionSummary(response.data.nutritionSummary));
+        dispatch(setDashboardData(response.data));
       } catch (error) {
-        console.error("Error fetching food logs:", error);
+        console.error("Error fetching dashboard data:", error);
       }
     };
 
     fetchUserData();
   }, [dispatch, token, backendUrl]);
 
-  const { takenCalories, recommendedCalories } = useSelector((state) => state);
+  const { dailyCalories, nutritionSummary } = useSelector((state) => state.dashboard);
 
   return (
     <div className="App">
@@ -61,15 +49,15 @@ const Dashboard = () => {
                 <h1>
                   Rekomendasi <br /> Makanan Hari ini.
                 </h1>
-                <Link to="/Recommendation">Lainnya...</Link>
+                <a href="/Recommendation">Lainnya...</a>
               </div>
               <div className="Dashboard-Fitur">
                 <div className="Dashboard-Kalori">
                   <h1>Jumlah Kalori</h1>
                   <div className="Dashboard-Pengukur">
                     <CalorieChart
-                      takenCalories={takenCalories}
-                      recommendedCalories={recommendedCalories}
+                      takenCalories={dailyCalories}
+                      recommendedCalories={2000} // or any recommended calories value
                     />
                   </div>
                 </div>
@@ -90,7 +78,11 @@ const Dashboard = () => {
               <div className="Dashboard-Calender">
                 <KalenderDashboard />
               </div>
-              <NutritionDashboard />
+              <NutritionDashboard
+                carbohydrates={nutritionSummary.carbohydrates}
+                protein={nutritionSummary.protein}
+                fat={nutritionSummary.fat}
+              />
             </div>
           </div>
         </div>
