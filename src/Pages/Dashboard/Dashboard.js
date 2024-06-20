@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import CollapseSideBar from "../../components/CollapseSideBar/CollapseSideBar";
 import Salad from "../../Assets/Salad.png";
@@ -12,23 +13,36 @@ import { setFoodLogs, setNutritionSummary } from "../../redux/actions";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  const token = localStorage.getItem("token");
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/api/users/dashboard?userid=666fd729a7d9380a07810628`);
+        const userResponse = await axios.get(
+          `${backendUrl}/api/users/profile`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+        const userId = userResponse.data._id;
+
+        const response = await axios.get(`${backendUrl}/api/users/dashboard`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
         dispatch(setFoodLogs(response.data.foodLogs));
         dispatch(setNutritionSummary(response.data.nutritionSummary));
       } catch (error) {
-        console.error("Error fetching user data:", error);
+        console.error("Error fetching food logs:", error);
       }
     };
 
     fetchUserData();
-  }, [dispatch, backendUrl]);
+  }, [dispatch, token, backendUrl]);
 
-  const { takenCalories, recommendedCalories } = useSelector((state) => state.nutritionSummary || {});
+  const { takenCalories, recommendedCalories } = useSelector((state) => state);
 
   return (
     <div className="App">
@@ -54,8 +68,8 @@ const Dashboard = () => {
                   <h1>Jumlah Kalori</h1>
                   <div className="Dashboard-Pengukur">
                     <CalorieChart
-                      takenCalories={takenCalories || 0}
-                      recommendedCalories={recommendedCalories || 2000}
+                      takenCalories={takenCalories}
+                      recommendedCalories={recommendedCalories}
                     />
                   </div>
                 </div>
@@ -64,8 +78,7 @@ const Dashboard = () => {
                   <div className="spacing-br">
                     <div className="Dashboard-Pengingat">
                       <h1>
-                        Sudahkah <br /> anda
-                        <br /> minum?
+                        Sudahkah <br /> anda <br /> minum?
                       </h1>
                       <p>4 Liter/hari</p>
                     </div>
