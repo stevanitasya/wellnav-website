@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import CollapseSideBar from "../../components/CollapseSideBar/CollapseSideBar";
 import Salad from "../../Assets/Salad.png";
@@ -8,7 +9,7 @@ import KalenderDashboard from "../../components/KalenderDashboard/KalenderDashbo
 import CalorieChart from "../../components/CalorieChart/CalorieChart";
 import NutritionDashboard from "../../components/NutritionDashboard/NutritionDashboard";
 import Header from "../../components/Header/Header";
-import { setDashboardData } from "../../redux/slices/dashboardSlice";
+import { setFoodLogs, setNutritionSummary } from "../../redux/actions";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -18,19 +19,26 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
+        const userResponse = await axios.get(`${backendUrl}/api/users/profile`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const userId = userResponse.data._id;
+
         const response = await axios.get(`${backendUrl}/api/users/dashboard`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        dispatch(setDashboardData(response.data));
+
+        dispatch(setFoodLogs(response.data.foodLogs || []));
+        dispatch(setNutritionSummary(response.data.nutritionSummary || { carbohydrates: 0, protein: 0, fat: 0 }));
       } catch (error) {
-        console.error("Error fetching dashboard data:", error);
+        console.error("Error fetching food logs:", error);
       }
     };
 
     fetchUserData();
   }, [dispatch, token, backendUrl]);
 
-  const { dailyCalories, nutritionSummary } = useSelector((state) => state.dashboard);
+  const { dailyCalories = 0, nutritionSummary = { carbohydrates: 0, protein: 0, fat: 0 } } = useSelector((state) => state);
 
   return (
     <div className="App">
@@ -49,7 +57,7 @@ const Dashboard = () => {
                 <h1>
                   Rekomendasi <br /> Makanan Hari ini.
                 </h1>
-                <a href="/Recommendation">Lainnya...</a>
+                <Link to="/Recommendation">Lainnya...</Link>
               </div>
               <div className="Dashboard-Fitur">
                 <div className="Dashboard-Kalori">
@@ -57,7 +65,7 @@ const Dashboard = () => {
                   <div className="Dashboard-Pengukur">
                     <CalorieChart
                       takenCalories={dailyCalories}
-                      recommendedCalories={2000} // or any recommended calories value
+                      recommendedCalories={2000} // Set a default or fetch recommended calories from the backend
                     />
                   </div>
                 </div>
@@ -78,11 +86,7 @@ const Dashboard = () => {
               <div className="Dashboard-Calender">
                 <KalenderDashboard />
               </div>
-              <NutritionDashboard
-                carbohydrates={nutritionSummary.carbohydrates}
-                protein={nutritionSummary.protein}
-                fat={nutritionSummary.fat}
-              />
+              <NutritionDashboard nutritionSummary={nutritionSummary} />
             </div>
           </div>
         </div>
