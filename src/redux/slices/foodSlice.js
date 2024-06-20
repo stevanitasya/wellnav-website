@@ -11,6 +11,12 @@ const initialState = {
   takenCarbohydrates: 0,
   takenProtein: 0,
   takenFat: 0,
+  nutritionSummary: {
+    calories: 0,
+    carbohydrates: 0,
+    protein: 0,
+    fat: 0,
+  },
 };
 
 const foodSlice = createSlice({
@@ -40,6 +46,9 @@ const foodSlice = createSlice({
       state.takenCarbohydrates = action.payload.takenCarbohydrates;
       state.takenProtein = action.payload.takenProtein;
       state.takenFat = action.payload.takenFat;
+    },
+    setNutritionSummary: (state, action) => {
+      state.nutritionSummary = action.payload;
     },
   },
 });
