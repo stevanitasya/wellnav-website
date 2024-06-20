@@ -3,11 +3,10 @@ import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import "./CalorieChart.css";
 
+// Register the necessary Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const CalorieChart = ({ takenCalories, recommendedCalories }) => {
-  console.log('Calorie Chart Data:', { takenCalories, recommendedCalories });  // Debugging log
-
+const CalorieChart = ({ takenCalories = 0, recommendedCalories = 2000 }) => {
   const remainingCalories = Math.max(recommendedCalories - takenCalories, 0);
 
   const data = {
