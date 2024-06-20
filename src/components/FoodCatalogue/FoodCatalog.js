@@ -3,12 +3,10 @@ import axios from "axios";
 import Salad from "../../Assets/Salad.png";
 import HeartIcon from "./HeartIcon";
 import "./FoodCatalog.css";
-import { useSelector } from "react-redux";
 
 const FoodCatalog = ({ activeFilter }) => {
   const [foodItems, setFoodItems] = useState([]);
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const userId = useSelector((state) => state.auth.userId); // Fetch userId from Redux store
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -16,7 +14,6 @@ const FoodCatalog = ({ activeFilter }) => {
         const response = await axios.get(`${backendUrl}/api/foods/recommended`, {
           params: {
             category: activeFilter === "All" ? undefined : activeFilter,
-            userId: userId, // Pass userId as a query parameter
           },
         });
         const { articles } = response.data;
@@ -26,10 +23,8 @@ const FoodCatalog = ({ activeFilter }) => {
       }
     };
 
-    if (userId) { // Fetch only if userId is available
-      fetchArticle();
-    }
-  }, [activeFilter, userId]);
+    fetchArticle();
+  }, [activeFilter]);
 
   return (
     <div className="Food-Catalog">
