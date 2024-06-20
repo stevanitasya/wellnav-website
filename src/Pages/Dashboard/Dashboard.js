@@ -19,17 +19,12 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userResponse = await axios.get(`${backendUrl}/api/users/profile`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        const userId = userResponse.data._id;
-
         const response = await axios.get(`${backendUrl}/api/users/dashboard`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
-        dispatch(setFoodLogs(response.data.foodLogs || []));
-        dispatch(setNutritionSummary(response.data.nutritionSummary || { carbohydrates: 0, protein: 0, fat: 0 }));
+        dispatch(setFoodLogs(response.data.foodLogs));
+        dispatch(setNutritionSummary(response.data.nutritionSummary));
       } catch (error) {
         console.error("Error fetching food logs:", error);
       }
@@ -38,7 +33,7 @@ const Dashboard = () => {
     fetchUserData();
   }, [dispatch, token, backendUrl]);
 
-  const { dailyCalories = 0, nutritionSummary = { carbohydrates: 0, protein: 0, fat: 0 } } = useSelector((state) => state);
+  const { dailyCalories, nutritionSummary } = useSelector((state) => state.nutritionSummary || { dailyCalories: 0, nutritionSummary: { carbohydrates: 0, protein: 0, fat: 0 }});
 
   return (
     <div className="App">
@@ -49,14 +44,8 @@ const Dashboard = () => {
           <div className="Dashboard-Content">
             <div className="Dashboard-Left">
               <div className="Dashboard-Req">
-                <img
-                  src={Salad}
-                  alt="DashboardSalad"
-                  className="DashboardSalad-img"
-                />
-                <h1>
-                  Rekomendasi <br /> Makanan Hari ini.
-                </h1>
+                <img src={Salad} alt="DashboardSalad" className="DashboardSalad-img" />
+                <h1>Rekomendasi <br /> Makanan Hari ini.</h1>
                 <Link to="/Recommendation">Lainnya...</Link>
               </div>
               <div className="Dashboard-Fitur">
@@ -65,7 +54,7 @@ const Dashboard = () => {
                   <div className="Dashboard-Pengukur">
                     <CalorieChart
                       takenCalories={dailyCalories}
-                      recommendedCalories={2000} // Set a default or fetch recommended calories from the backend
+                      recommendedCalories={2000} // Assuming 2000 is the recommended daily intake
                     />
                   </div>
                 </div>
@@ -73,9 +62,7 @@ const Dashboard = () => {
                   <h1>Pengingat</h1>
                   <div className="spacing-br">
                     <div className="Dashboard-Pengingat">
-                      <h1>
-                        Sudahkah <br /> anda <br /> minum?
-                      </h1>
+                      <h1>Sudahkah <br /> anda <br /> minum?</h1>
                       <p>4 Liter/hari</p>
                     </div>
                   </div>
@@ -86,7 +73,7 @@ const Dashboard = () => {
               <div className="Dashboard-Calender">
                 <KalenderDashboard />
               </div>
-              <NutritionDashboard nutritionSummary={nutritionSummary} />
+              <NutritionDashboard />
             </div>
           </div>
         </div>
