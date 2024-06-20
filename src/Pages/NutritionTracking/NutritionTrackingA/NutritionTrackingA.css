@@ -1,68 +1,76 @@
- 
-  .filter-section {
-    display: flex;
+.filter-section {
+  display: flex;
   flex-direction: row;
   margin-left: 15vh;
-  gap:10px;
+  gap: 20px;
   margin-bottom: 15px;
-  }
+}
 
-  .filter-button {
-    background-color: #DDDCDB;
-    border: none;
-    padding: 2px 20px;
-    cursor: pointer;
-    border-radius: 100px;
-  }
-  
-  .filter-button.active {
-    background-color: #F0DD98;
-  }
-  
-  .profile-picture {
-    width: 100px;
-    height:100px;
-  }
-  
-  .choose-meal-title{
-    margin-left: 15vh;
-    margin-bottom: 5vh;
-    font-size: 30px;
-  }
+.filter-button {
+  background-color: #dddcdb;
+  border: none;
+  padding: 5px 40px;
+  cursor: pointer;
+  border-radius: 30px;
+  color: #294c2b;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.filter-section button:hover {
+  background-color: #2a4b2d;
+  color: #fffefe;
+}
 
-  .big-add-button{
-    display: flex;
-    justify-content: flex-end;
-    padding: 0px 50px 30px 0px;
-   
-  }
+.filter-button.active {
+  background-color: #f0dd98;
+}
 
-  .big-add-button button{
-    background-color: #EF723D;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    font-size: 16px;
-    width: 120px;
-    height: 40px;
-    gap: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
+.profile-picture {
+  width: 100px;
+  height: 100px;
+}
 
-  .circle {
-    width: 30px;
-    height: 30px;
-    background-color: #2A4B2D;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.choose-meal-title {
+  margin-left: 15vh;
+  margin-bottom: 3vh;
+  font-weight: 600;
+  margin-top: 4vh;
+  font-size: 30px;
+}
 
-  .circle-text {
-    color: white;
-  }
+.big-add-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 50px 30px 0px;
+}
+
+.big-add-button button {
+  background-color: #ef723d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 120px;
+  height: 40px;
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background-color: #2a4b2d;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-text {
+  color: white;
+}

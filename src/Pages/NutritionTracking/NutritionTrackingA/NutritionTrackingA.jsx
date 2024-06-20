@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import CollapseSideBar from "../../../components/CollapseSideBar/CollapseSideBar";
 import FoodChoice from "../../../components/FoodChoice/FoodChoice";
 import SearchBar from "../../../components/SearchBar/SearchBar";
 import profilePicture from "../../../Assets/Salad.png";
 import Header from "../../../components/Header/Header";
-import { incrementCounter, decrementCounter, setSelectedItems, setFoodChoices } from "../../../redux/slices/foodSlice";
+import {
+  incrementCounter,
+  decrementCounter,
+  setSelectedItems,
+  setFoodChoices,
+} from "../../../redux/slices/foodSlice";
 import "./NutritionTrackingA.css";
 
 function NutritionTrackingA() {
   const [activeFilter, setActiveFilter] = useState("All");
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  const filters = ["All", "Rendah Kalori", "Bebas Gluten", "Vegan"];
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  const filters = ["Semua", "Rendah Kalori", "Bebas Gluten", "Vegan"];
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.food.counter);
   const foodChoices = useSelector((state) => state.food.foodChoices);
@@ -46,13 +52,13 @@ function NutritionTrackingA() {
     if (e) e.preventDefault();
     console.log("Tombol diklik!");
 
-    const addFoodPromises = selectedItems.map(item => {
+    const addFoodPromises = selectedItems.map((item) => {
       const addFood = {
         foodId: item._id,
         mealType,
       };
       return axios.post(`${backendUrl}/api/foodlogs/add`, addFood, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       });
     });
 
@@ -60,7 +66,7 @@ function NutritionTrackingA() {
       await Promise.all(addFoodPromises);
       navigate("/nutrition-tracking/food-choices/nutrition-data");
     } catch (error) {
-      console.error('Error posting data:', error);
+      console.error("Error posting data:", error);
     }
   };
 
@@ -77,7 +83,9 @@ function NutritionTrackingA() {
         {filters.map((filter) => (
           <button
             key={filter}
-            className={`filter-button ${activeFilter === filter ? "active" : ""}`}
+            className={`filter-button ${
+              activeFilter === filter ? "active" : ""
+            }`}
             onClick={() => handleFilterClick(filter)}
           >
             {filter}

@@ -1,10 +1,10 @@
-.nutrition-chart-position{
+.nutrition-chart-position {
   display: flex;
   justify-content: center;
 }
 
 .nutrition-chart-container {
-  background-color: #294C2B;
+  background-color: #294c2b;
   padding: 35px;
   margin: 0px 10px 10px 10px;
   display: flex;
@@ -24,18 +24,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 10px;
+  margin: 0 35px;
 }
 
 .nutrition-chart-header {
   color: white;
   font-weight: bold;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
 .doughnut-chart-wrapper {
   width: 30px;
-  height:30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,5 +50,5 @@
 .nutrition-value {
   color: white;
   font-size: 1rem;
-  margin-left: 10px; /* Add space between chart and value */
+  margin-left: 15px;
 }

@@ -48,19 +48,23 @@
   font-family: "Marko One", sans-serif;
 }
 
-.add-button button {
+.addMeal-button button {
   background-color: #ef723d;
   color: white;
   border: none;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  padding: 10px 45px;
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   border-radius: 8px;
 }
-
+.addMeal-button button:hover {
+  background-color: #f0dd98;
+  color: black;
+}
 .daily-meal-image img {
   max-width: 250px;
   border-radius: 100%;

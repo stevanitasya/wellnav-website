@@ -31,7 +31,7 @@ const DailyMeal = () => {
           <div key={item.id} className="daily-meal-container">
             <div className="daily-meal-info">
               <div className="meal-type">{item.type}</div>
-              <div className="add-button">
+              <div className="addMeal-button">
                 <button onClick={() => navigateToFoodChoices(item.type)}>
                   Tambah
                 </button>

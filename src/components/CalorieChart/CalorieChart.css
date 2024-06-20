@@ -1,19 +1,21 @@
-
 .doughnut-chart-container {
-    display: flex;
-    justify-content: center; /* Align items horizontally in the center */
-    align-items: center; /* Align items vertically in the center */
-  }
-  
-  .doughnut-chart {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .doughnut-chart-center-text {
-    position: absolute;
+  display: flex;
+  justify-content: center; /* Align items horizontally in the center */
+  align-items: center; /* Align items vertically in the center */
+  /* margin-left: 30vh; */
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.doughnut-chart {
+  width: 150px;
+  height: 150px;
+}
+
+.doughnut-chart-center-text {
+  position: absolute;
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
-  }
+}
