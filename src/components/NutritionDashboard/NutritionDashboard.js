@@ -8,6 +8,8 @@ import "./NutritionDashboard.css";
 const NutritionDashboard = () => {
   const nutritionSummary = useSelector((state) => state.nutritionSummary || { carbohydrates: 0, protein: 0, fat: 0 });
 
+  console.log('Nutrition Summary:', nutritionSummary);  // Debugging log
+
   const { carbohydrates, protein, fat } = nutritionSummary;
 
   return (

@@ -13,23 +13,13 @@ import { setFoodLogs, setNutritionSummary } from "../../redux/actions";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
   const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userResponse = await axios.get(
-          `${backendUrl}/api/users/profile`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
-        const userId = userResponse.data._id;
-
-        const response = await axios.get(`${backendUrl}/api/users/dashboard`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.get(`${backendUrl}/api/users/dashboard`);
+        console.log('Fetched Data:', response.data);  // Debugging log
 
         dispatch(setFoodLogs(response.data.foodLogs));
         dispatch(setNutritionSummary(response.data.nutritionSummary));
@@ -39,7 +29,7 @@ const Dashboard = () => {
     };
 
     fetchUserData();
-  }, [dispatch, token, backendUrl]);
+  }, [dispatch, backendUrl]);
 
   const { takenCalories, recommendedCalories } = useSelector((state) => state);
 

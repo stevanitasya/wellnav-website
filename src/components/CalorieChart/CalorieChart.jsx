@@ -6,6 +6,8 @@ import "./CalorieChart.css";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const CalorieChart = ({ takenCalories, recommendedCalories }) => {
+  console.log('Calorie Chart Data:', { takenCalories, recommendedCalories });  // Debugging log
+
   const remainingCalories = Math.max(recommendedCalories - takenCalories, 0);
 
   const data = {
