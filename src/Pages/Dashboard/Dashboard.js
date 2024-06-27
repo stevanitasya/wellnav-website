@@ -72,13 +72,10 @@ const Dashboard = () => {
                   <h1>Pengingat</h1>
                   <div className="spacing-br">
                     <div className="Dashboard-Pengingat">
-<<<<<<< HEAD
                       <h1>
                         Sudahkah <br /> anda <br /> minum?
                       </h1>
-=======
                       <h1>Sudahkah <br /> anda <br /> minum?</h1>
->>>>>>> 554809ceb76fcbf1b3de47f61d00e049e76933fd
                       <p>2 Liter/hari</p>
                     </div>
                   </div>
