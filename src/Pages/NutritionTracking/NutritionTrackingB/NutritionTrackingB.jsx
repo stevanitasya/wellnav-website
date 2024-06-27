@@ -15,7 +15,8 @@ import axios from "axios";
 
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
   const selectedItems = useSelector((state) => state.food.selectedItems);
   const [nutritionSummary, setNutritionSummary] = useState({
     calories: 0,
@@ -31,7 +32,10 @@ const NutritionTrackingB = () => {
         const config = {
           headers: { Authorization: `Bearer ${token}` },
         };
-        const response = await axios.get(`${backendUrl}/api/foodlogs/2024-06-20`, config);
+        const response = await axios.get(
+          `${backendUrl}/api/foodlogs/2024-06-20`,
+          config
+        );
         const { foodLogs, nutritionSummary } = response.data;
         setNutritionSummary(nutritionSummary);
         dispatch(setCalories(nutritionSummary.calories, 2000));
@@ -52,7 +56,10 @@ const NutritionTrackingB = () => {
       <Header />
       <div className="chart-container">
         <img src={chefPicture} className="chef-picture" />
-        <CalorieChart takenCalories={nutritionSummary.calories} recommendedCalories={2000} />
+        <CalorieChart
+          takenCalories={nutritionSummary.calories}
+          recommendedCalories={2000}
+        />
         <div className="chart-description">
           <div className="chart-meal-type">Sarapan</div>
           <div className="chart-calorie-left">

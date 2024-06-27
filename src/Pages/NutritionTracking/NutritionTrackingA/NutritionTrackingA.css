@@ -59,12 +59,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
 }
-
+.big-add-button button:hover {
+  background-color: #2a4b2d;
+}
 .circle {
   width: 30px;
   height: 30px;
-  background-color: #2a4b2d;
+  background-color: #f0dd98;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -72,5 +75,5 @@
 }
 
 .circle-text {
-  color: white;
+  color: rgb(0, 0, 0);
 }

@@ -8,7 +8,8 @@ const FoodChoice = ({ activeFilter }) => {
   const dispatch = useDispatch();
   const foodChoices = useSelector((state) => state.food.foodChoices);
   const selectedItems = useSelector((state) => state.food.selectedItems);
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
   useEffect(() => {
     const fetchFoodChoices = async () => {
@@ -53,10 +54,10 @@ const FoodChoice = ({ activeFilter }) => {
             <div className="food-details">
               <h3>{item.name}</h3>
               <p>
-                {item.calories} kkal {item.carbohydrates}g
-              </p>
-              <p>
-                {item.protein}g {item.fat}g
+                {item.calories} kkal kalori <br /> {item.carbohydrates}g
+                Karbohidrat
+                <br />
+                {item.protein}g protein <br /> {item.fat}g lemak
               </p>
             </div>
             <div className="button-group">

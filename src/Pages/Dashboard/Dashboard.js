@@ -80,7 +80,7 @@ const Dashboard = () => {
                       <h1>
                         Sudahkah <br /> anda <br /> minum?
                       </h1>
-                      <p>4 Liter/hari</p>
+                      <p>2 Liter/hari</p>
                     </div>
                   </div>
                 </div>

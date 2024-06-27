@@ -1,26 +1,20 @@
-
 .warning-message-container {
-    /* width: 100vw; */
-    background-color: #8C2020;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center;  */
-    /* align-items: center;  */
-    /* box-sizing: border-box; */
-    padding: 20px;
-    z-index: 9999;
-    text-align: center;
-   
-
+  background-color: #8c2020;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 2vh;
+  z-index: 9999;
+  text-align: center;
 }
 
 .warning-message-container h1 {
-    margin: 0;
-    font-size: 18px;
+  margin: 0;
+  font-size: 18px;
 }
 
 .warninng-message-container p {
-    margin: 0;
-    font-size: 16px;
+  margin: 0;
+  font-size: 16px;
 }
