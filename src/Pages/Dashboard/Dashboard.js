@@ -14,6 +14,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Dashboard = () => {
   const [foodLogs, setFoodLogs] = useState([]);
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
   const [nutritionSummary, setNutritionSummary] = useState({
     carbohydrates: 0,
     protein: 0,
@@ -27,15 +28,10 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchFoodLogs = async () => {
       try {
-        const response = await axios.get(
-          "https://wellnav-backend.vercel.app/api/foodlogs/" +
-            new Date().toISOString().split("T")[0],
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const config = {
+          headers: { Authorization: `Bearer ${token}` },
+        };
+        const response = await axios.get(`${backendUrl}/api/foodlogs/` + new Date().toISOString().split('T')[0], config);
         const nutritionData = response.data.nutritionSummary;
         setNutritionSummary(nutritionData);
         dispatch(setCalories(nutritionData.calories, 2000));
@@ -82,9 +78,7 @@ const Dashboard = () => {
                   <h1>Pengingat</h1>
                   <div className="spacing-br">
                     <div className="Dashboard-Pengingat">
-                      <h1>
-                        Sudahkah <br /> anda <br /> minum?
-                      </h1>
+                      <h1>Sudahkah <br /> anda <br /> minum?</h1>
                       <p>2 Liter/hari</p>
                     </div>
                   </div>

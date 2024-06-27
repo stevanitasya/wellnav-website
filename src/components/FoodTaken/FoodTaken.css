@@ -27,6 +27,26 @@
 }
 
 .food-image2 {
+  max-width: 100%;
+  width: 180px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  background-color: #ffffff;
+  padding: 20px 177px 5px 10px;
+  border-radius: 8px;
+  width: 651px;
+  height: 174px;
+  margin: 0px;
+  position: relative;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.food-image2 {
+  display: flex;
+  width: 53%;
   display: flex;
   max-width: 100%;
   width: 20vh;
@@ -47,5 +67,5 @@
 
 .food-details p {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 600;
 }
