@@ -47,6 +47,10 @@
 .food-image2 {
   display: flex;
   width: 53%;
+  display: flex;
+  max-width: 100%;
+  width: 20vh;
+  border-radius: 10%;
   margin-top: 1px;
   margin-left: 11px;
   margin-right: 18px;

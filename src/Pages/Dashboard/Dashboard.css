@@ -105,3 +105,56 @@ body,
   font-size: 20px;
   margin-left: 0;
 }
+
+@media only screen and (max-width: 768px) {
+  .Dashboard-Container {
+    margin-left: 2vh;
+  }
+  .Dashboard-Container h1,
+  .Dashboard-Container p {
+    margin-left: 2vh;
+  }
+  .Dashboard-Content {
+    flex-direction: column;
+  }
+  .Dashboard-Req {
+    margin-left: 2vh;
+  }
+  .Dashboard-Req img.DashboardSalad-img {
+    transform: translate(0, 0);
+    max-width: 100%;
+    height: auto;
+  }
+  .Dashboard-Req a {
+    margin-left: 2vh;
+  }
+  .Dashboard-Fitur {
+    flex-direction: column;
+    margin-left: 2vh;
+  }
+  .Dashboard-Pengukur,
+  .Dashboard-Pengingat {
+    padding: 5vh;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Dashboard-Container h1 {
+    font-size: 20px;
+  }
+  .Dashboard-Container p {
+    font-size: 14px;
+  }
+  .Dashboard-Req h1 {
+    font-size: 20px;
+  }
+  .Dashboard-Req a {
+    font-size: 12px;
+  }
+  .Dashboard-Pengingat h1 {
+    font-size: 24px;
+  }
+  .Dashboard-Pengingat p {
+    font-size: 16px;
+  }
+}
