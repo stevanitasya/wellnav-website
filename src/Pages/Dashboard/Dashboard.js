@@ -83,9 +83,6 @@ const Dashboard = () => {
                   <div className="spacing-br">
                     <div className="Dashboard-Pengingat">
                       <h1>Sudahkah <br /> anda <br /> minum?</h1>
-                      <h1>
-                        Sudahkah <br /> anda <br /> minum?
-                      </h1>
                       <p>2 Liter/hari</p>
                     </div>
                   </div>
