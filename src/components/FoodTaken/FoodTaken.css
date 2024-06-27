@@ -5,17 +5,9 @@
 .food-taken-text {
   font-size: 24px;
   font-weight: 700;
-<<<<<<< HEAD
   font-weight: bold;
   margin-bottom: 20px;
 }
-=======
-}
-
-/* .food-taken-header {
-  /* width: 100%; 
-} */
->>>>>>> 554809ceb76fcbf1b3de47f61d00e049e76933fd
 
 .food-choices-container {
   display: flex;
@@ -26,7 +18,6 @@
 .food-choice-container2 {
   display: flex;
   flex-direction: row;
-<<<<<<< HEAD
   align-items: center;
   width: calc(50% - 20px);
   background-color: #fff;
@@ -42,7 +33,6 @@
   border-radius: 8px;
   margin-bottom: 10px;
   margin-left: 20px;
-=======
   background-color: #ffffff;
   padding: 20px 177px 5px 10px;
   border-radius: 8px;
@@ -56,12 +46,10 @@
 
 .food-image2 {
   display: flex;
-    width: 53%;
-    border-radius: 100%;
-    margin-top: 1px;
-    margin-left: 11px;
-    margin-right: 18px;
->>>>>>> 554809ceb76fcbf1b3de47f61d00e049e76933fd
+  width: 53%;
+  margin-top: 1px;
+  margin-left: 11px;
+  margin-right: 18px;
 }
 
 .food-details {
@@ -75,5 +63,5 @@
 
 .food-details p {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 600;
 }
