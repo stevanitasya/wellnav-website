@@ -32,10 +32,14 @@ const NutritionTrackingB = () => {
         const config = {
           headers: { Authorization: `Bearer ${token}` },
         };
+<<<<<<< HEAD
         const response = await axios.get(
           `${backendUrl}/api/foodlogs/2024-06-20`,
           config
         );
+=======
+        const response = await axios.get(`${backendUrl}/api/foodlogs/` + new Date().toISOString().split('T')[0], config);
+>>>>>>> 554809ceb76fcbf1b3de47f61d00e049e76933fd
         const { foodLogs, nutritionSummary } = response.data;
         setNutritionSummary(nutritionSummary);
         dispatch(setCalories(nutritionSummary.calories, 2000));

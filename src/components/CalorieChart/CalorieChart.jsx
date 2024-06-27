@@ -6,7 +6,7 @@ import "./CalorieChart.css";
 // Register the necessary Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const CalorieChart = ({ takenCalories, recommendedCalories }) => {
+const CalorieChart = ({ takenCalories = 0, recommendedCalories = 2000 }) => {
   const remainingCalories = Math.max(recommendedCalories - takenCalories, 0);
 
   const data = {

@@ -20,17 +20,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 5vh;
-  font-size: 18px;
+  margin-left: 1vh;
+  font-size: 14px;
 }
 
 .chef-picture {
-  max-width: 370px;
+  max-width: 371px;
   position: absolute;
-  top: -7px;
-  left: 260px;
-  /* flex-grow: 1 ; */
-  /* transform: translateY(20px);  */
+  top: -6px;
+  left: 376px;
+  /* flex-grow: 1; */
+  /* transform: translateY(20px);
 }
 
 .chart-meal-type {

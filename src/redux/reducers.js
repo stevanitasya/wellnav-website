@@ -78,20 +78,18 @@ const rootReducer = (state = initialState, action) => {
         nutritionData: action.payload,
       };
     case SET_FOOD_LOGS:
-      return {
-        ...state,
-         foodLogs: action.payload,
+      console.log('Setting Food Logs:', action.payload); // Debugging log
+      return { 
+         ...state, 
+         foodLogs: action.payload 
       };
     case SET_NUTRITION_SUMMARY:
-      return {
-       ...state,
-       nutritionSummary: action.payload,
+      console.log('Setting Nutrition Summary:', action.payload); // Debugging log
+      return { 
+        ...state, 
+        nutritionSummary: action.payload 
       };
-      case "SET_FOOD_LOGS":
-      return {
-        ...state,
-        foodLogs: action.payload,
-      };
+  
     default:
     return state;
   }
