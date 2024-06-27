@@ -12,11 +12,21 @@ const FoodTaken = () => {
       <div className="food-choices-container">
         {selectedItems.map((item) => (
           <div key={item._id} className="food-choice-container2">
-            <img src={item.imageUrl || exampleImage} alt={item.name} className="food-image2" />
+            <img
+              src={item.imageUrl || exampleImage}
+              alt={item.name}
+              className="food-image2"
+            />
             <div className="food-details">
               <h3>{item.name}</h3>
-              <p>{item.calories} kkal {item.carbohydrates}g</p>
-              <p>{item.protein}g {item.fat}g</p>
+              <p>
+                {item.calories}kkal kalori <br />
+                {item.carbohydrates}g karbohidrat
+                <br />
+                {item.protein}g protein
+                <br />
+                {item.fat}g lemak
+              </p>
             </div>
           </div>
         ))}

@@ -16,7 +16,7 @@ import axios from "axios";
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
   const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
   const selectedItems = useSelector((state) => state.food.selectedItems);
   const [nutritionSummary, setNutritionSummary] = useState({
     calories: 0,
@@ -32,14 +32,13 @@ const NutritionTrackingB = () => {
         const config = {
           headers: { Authorization: `Bearer ${token}` },
         };
-<<<<<<< HEAD
+
         const response = await axios.get(
-          `${backendUrl}/api/foodlogs/2024-06-20`,
+          `${backendUrl}/api/foodlogs/` +
+            new Date().toISOString().split("T")[0],
           config
         );
-=======
-        const response = await axios.get(`${backendUrl}/api/foodlogs/` + new Date().toISOString().split('T')[0], config);
->>>>>>> 554809ceb76fcbf1b3de47f61d00e049e76933fd
+
         const { foodLogs, nutritionSummary } = response.data;
         setNutritionSummary(nutritionSummary);
         dispatch(setCalories(nutritionSummary.calories, 2000));

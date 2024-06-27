@@ -5,14 +5,14 @@
 
 .nutrition-chart-container {
   background-color: #294c2b;
-  padding: 35px;
+  padding: 5px;
   margin: 0px 10px 10px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  width: 700px;
+  width: 750px;
   height: 150px;
 }
 
@@ -36,7 +36,7 @@
 
 .doughnut-chart-wrapper {
   width: 30px;
-  height: 30px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,6 +49,7 @@
 
 .nutrition-value {
   color: white;
-  font-size: 1rem;
-  margin-left: 15px;
+  font-size: 1.2rem;
+  margin-left: 18px;
+  font-weight: bold;
 }

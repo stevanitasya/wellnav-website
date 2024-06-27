@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import CollapseSideBar from '../../components/CollapseSideBar/CollapseSideBar';
-import Salad from '../../Assets/Salad.png';
-import './Dashboard.css';
-import KalenderDashboard from '../../components/KalenderDashboard/KalenderDashboard';
-import CalorieChart from '../../components/CalorieChart/CalorieChart';
-import NutritionDashboard from '../../components/NutritionDashboard/NutritionDashboard';
-import Header from '../../components/Header/Header';
-import { setCalories, setNutritionSummary } from '../../redux/actions';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import CollapseSideBar from "../../components/CollapseSideBar/CollapseSideBar";
+import Salad from "../../Assets/Salad.png";
+import "./Dashboard.css";
+import KalenderDashboard from "../../components/KalenderDashboard/KalenderDashboard";
+import CalorieChart from "../../components/CalorieChart/CalorieChart";
+import NutritionDashboard from "../../components/NutritionDashboard/NutritionDashboard";
+import Header from "../../components/Header/Header";
+import { setCalories, setNutritionSummary } from "../../redux/actions";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Dashboard = () => {
   const [foodLogs, setFoodLogs] = useState([]);
@@ -18,7 +18,7 @@ const Dashboard = () => {
     carbohydrates: 0,
     protein: 0,
     fat: 0,
-    calories: 0
+    calories: 0,
   });
 
   const dispatch = useDispatch();
@@ -27,11 +27,15 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchFoodLogs = async () => {
       try {
-        const response = await axios.get('https://wellnav-backend.vercel.app/api/foodlogs/' + new Date().toISOString().split('T')[0], {
-          headers: {
-            Authorization: `Bearer ${token}`
+        const response = await axios.get(
+          "https://wellnav-backend.vercel.app/api/foodlogs/" +
+            new Date().toISOString().split("T")[0],
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        });
+        );
         const nutritionData = response.data.nutritionSummary;
         setNutritionSummary(nutritionData);
         dispatch(setCalories(nutritionData.calories, 2000));
@@ -55,8 +59,14 @@ const Dashboard = () => {
             {/* KIRI */}
             <div className="Dashboard-Left">
               <div className="Dashboard-Req">
-                <img src={Salad} alt="DashboardSalad" className="DashboardSalad-img" />
-                <h1>Rekomendasi <br /> Makanan Hari ini.</h1>
+                <img
+                  src={Salad}
+                  alt="DashboardSalad"
+                  className="DashboardSalad-img"
+                />
+                <h1>
+                  Rekomendasi <br /> Makanan Hari ini.
+                </h1>
                 <Link to="/Recommendation">Lainnya...</Link>
               </div>
               <div className="Dashboard-Fitur">
@@ -72,13 +82,9 @@ const Dashboard = () => {
                   <h1>Pengingat</h1>
                   <div className="spacing-br">
                     <div className="Dashboard-Pengingat">
-<<<<<<< HEAD
                       <h1>
                         Sudahkah <br /> anda <br /> minum?
                       </h1>
-=======
-                      <h1>Sudahkah <br /> anda <br /> minum?</h1>
->>>>>>> 554809ceb76fcbf1b3de47f61d00e049e76933fd
                       <p>2 Liter/hari</p>
                     </div>
                   </div>

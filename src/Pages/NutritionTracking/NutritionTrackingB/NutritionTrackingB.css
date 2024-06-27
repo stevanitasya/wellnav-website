@@ -20,25 +20,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 1vh;
-  font-size: 14px;
+  margin-left: 2vh;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .chef-picture {
   max-width: 371px;
   position: absolute;
-  top: -6px;
-  left: 376px;
-  /* flex-grow: 1; */
-  /* transform: translateY(20px);
-}
-
-.chart-meal-type {
-  font-weight: 700;
-}
-
-.chart-calorie-left {
-  /* add different font type here */
+  left: 250px;
+  transform: translateY(-125px);
 }
 
 .warning-section {
