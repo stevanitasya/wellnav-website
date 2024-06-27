@@ -9,7 +9,7 @@ const FoodChoice = ({ activeFilter }) => {
   const foodChoices = useSelector((state) => state.food.foodChoices);
   const selectedItems = useSelector((state) => state.food.selectedItems);
   const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
 
   useEffect(() => {
     const fetchFoodChoices = async () => {

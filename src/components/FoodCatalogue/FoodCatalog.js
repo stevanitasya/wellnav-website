@@ -6,7 +6,7 @@ import "./FoodCatalog.css";
 
 const FoodCatalog = ({ activeFilter, userId }) => {
   const [foodItems, setFoodItems] = useState([]);
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
 
   useEffect(() => {
     const fetchArticles = async () => {

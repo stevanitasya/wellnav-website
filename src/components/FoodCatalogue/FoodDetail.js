@@ -5,7 +5,7 @@ import axios from 'axios';
 const FoodDetail = () => {
   const { id } = useParams();
   const [foodItem, setFoodItem] = useState(null);
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
 
   useEffect(() => {
     const fetchFoodDetail = async () => { 

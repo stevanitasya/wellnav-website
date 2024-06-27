@@ -5,7 +5,7 @@ import "../../components/ProfileForm/ProfileForm.css";
 import axios from "axios";
 
 const ProfileForm = () => {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
   const [isEditing, setIsEditing] = useState(false);
   const [initialProfileData, setInitialProfileData] = useState({
     username: "",

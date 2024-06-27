@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
 
   const initialValues = {
     username: "",

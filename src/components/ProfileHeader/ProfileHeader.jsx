@@ -5,7 +5,7 @@ import profileImage from "../../Assets/ProfileImage.png";
 import axios from "axios";
 
 const ProfileHeader = () => {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
   const [username, setUsername] = useState("");
   const token = localStorage.getItem("token");
 
