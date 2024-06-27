@@ -18,6 +18,7 @@ body,
 }
 .Dashboard-Content {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .Dashboard-Left {
@@ -47,7 +48,7 @@ body,
   max-width: 50vh;
   height: auto;
   object-fit: cover;
-  index: 1;
+  z-index: 1;
 }
 .Dashboard-Req a {
   padding: 5px 10px;
@@ -67,6 +68,7 @@ body,
 
 .Dashboard-Fitur {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 2vh;
   margin-left: 10vh;
 }
@@ -106,6 +108,7 @@ body,
   margin-left: 0;
 }
 
+/* Responsive Styles */
 @media only screen and (max-width: 768px) {
   .Dashboard-Container {
     margin-left: 2vh;
@@ -118,12 +121,17 @@ body,
     flex-direction: column;
   }
   .Dashboard-Req {
-    margin-left: 2vh;
+    margin-left: 12vh;
+    margin-right: 5vh;
   }
   .Dashboard-Req img.DashboardSalad-img {
-    transform: translate(0, 0);
-    max-width: 100%;
+    transform: translate(70%, -25%);
+    max-width: 70%;
     height: auto;
+  }
+  .Dashboard-Kalori {
+    margin-left: 10vh;
+    margin-bottom: 2vh;
   }
   .Dashboard-Req a {
     margin-left: 2vh;
@@ -138,12 +146,25 @@ body,
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 450px) {
+  .Dashboard-Container {
+    margin-left: 15vh;
+  }
   .Dashboard-Container h1 {
     font-size: 20px;
   }
   .Dashboard-Container p {
     font-size: 14px;
+  }
+  .Dashboard-Req {
+    /* margin-left: 12vh; */
+    /* 
+    margin-right: 5vh; */
+  }
+  .DashboardSalad-img {
+    width: 70%;
+    margin-left: 10vh;
+    margin-top: -1vh;
   }
   .Dashboard-Req h1 {
     font-size: 20px;
@@ -151,8 +172,26 @@ body,
   .Dashboard-Req a {
     font-size: 12px;
   }
+  .Dashboard-Kalori {
+    margin-left: 12vh;
+    margin-right: 3vh;
+    margin-bottom: 2vh;
+  }
+  .Dashboard-Content {
+    flex-direction: column;
+  }
+  .Dashboard-Fitur {
+    flex-direction: column;
+    margin-left: 2vh;
+  }
+  .Dashboard-Pengingat {
+    margin-left: 2vh;
+    margin-right: 2vh;
+  }
+  .Dashboard-Kalori h1,
   .Dashboard-Pengingat h1 {
-    font-size: 24px;
+    font-size: 22px;
+    margin-left: 2vh;
   }
   .Dashboard-Pengingat p {
     font-size: 16px;
