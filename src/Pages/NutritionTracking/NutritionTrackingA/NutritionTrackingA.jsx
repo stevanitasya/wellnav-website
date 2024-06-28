@@ -17,8 +17,7 @@ import "./NutritionTrackingA.css";
 
 function NutritionTrackingA() {
   const [activeFilter, setActiveFilter] = useState("All");
-  const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
 
   const filters = ["Semua", "Rendah Kalori", "Bebas Gluten", "Vegan"];
   const dispatch = useDispatch();

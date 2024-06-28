@@ -15,8 +15,7 @@ import axios from "axios";
 
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
-  const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
   const selectedItems = useSelector((state) => state.food.selectedItems);
   const [nutritionSummary, setNutritionSummary] = useState({
     calories: 0,

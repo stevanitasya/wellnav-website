@@ -22,6 +22,9 @@ const SignInForm = () => {
       localStorage.setItem("token", token);
       localStorage.setItem("username", username);
 
+      // Set token in axios defaults
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
       navigate("/dashboard");
     } catch (error) {
       if (error.response && error.response.data) {
