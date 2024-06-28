@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Recommendation from "./Pages/Recommendation/Recommendation";
 import WaterTracking from "./Pages/WaterTracking/WaterTracking";
 import LandingPage from "./Pages/LandingPage/LandingPage";
@@ -24,7 +25,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/recommendation" element={<Recommendation />} />
-          <Route path="/water-tracking" element={<WaterTracking />} />
+          <Route path="/WaterTracking" element={<WaterTracking />} />
           <Route path="/LandingPage" element={<LandingPage />} />
           <Route path="/nutrition-tracking" element={<NutritionTracking />} />
           <Route path="/Header" element={<Header />} />
