@@ -11,7 +11,8 @@ const WaterTracking = () => {
   const [time, setTime] = useState("");
   const [totalIntake, setTotalIntake] = useState(0);
   const dailyTarget = 2000;
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -78,8 +79,8 @@ const WaterTracking = () => {
                     />
                   </label>
                   <label>
-                    Waktu
                     <div className="Waktu">
+                      Waktu
                       <p>:</p>
                     </div>
                     <input
