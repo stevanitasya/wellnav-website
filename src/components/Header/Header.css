@@ -124,20 +124,20 @@
 @media only screen and (max-width: 480px) {
   .Header {
     flex-direction: column;
-    /* align-items: flex-start; */
-    margin-left: -3vh;
+    align-items: flex-start;
+    /* margin-left: -3vh; */
   }
   .Header-Content {
     margin-bottom: 10px;
   }
   .Header-Right {
     flex-direction: column;
-    /* align-items: flex-start; */
-    margin-left: 10vh;
+    align-items: flex-start;
+    margin-left: -15vh;
     width: 100%;
   }
   .Header-Search {
-    width: 100%;
+    width: 70%;
     margin-bottom: 10px;
     margin-left: 27vh;
   }
@@ -147,8 +147,8 @@
   .Profile-Icon {
     width: 100%;
     justify-content: flex-start;
-    margin-left: 115vh;
-    margin-top: -6vh;
+    margin-left: 68vh;
+    margin-top: -7vh;
   }
   .Profile-Icon img {
     width: 40px;

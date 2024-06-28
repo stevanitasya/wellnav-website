@@ -1,4 +1,4 @@
-.Food-Catalog {
+/* .Food-Catalog {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   margin-left: 15vh;
@@ -42,7 +42,7 @@
 }
 
 .Food-name:hover {
-  color: #EF723D; 
+  color: #ef723d;
 }
 
 .Food-detail {
@@ -69,4 +69,145 @@
 
 .heart-icon-full {
   fill: red;
+} */
+
+.Food-Catalog {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-left: 15vh;
+  gap: 10px;
+  margin-right: 50px;
+}
+
+.FoodCatalog-Column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* .Food-Recommendation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  text-align: center;
+  background-color: #f0dd98;
+  max-width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 3vh;
+} */
+.Food-Recommendation {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  background-color: #f0dd98;
+  padding: 20px;
+  border-radius: 12px;
+  width: 280px;
+  margin: 20px;
+  position: relative;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  height: 350px;
+}
+
+/* .SaladCatalog-img {
+  max-width: 100%;
+  width: 224px;
+  height: 201px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+} */
+.SaladCatalog-img {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  width: 25vh;
+  height: 20vh;
+  border-radius: 10%;
+  margin-top: 1px;
+  margin-left: 11px;
+  margin-right: 18px;
+  margin-bottom: 5vh;
+}
+.Food-name {
+  color: inherit;
+  position: relative;
+  text-align: left;
+  padding-left: 10px;
+  margin: 0;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.Food-name:hover {
+  color: #ef723d;
+}
+
+/* .Food-detail {
+  position: relative;
+  left: 20px;
+  margin: 0;
+  font-weight: bold;
+  color: #7c7c7c;
+} */
+.Food-detail {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 10px;
+  margin-right: 40px;
+  width: 100%;
+}
+
+.heart-icon {
+  width: 20px;
+  height: 10px;
+  margin-left: 20px;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+  cursor: pointer;
+}
+
+.heart-icon-outline {
+  fill: none;
+  stroke: black;
+  stroke-width: 2px;
+}
+
+.heart-icon-full {
+  fill: red;
+}
+
+@media only screen and (max-width: 768px) {
+  .Food-Catalog {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 5vh;
+    margin-right: 5vh;
+    gap: 10px;
+  }
+
+  .SaladCatalog-img {
+    width: 150px;
+    height: 135px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Food-Catalog {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+    margin-right: 0;
+    gap: 10px;
+  }
+
+  .SaladCatalog-img {
+    width: 70%;
+    height: 20vh;
+  }
 }
