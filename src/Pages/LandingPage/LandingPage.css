@@ -3,14 +3,23 @@
   align-items: center;
   /* justify-content: space-between; */
   margin-left: 15vh;
+  @media only screen and (max-width: 768px){
+    margin-left: 5vh;
+  }
 }
 .Landing-Header h1 {
   margin-right: 75vh;
+  @media only screen and (max-width: 768px){
+    margin-right: 0vh;
+  }
 }
 .Landing-Header p {
   font-size: 20px;
   margin-left: 100px;
   font-weight: 500;
+  @media only screen and (max-width: 768px){
+    margin-left:25px;
+  }
 }
 .Landing-Header a {
   text-decoration: none;
@@ -37,6 +46,11 @@
   margin-left: 15vh;
   margin-right: 20vh;
   padding: 20px 80px 50px;
+  @media only screen and (max-width: 768px){
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 20px 40px 50px;
+  }  
 }
 .Landing-Content h1 {
   font-size: 35px;
@@ -67,7 +81,11 @@
   max-width: 60vh;
   object-fit: cover;
   index: 1;
+  @media only screen and (max-width: 768px){
+    display: none;
+  }  
 }
+
 /* ABOUT US */
 .Landing-About {
   text-align: center;
@@ -108,6 +126,12 @@
   padding: 0 20px;
   margin-left: 39vh;
 }
+
+.Landing-Why img{
+  @media only screen and (max-width: 768px){
+    display: none;
+  }  
+}
 .spacing-br br {
   content: "";
   display: block;
@@ -128,6 +152,10 @@
   font-size: 30px;
   font-weight: bold;
   color: #000000;
+  @media screen and (max-width: 768px) {
+transform: translate(-70%,-5%);
+
+  }
 }
 .Landing-Why .right-img {
   position: absolute;
@@ -139,6 +167,9 @@
   /* padding-bottom: 5vh; */
   margin-bottom: -20px;
   margin-top: -8vh;
+  @media screen and (max-width: 768px) {
+    padding-top: 50px;
+  }
 }
 .FiturContent-Left,
 .FiturContent-Right {
@@ -147,14 +178,25 @@
   margin-bottom: 20px;
   margin-left: 15vh;
   margin-right: 15vh;
+  @media screen and (max-width: 768px){
+    margin-left: 0px;
+  }
 }
 
 .FiturContent-Left {
-  justify-content: flex-start;
+  @media screen and (max-width: 768px) {
+    padding-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 
 .FiturContent-Right {
-  justify-content: flex-end;
+  @media screen and (max-width: 768px) {
+    padding-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 /* .Notifikasi-img */
 .Pelacakan-img,
@@ -165,6 +207,11 @@
   margin-right: 20px;
   margin-top: 5vh;
   margin-right: 7vh;
+  @media screen and (max-width: 768px) {
+    max-width:20vh;
+    margin-right: 0px;
+    margin-top: 0px;
+  }
 }
 .PelacakanAir-img,
 .Notifikasi-img {
@@ -175,14 +222,21 @@
   margin-top: 5vh;
   margin-right: 7vh;
   margin-bottom: 70px;
+  @media screen and (max-width: 768px) {
+    max-width:20vh;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
-.FiturContent-Right .Kalori-img {
-  margin-left: 10vh;
-  width: 100%;
-}
+
 
 .Text-Content {
   max-width: 100%;
+  @media screen and (max-width: 768px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 .Text-Content h1 {
