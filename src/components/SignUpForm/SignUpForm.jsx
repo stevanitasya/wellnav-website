@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "../SignUpForm/SignUpForm.css";
 import { useNavigate } from "react-router-dom";
-import VerificationModal from './VerificationModal'; // Import modal
+import VerificationModal from '../VerificationEmail/VerificationEmail'; // Import modal
 
 const SignUpForm = () => {
   const [showModal, setShowModal] = useState(false);
