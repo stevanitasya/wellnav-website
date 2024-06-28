@@ -14,8 +14,8 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Dashboard = () => {
   const [foodLogs, setFoodLogs] = useState([]);
-  process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
-  const [nutritionSummary, setNutritionSummary] = useState({
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
+  const [nutritionSummary, setNutritionSummaryState] = useState({
     carbohydrates: 0,
     protein: 0,
     fat: 0,
@@ -34,7 +34,7 @@ const Dashboard = () => {
         };
         const response = await axios.get(`${backendUrl}/api/foodlogs/` + new Date().toISOString().split('T')[0], config);
         const nutritionData = response.data.nutritionSummary;
-        setNutritionSummary(nutritionData);
+        setNutritionSummaryState(nutritionData);
         dispatch(setCalories(nutritionData.calories, 2000));
         dispatch(setNutritionSummary(nutritionData));
         setFoodLogs(response.data.foodLogs);
@@ -44,7 +44,7 @@ const Dashboard = () => {
     };
 
     fetchFoodLogs();
-  }, [dispatch, token]);
+  }, [dispatch, backendUrl, token]);
 
   return (
     <div className="App">
