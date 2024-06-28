@@ -7,8 +7,7 @@ import axios from "axios";
 
 const SignInForm = () => {
   const navigate = useNavigate();
-  const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
 
   const navigateToSignUp = () => {
     navigate("/sign-up");
@@ -16,13 +15,10 @@ const SignInForm = () => {
 
   const onSubmit = async (values, { setSubmitting, setErrors }) => {
     try {
-      const response = await axios.post(
-        `${backendUrl}/api/users/login`,
-        values
-      );
+      const response = await axios.post(`${backendUrl}/api/users/login`, values);
       const { token, username } = response.data;
 
-      // Save the token and username in local storage or cookies
+      // Save the token and username in local storage
       localStorage.setItem("token", token);
       localStorage.setItem("username", username);
 
