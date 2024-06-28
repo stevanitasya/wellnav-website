@@ -2,14 +2,9 @@
   display: flex;
   background-color: #f0dd98;
   color: white;
-  /* padding: 20px 0px 20px 70px; */
   border-radius: 30px;
   max-width: 1700px;
-  /* margin: 20px 100px; */
-  margin-left: 15vh;
-  margin-right: 17vh;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin: 5vh 15vh;
   height: 200px;
 }
 
@@ -20,8 +15,7 @@
 
 .notification-image img {
   max-width: 200px;
-  margin-left: 5vh;
-  margin-right: 5vh;
+  margin: 0 5vh;
 }
 
 .notification-info {
@@ -29,4 +23,81 @@
   justify-content: center;
   color: #8c2020;
   flex-direction: column;
+}
+.notification-info p {
+  font-size: 25px;
+  color: #7b7b7b;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .notification-container {
+    /* flex-direction: column; */
+    align-items: center;
+    margin-left: 15vh;
+    margin-right: 10vh;
+    height: auto;
+    padding: 20px;
+  }
+
+  .notification-image img {
+    max-width: 200px;
+    margin: 0;
+  }
+
+  .notification-info {
+    text-align: center;
+    align-items: center;
+  }
+
+  .notification-info h1 {
+    font-size: 25px;
+  }
+
+  .notification-info p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 450px) {
+  .notification-container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10vh;
+    height: auto;
+    padding: 20px;
+  }
+
+  .notification-image {
+    margin-bottom: 10px;
+  }
+
+  .notification-image img {
+    max-width: 150px;
+    margin: 0;
+  }
+
+  .notification-info {
+    text-align: center;
+    align-items: center;
+  }
+
+  .notification-info h1 {
+    font-size: 20px;
+  }
+  .notification-info p {
+    font-size: 10;
+  }
+  .notification-info h1:last-child {
+    font-size: 14px;
+  }
+}
+@media (max-width: 400px) {
+  .notification-container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 11vh;
+    margin-right: 5vh;
+    height: auto;
+  }
 }

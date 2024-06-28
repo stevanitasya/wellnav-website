@@ -29,6 +29,7 @@
   justify-content: flex-start;
   margin-bottom: 20px;
 }
+
 .personalize-meal-text h1 {
   font-size: 30px;
   margin-top: 2vh;
@@ -61,11 +62,72 @@
   cursor: pointer;
   border-radius: 8px;
 }
+
 .addMeal-button button:hover {
   background-color: #f0dd98;
   color: black;
 }
+
 .daily-meal-image img {
   max-width: 250px;
   border-radius: 100%;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .daily-meals {
+    padding: 20px 50px;
+  }
+
+  .daily-meal-container {
+    width: 100%;
+    padding: 0px 20px;
+  }
+
+  .personalize-meal-text h1 {
+    font-size: 25px;
+  }
+
+  .meal-type {
+    font-size: 25px;
+  }
+
+  .addMeal-button button {
+    padding: 10px 30px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .daily-meals {
+    padding: 10px 20px;
+    margin-left: 10vh;
+  }
+  .personalize-meal-text h1 {
+    font-size: 18px;
+  }
+  .daily-meal-container {
+    align-items: left;
+    margin-left: -7vh;
+    margin-right: -2vh;
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+  }
+
+  .meal-type {
+    font-size: 18px;
+  }
+
+  .addMeal-button button {
+    padding: 7px 15px;
+    font-size: 12px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .daily-meal-image img {
+    max-width: 200px;
+    margin-right: 10px;
+  }
 }

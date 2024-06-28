@@ -2,21 +2,25 @@
   display: flex;
   justify-content: center;
   background-color: #f0dd98;
+  max-width: 100%;
   border-radius: 20px;
   padding: 20px;
   margin-top: 5vh;
   margin-left: 15vh;
   margin-right: 5vh;
 }
+
 .KalenderDashboard {
   display: flex;
   flex-direction: column;
 }
+
 .Kalender-month {
   font-size: 22px;
   font-weight: bold;
   font-family: "Marko One", sans-serif;
 }
+
 .Kalender-week {
   display: flex;
   width: 80%;
@@ -24,6 +28,7 @@
   gap: 10px;
   font-family: "Marmelad", sans-serif;
 }
+
 .Kalender-day {
   display: flex;
   flex-direction: column;
@@ -33,6 +38,7 @@
   gap: 10px;
   font-family: "Marmelad", sans-serif;
 }
+
 .Kalenderday-name {
   font-size: 16px;
   margin-bottom: 5px;
@@ -48,4 +54,39 @@
   background-color: #294c2b;
   color: white;
   border-radius: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .KalenderDashboard-Container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .Kalender-week {
+    width: 100%;
+  }
+
+  .Kalender-day {
+    width: auto;
+    padding-inline: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .KalenderDashboard-Container {
+    margin-left: 10vh;
+    max-width: 75%;
+  }
+  .Kalender-month {
+    font-size: 18px;
+  }
+
+  .Kalenderday-name {
+    font-size: 14px;
+  }
+
+  .Kalenderday-number {
+    font-size: 12px;
+  }
 }

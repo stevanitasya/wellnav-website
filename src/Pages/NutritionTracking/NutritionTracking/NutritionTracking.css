@@ -1,4 +1,4 @@
-.App {
+/* .App {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -51,4 +51,93 @@
 .calendar-section{
   display: flex;
   justify-content: center;
+} */
+.App {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.greeting-section {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10vh;
+  margin-top: 2vh;
+}
+
+.search-profile-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-right: 20px;
+}
+
+.center-line {
+  width: 80%;
+  margin: 0 auto 0px auto;
+  border-top: 2px solid black;
+}
+
+.personalize-section-daily-meal {
+  background-color: #f0dd98;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+}
+
+.calendar-section {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .greeting-section,
+  .search-profile-section {
+    margin-left: 5vh;
+    margin-right: 10px;
+  }
+
+  .center-line {
+    width: 90%;
+  }
+
+  .personalize-section-daily-meal {
+    padding: 20px;
+  }
+
+  .calendar-section {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting-section,
+  .search-profile-section {
+    margin-left: 2vh;
+    margin-right: 5px;
+  }
+
+  .personalize-section-daily-meal {
+    padding: 10px;
+  }
+
+  .calendar-section {
+    padding: 10px;
+  }
 }

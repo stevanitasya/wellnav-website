@@ -53,3 +53,45 @@
   margin-left: 18px;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .nutrition-chart-container {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .nutrition-chart-items {
+    flex-direction: column;
+  }
+
+  .nutrition-chart-item {
+    margin: 10px 0;
+  }
+
+  .nutrition-value {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 450px) {
+  .nutrition-chart-container {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-left: 10vh;
+    margin-right: 5vh;
+  }
+  .nutrition-chart-items {
+    flex-direction: column;
+  }
+
+  .nutrition-chart-item {
+    margin: 10px 0;
+  }
+
+  .nutrition-value {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}

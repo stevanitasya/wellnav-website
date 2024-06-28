@@ -1,5 +1,5 @@
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
 import { useDispatch } from "react-redux";
 import exampleImage from "../../Assets/Salad.png";
 import { useNavigate } from "react-router-dom";
@@ -24,9 +24,7 @@ const DailyMeal = () => {
           </div>
           <div className="notification-info">
             <h1>{item.text}</h1>
-            <h1 style={{ fontSize: "20px", color: "#9B8F8F" }}>
-              20 menit lalu
-            </h1>
+            <p>20 menit lalu</p>
           </div>
         </div>
       ))}

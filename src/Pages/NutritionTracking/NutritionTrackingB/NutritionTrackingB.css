@@ -34,5 +34,40 @@
 
 .warning-section {
   padding: 20px 0px 20px 0px;
-  background-color: #f0dd98;
+  background-color: #f0dd98;
+}
+@media (max-width: 768px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chef-picture {
+    width: 80%;
+    position: static;
+    transform: none;
+  }
+
+  .chart-description {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+@media (max-width: 450px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chef-picture {
+    max-width: 0%;
+    position: static;
+    transform: none;
+    margin-top: 4vh;
+  }
+
+  .chart-description {
+    text-align: center;
+    margin: 10px 0;
+  }
 }

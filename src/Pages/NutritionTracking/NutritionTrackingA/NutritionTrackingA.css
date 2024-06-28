@@ -1,6 +1,6 @@
 .filter-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: wrap;
   margin-left: 15vh;
   gap: 20px;
   margin-bottom: 15px;
@@ -8,6 +8,7 @@
 
 .filter-button {
   background-color: #dddcdb;
+
   border: none;
   padding: 5px 40px;
   cursor: pointer;
@@ -76,4 +77,24 @@
 
 .circle-text {
   color: rgb(0, 0, 0);
+}
+
+@media (max-width: 480px) {
+  .choose-meal-title {
+    flex-direction: column;
+    font-size: 25px;
+  }
+  .filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 15vh;
+    margin-right: 20px;
+    justify-content: space-around;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .filter-button {
+    flex: 1 0 calc(100% - 10px);
+    font-size: 12px;
+  }
 }

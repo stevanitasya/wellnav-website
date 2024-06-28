@@ -1,8 +1,7 @@
 .doughnut-chart-container {
   display: flex;
-  justify-content: center; /* Align items horizontally in the center */
-  align-items: center; /* Align items vertically in the center */
-  /* margin-left: 30vh; */
+  justify-content: center;
+  align-items: center;
   margin-top: -10px;
   margin-bottom: 10px;
 }
@@ -18,4 +17,27 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
+}
+@media (max-width: 768px) {
+  .doughnut-chart {
+    width: 100px;
+    height: 100px;
+  }
+
+  .doughnut-chart-center-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 450px) {
+  .chart-container {
+    margin-left: 7vh;
+  }
+  .doughnut-chart {
+    width: 100px;
+    height: 100px;
+  }
+
+  .doughnut-chart-center-text {
+    font-size: 1rem;
+  }
 }

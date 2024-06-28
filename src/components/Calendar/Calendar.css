@@ -1,3 +1,61 @@
+/* .container {
+  display: flex;
+  justify-content: center;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: "Marmelad", sans-serif;
+}
+
+.calendar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.month {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.week {
+  display: flex;
+  width: 80%;
+  justify-content: space-between; 
+  gap: 100px; 
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 15px;
+  padding-block: 15px;
+  width: 60px;
+  gap: 20px;
+  
+}
+
+.day-name {
+  font-size: 20px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+}
+
+.day-number {
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.current {
+  background-color: #294c2b;
+  color: white;
+  border-radius: 20px;
+} */
 .container {
   display: flex;
   justify-content: center;
@@ -26,8 +84,8 @@
 .week {
   display: flex;
   width: 80%;
-  justify-content: space-between; /* This will distribute the space evenly */
-  gap: 100px; /* This is the key property to create the gap */
+  justify-content: space-between;
+  gap: 100px;
 }
 
 .day {
@@ -37,7 +95,6 @@
   padding-block: 15px;
   width: 60px;
   gap: 20px;
-  /* box-sizing: border-box; */
 }
 
 .day-name {
@@ -55,4 +112,68 @@
   background-color: #294c2b;
   color: white;
   border-radius: 20px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .month {
+    font-size: 22px;
+  }
+
+  .week {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .day {
+    width: 50px;
+  }
+
+  .day-name,
+  .day-number {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .month {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .week {
+    align-items: center;
+    gap: 10px;
+  }
+
+  .day {
+    width: 100%;
+    text-align: center;
+  }
+
+  .day-name,
+  .day-number {
+    font-size: 15px;
+  }
+}
+@media (max-width: 400px) {
+  .month {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .week {
+    align-items: center;
+    gap: 0px;
+  }
+
+  .day {
+    width: 70%;
+    text-align: center;
+  }
+
+  .day-name,
+  .day-number {
+    font-size: 15px;
+  }
 }

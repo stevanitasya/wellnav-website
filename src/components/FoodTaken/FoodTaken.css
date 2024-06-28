@@ -68,3 +68,68 @@
   font-size: 18px;
   font-weight: 600;
 }
+@media (max-width: 768px) {
+  .food-taken {
+    padding: 10px;
+  }
+
+  .food-choice-container2 {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .food-nutritiondata {
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+  }
+
+  .food-details {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .food-details h3 {
+    font-size: 20px;
+  }
+
+  .food-details p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 450px) {
+  .food-taken {
+    padding: 10px;
+    margin-left: 10vh;
+    margin-right: 5vh;
+  }
+  .food-taken-text {
+    font-size: 20px;
+  }
+  .food-choice-container2 {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .food-nutritiondata {
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+  }
+
+  .food-details {
+    text-align: center;
+    margin-left: 5vh;
+  }
+
+  .food-details h3 {
+    font-size: 20px;
+  }
+
+  .food-details p {
+    font-size: 16px;
+    margin-left: 5vh;
+  }
+}

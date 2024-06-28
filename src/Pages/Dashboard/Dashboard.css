@@ -4,19 +4,23 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
+
 .Dashboard-Container {
   margin-left: 5vh;
 }
+
 .Dashboard-Container h1 {
   margin-left: 10vh;
   margin-bottom: 0px;
 }
+
 .Dashboard-Container p {
   margin-left: 10vh;
   margin-top: 5px;
 }
+
 .Dashboard-Content {
   display: flex;
   flex-wrap: wrap;
@@ -25,9 +29,11 @@ body,
 .Dashboard-Left {
   flex: 1;
 }
+
 .Dashboard-Right {
   flex: 0.9;
 }
+
 .Dashboard-Req {
   display: flex;
   flex-direction: column;
@@ -39,6 +45,7 @@ body,
   padding: 30px 10px 50px;
   border-radius: 10px;
 }
+
 .Dashboard-Req h1 {
   font-size: 30px;
 }
@@ -51,6 +58,7 @@ body,
   object-fit: cover;
   z-index: 1;
 }
+
 .Dashboard-Req a {
   padding: 5px 10px;
   background-color: #ef723d;
@@ -63,6 +71,7 @@ body,
   border: none;
   color: #fff;
 }
+
 .Dashboard-Req a:hover {
   background-color: #294c2b;
 }
@@ -73,6 +82,7 @@ body,
   margin-top: 2vh;
   margin-left: 10vh;
 }
+
 .Dashboard-Pengukur {
   display: flex;
   flex-direction: column;
@@ -82,6 +92,7 @@ body,
   padding: 10vh;
   border-radius: 20px;
 }
+
 .Dashboard-Nutrisi h1,
 .Dashboard-Reminder h1,
 .Dashboard-Kalori h1 {
@@ -89,9 +100,11 @@ body,
   margin-bottom: 20px;
   margin-left: 0;
 }
+
 .Dashboard-Reminder {
   margin-left: 10vh;
 }
+
 .Dashboard-Pengingat {
   display: flex;
   flex-direction: column;
@@ -101,99 +114,129 @@ body,
   padding: 40px;
   border-radius: 20px;
 }
+
 .Dashboard-Pengingat h1 {
   font-size: 35px;
 }
+
 .Dashboard-Pengingat p {
   font-size: 20px;
   margin-left: 0;
 }
 
-/* Responsive Styles */
-@media only screen and (max-width: 768px) {
-  .Dashboard-Container {
-    margin-left: 2vh;
-  }
-  .Dashboard-Container h1,
-  .Dashboard-Container p {
-    margin-left: 2vh;
-  }
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
   .Dashboard-Content {
     flex-direction: column;
   }
+
+  .Dashboard-Left,
+  .Dashboard-Right {
+    flex: 1;
+  }
+
   .Dashboard-Req {
-    margin-left: 12vh;
-    margin-right: 5vh;
+    margin-left: 0;
+    margin-right: 0;
+    align-items: center;
   }
+
   .Dashboard-Req img.DashboardSalad-img {
-    transform: translate(70%, -25%);
-    max-width: 70%;
-    height: auto;
+    transform: translate(0, -32%);
+    max-width: 30vh;
   }
-  .Dashboard-Kalori {
-    margin-left: 10vh;
-    margin-bottom: 2vh;
+
+  .Dashboard-Req h1 {
+    text-align: center;
   }
+
   .Dashboard-Req a {
-    margin-left: 2vh;
+    margin-left: 0;
   }
+
   .Dashboard-Fitur {
-    flex-direction: column;
-    margin-left: 2vh;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
   }
-  .Dashboard-Pengukur,
-  .Dashboard-Pengingat {
+
+  .Dashboard-Pengukur {
+    align-items: center;
     padding: 5vh;
+  }
+
+  .Dashboard-Reminder {
+    margin-left: 0;
+  }
+
+  .Dashboard-Pengingat {
+    align-items: center;
+    padding: 20px;
+  }
+
+  .Dashboard-Pengingat h1 {
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .Dashboard-Pengingat p {
+    font-size: 16px;
+    text-align: center;
   }
 }
 
-@media only screen and (max-width: 450px) {
-  .Dashboard-Container {
-    margin-left: -3vh;
-  }
+@media (max-width: 450px) {
   .Dashboard-Container h1 {
     font-size: 20px;
   }
+
   .Dashboard-Container p {
     font-size: 14px;
   }
+
   .Dashboard-Req {
-    margin-left: 14vh;
-    /* 
-    margin-right: 5vh; */
+    padding: 20px 10px;
+    margin-left: 4vh;
   }
-  .DashboardSalad-img {
-    width: 70%;
-    margin-top: -1vh;
-  }
+
   .Dashboard-Req h1 {
-    font-size: 20px;
+    font-size: 22px;
+    margin-left: -10vh;
+    text-align: left;
   }
+
   .Dashboard-Req a {
     font-size: 12px;
+    margin-left: -25vh;
   }
-  .Dashboard-Kalori {
-    margin-left: 12vh;
-    /* margin-right: 3vh; */
-    margin-bottom: 2vh;
+  .DashboardSalad-img {
+    margin-left: 40vh;
   }
-  .Dashboard-Content {
-    flex-direction: column;
-  }
-  .Dashboard-Fitur {
-    flex-direction: column;
-    margin-left: 2vh;
-  }
-  .Dashboard-Pengingat {
-    margin-left: 2vh;
-    margin-right: 2vh;
-  }
-  .Dashboard-Kalori h1,
   .Dashboard-Pengingat h1 {
-    font-size: 22px;
-    margin-left: 2vh;
+    font-size: 20px;
+  }
+  .Dashboard-Reminder {
+    margin-top: 20px;
   }
   .Dashboard-Pengingat p {
-    font-size: 16px;
+    font-size: 14px;
+  }
+  .Dashboard-Pengingat {
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: left;
+    padding-right: 13vh;
+  }
+  .Dashboard-Right {
+    margin-right: 1vh;
+    margin-left: -7vh;
+  }
+  .Dashboard-Pengukur {
+    padding: 5vh;
+  }
+
+  .Dashboard-Fitur {
+    flex-direction: column;
+    align-items: center;
   }
 }

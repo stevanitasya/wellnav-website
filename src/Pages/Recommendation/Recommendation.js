@@ -8,7 +8,7 @@ import "./Recommendation.css";
 
 const Recommendation = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-  const userId = "666fd729a7d9380a07810628"; // replace with the actual user ID
+  const userId = "666fd729a7d9380a07810628";
 
   const filters = [
     "Semua",
