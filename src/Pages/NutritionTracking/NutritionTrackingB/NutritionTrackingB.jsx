@@ -15,8 +15,7 @@ import axios from "axios";
 
 const NutritionTrackingB = () => {
   const dispatch = useDispatch();
-  const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
   const selectedItems = useSelector((state) => state.food.selectedItems);
   const [nutritionSummary, setNutritionSummary] = useState({
     calories: 0,
@@ -24,6 +23,7 @@ const NutritionTrackingB = () => {
     protein: 0,
     fat: 0,
   });
+  const [showWarning, setShowWarning] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +37,7 @@ const NutritionTrackingB = () => {
         setNutritionSummary(nutritionSummary);
         dispatch(setCalories(nutritionSummary.calories, 2000));
         dispatch(setNutritionSummary(nutritionSummary));
+        setShowWarning(nutritionSummary.calories > 2000);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -68,9 +69,11 @@ const NutritionTrackingB = () => {
         <NutritionChart nutritionSummary={nutritionSummary} />
         <FoodTaken selectedItems={selectedItems} />
       </div>
-      <div className="warning-section">
-        <WarningMessage />
-      </div>
+      {showWarning && (
+        <div className="warning-section">
+          <WarningMessage />
+        </div>
+      )}
     </div>
   );
 };

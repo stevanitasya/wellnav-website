@@ -10,8 +10,7 @@ const Header = () => {
   const [query, setQuery] = useState("");
   const location = useLocation();
   const [username, setUsername] = useState("Jane");
-  const backendUrl =
-  process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -43,12 +42,12 @@ const Header = () => {
       } else if (query.includes("rekomendasi")) {
         navigate("/recommendation");
       } else if (
-        query.includes("Pengingat") ||
-        query.includes("Reminder Notification")
+        query.includes("pengingat") ||
+        query.includes("reminder notification")
       ) {
         navigate("/ReminderNotification");
       } else if (
-        query.includes("Nutrition Tracking") ||
+        query.includes("nutrition tracking") ||
         query.includes("pelacakan nutrisi")
       ) {
         navigate("/NutritionTracking");
@@ -57,9 +56,9 @@ const Header = () => {
         query.includes("pelacakan air putih")
       ) {
         navigate("/WaterTracking");
-      } else if (query.includes("About Us")) {
+      } else if (query.includes("about us")) {
         navigate("/AboutUs");
-      } else if (query.includes("landing page") || query.includes("Home")) {
+      } else if (query.includes("landing page") || query.includes("home")) {
         navigate("/LandingPage");
       } else {
         alert("Page not found");
