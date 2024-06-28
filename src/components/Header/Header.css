@@ -125,7 +125,7 @@
   .Header {
     flex-direction: column;
     /* align-items: flex-start; */
-    margin-left: 10vh;
+    margin-left: -3vh;
   }
   .Header-Content {
     margin-bottom: 10px;
@@ -139,7 +139,7 @@
   .Header-Search {
     width: 100%;
     margin-bottom: 10px;
-    margin-left: 25vh;
+    margin-left: 27vh;
   }
   .Header-Search input {
     width: calc(100% - 50px);
@@ -147,8 +147,8 @@
   .Profile-Icon {
     width: 100%;
     justify-content: flex-start;
-    margin-left: 130vh;
-    margin-top: -7vh;
+    margin-left: 115vh;
+    margin-top: -6vh;
   }
   .Profile-Icon img {
     width: 40px;

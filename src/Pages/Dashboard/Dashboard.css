@@ -148,7 +148,7 @@ body,
 
 @media only screen and (max-width: 450px) {
   .Dashboard-Container {
-    margin-left: 15vh;
+    /* margin-left: 1vh; */
   }
   .Dashboard-Container h1 {
     font-size: 20px;
@@ -157,13 +157,13 @@ body,
     font-size: 14px;
   }
   .Dashboard-Req {
-    /* margin-left: 12vh; */
+    margin-left: 14vh;
     /* 
     margin-right: 5vh; */
   }
   .DashboardSalad-img {
     width: 70%;
-    margin-left: 10vh;
+    margin-left: 6vh;
     margin-top: -1vh;
   }
   .Dashboard-Req h1 {

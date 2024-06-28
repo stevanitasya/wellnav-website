@@ -25,7 +25,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 15px;
 }
-
+/* 
 .food-image2 {
   max-width: 100%;
   width: 180px;
@@ -42,12 +42,11 @@
   position: relative;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e0e0;
-}
+} */
 
-.food-image2 {
+.food-nutritiondata {
   display: flex;
   width: 53%;
-  display: flex;
   max-width: 100%;
   width: 20vh;
   border-radius: 10%;
@@ -67,5 +66,5 @@
 
 .food-details p {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 600;
 }

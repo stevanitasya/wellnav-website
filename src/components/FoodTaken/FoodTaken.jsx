@@ -15,7 +15,7 @@ const FoodTaken = () => {
             <img
               src={item.imageUrl || exampleImage}
               alt={item.name}
-              className="food-image2"
+              className="food-nutritiondata"
             />
             <div className="food-details">
               <h3>{item.name}</h3>
