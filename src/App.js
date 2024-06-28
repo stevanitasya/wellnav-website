@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Recommendation from "./Pages/Recommendation/Recommendation";
 import WaterTracking from "./Pages/WaterTracking/WaterTracking";
 import LandingPage from "./Pages/LandingPage/LandingPage";
@@ -29,15 +29,24 @@ function App() {
           <Route path="/LandingPage" element={<LandingPage />} />
           <Route path="/nutrition-tracking" element={<NutritionTracking />} />
           <Route path="/Header" element={<Header />} />
-          <Route path="/nutrition-tracking/food-choices" element={<NutritionTrackingA />} />
-          <Route path="/nutrition-tracking/food-choices/nutrition-data" element={<NutritionTrackingB />} />
+          <Route
+            path="/nutrition-tracking/food-choices"
+            element={<NutritionTrackingA />}
+          />
+          <Route
+            path="/nutrition-tracking/food-choices/nutrition-data"
+            element={<NutritionTrackingB />}
+          />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/reminder-notification" element={<ReminderNotification />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+          <Route
+            path="/reminder-notification"
+            element={<ReminderNotification />}
+          />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/food-detail/:id" element={<FoodDetail />} />
-          
+
           <Route
             path="/dashboard"
             element={
