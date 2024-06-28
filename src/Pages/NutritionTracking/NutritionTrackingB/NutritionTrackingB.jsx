@@ -23,6 +23,7 @@ const NutritionTrackingB = () => {
     protein: 0,
     fat: 0,
   });
+  const [showWarning, setShowWarning] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,6 +37,7 @@ const NutritionTrackingB = () => {
         setNutritionSummary(nutritionSummary);
         dispatch(setCalories(nutritionSummary.calories, 2000));
         dispatch(setNutritionSummary(nutritionSummary));
+        setShowWarning(nutritionSummary.calories > 2000);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -67,9 +69,11 @@ const NutritionTrackingB = () => {
         <NutritionChart nutritionSummary={nutritionSummary} />
         <FoodTaken selectedItems={selectedItems} />
       </div>
-      <div className="warning-section">
-        <WarningMessage />
-      </div>
+      {showWarning && (
+        <div className="warning-section">
+          <WarningMessage />
+        </div>
+      )}
     </div>
   );
 };
