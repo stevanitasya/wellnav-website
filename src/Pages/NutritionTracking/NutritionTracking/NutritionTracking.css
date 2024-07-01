@@ -114,7 +114,8 @@
   }
 
   .center-line {
-    width: 90%;
+    width: 100%;
+    margin-top: 2vh;
   }
 
   .personalize-section-daily-meal {
@@ -136,7 +137,10 @@
   .personalize-section-daily-meal {
     padding: 10px;
   }
-
+  .center-line {
+    width: 100%;
+    margin-top: 2vh;
+  }
   .calendar-section {
     padding: 10px;
   }

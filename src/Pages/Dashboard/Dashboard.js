@@ -14,7 +14,8 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Dashboard = () => {
   const [foodLogs, setFoodLogs] = useState([]);
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
   const [nutritionSummary, setNutritionSummaryState] = useState({
     carbohydrates: 0,
     protein: 0,
@@ -31,7 +32,11 @@ const Dashboard = () => {
         const config = {
           headers: { Authorization: `Bearer ${token}` },
         };
-        const response = await axios.get(`${backendUrl}/api/foodlogs/` + new Date().toISOString().split('T')[0], config);
+        const response = await axios.get(
+          `${backendUrl}/api/foodlogs/` +
+            new Date().toISOString().split("T")[0],
+          config
+        );
         const nutritionData = response.data.nutritionSummary;
         setNutritionSummaryState(nutritionData);
         dispatch(setCalories(nutritionData.calories, 2000));
@@ -75,10 +80,14 @@ const Dashboard = () => {
                 </div>
                 {/* REMINDER */}
                 <div className="Dashboard-Reminder">
-                  <h1>Pengingat</h1>
+                  <div className="Dashboard-Reminder2">
+                    <h1>Pengingat</h1>
+                  </div>
                   <div className="spacing-br">
                     <div className="Dashboard-Pengingat">
-                      <h1>Sudahkah <br /> anda <br /> minum?</h1>
+                      <h1>
+                        Sudahkah <br /> anda <br /> minum?
+                      </h1>
                       <p>2 Liter/hari</p>
                     </div>
                   </div>
