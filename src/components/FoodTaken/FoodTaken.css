@@ -105,7 +105,7 @@
     margin-right: 5vh;
   }
   .food-taken-text {
-    font-size: 20px;
+    font-size: 18px;
   }
   .food-choice-container2 {
     flex-direction: column;
@@ -125,11 +125,11 @@
   }
 
   .food-details h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .food-details p {
-    font-size: 16px;
+    font-size: 15px;
     margin-left: 5vh;
   }
 }

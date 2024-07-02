@@ -81,11 +81,15 @@
   .Dashboard-Nutrisi {
     margin-top: -5vh;
     margin-bottom: 5vh;
-    margin-left: -15px;
+    margin-left: -20px;
+    margin-right: -25px;
   }
   .Dashboard-Nutrisi h1 {
     font-size: 15px;
     margin-top: 9vh;
+  }
+  .Pelacakan-Item {
+    margin-left: -15px;
   }
 }
 @media (max-width: 390px) {

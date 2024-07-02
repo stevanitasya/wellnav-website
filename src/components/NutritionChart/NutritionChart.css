@@ -26,7 +26,9 @@
   align-items: center;
   margin: 0 35px;
 }
-
+.nutrition-chart-header4,
+.nutrition-chart-header3,
+.nutrition-chart-header2,
 .nutrition-chart-header {
   color: white;
   font-weight: bold;
@@ -74,24 +76,66 @@
     margin-top: 10px;
   }
 }
+
 @media (max-width: 450px) {
   .nutrition-chart-container {
     width: 100%;
     height: auto;
-    padding: 10px;
+    padding: 0;
     margin-left: 10vh;
     margin-right: 5vh;
   }
+
+  .nutrition-chart-header2 {
+    font-size: 17px;
+    margin-right: 43px;
+    text-align: left;
+  }
+  .nutrition-chart-header3 {
+    font-size: 17px;
+    margin-right: 80px;
+    text-align: left;
+  }
+  .nutrition-chart-header4 {
+    font-size: 17px;
+    margin-right: 85px;
+    text-align: left;
+  }
+  .nutrition-chart-header {
+    font-size: 17px;
+    margin-right: 90px;
+    text-align: left;
+  }
+
   .nutrition-chart-items {
     flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .doughnut-chart-wrapper {
+    display: inline;
+    align-items: center;
   }
 
   .nutrition-chart-item {
-    margin: 10px 0;
+    flex-direction: row;
+    align-items: left;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: -7px;
+  }
+
+  .nutrition-chart-content {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .nutrition-value {
-    margin-left: 0;
-    margin-top: 10px;
+    margin-left: 15px;
+    font-size: 17px;
+    margin-top: 0;
+    text-align: right;
   }
 }

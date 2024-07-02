@@ -82,19 +82,24 @@
 @media (max-width: 480px) {
   .choose-meal-title {
     flex-direction: column;
-    font-size: 25px;
+    font-size: 20px;
   }
   .filter-section {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     margin-left: 15vh;
-    margin-right: 20px;
+    margin-right: 10vh;
     justify-content: space-around;
     grid-template-columns: repeat(2, 1fr);
   }
   .filter-button {
     flex: 1 0 calc(100% - 10px);
     font-size: 12px;
+  }
+  .big-add-button button {
+    font-size: 15px;
+    width: 100px;
+    height: 40px;
   }
 }

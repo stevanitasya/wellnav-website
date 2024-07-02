@@ -214,11 +214,11 @@ body,
 
   .Dashboard-Req a {
     font-size: 12px;
-    margin-left: 5vh;
+    margin-left: 2vh;
   }
   .Dashboard-Req img.DashboardSalad-img {
     position: absolute;
-    width: 40vh;
+    width: 35vh;
     max-height: auto;
     object-fit: cover;
     transform: translate(60%, -26%);
@@ -231,7 +231,7 @@ body,
     display: flex;
     flex-direction: column;
     align-content: start;
-    margin-left: -10px;
+    margin-right: 15px;
   }
   .Dashboard-Reminder2 h1,
   .Dashboard-Kalori h1 {
@@ -244,14 +244,14 @@ body,
 
   .Dashboard-Pengingat p {
     font-size: 14px;
-    margin-bottom: 10px;
+
+    margin-bottom: 20px;
   }
   .Dashboard-Pengingat {
     margin-left: 0;
     margin-right: 0;
     justify-content: left;
     padding-bottom: 3vh;
-    /* padding-right: 13vh; */
   }
   .Dashboard-Right {
     margin-right: 1vh;
@@ -307,5 +307,10 @@ body,
     max-height: auto;
     object-fit: cover;
     transform: translate(60%, -26%);
+  }
+  .Dashboard-Reminder2 h1,
+  .Dashboard-Kalori h1 {
+    font-size: 15px;
+    margin-bottom: 10px;
   }
 }

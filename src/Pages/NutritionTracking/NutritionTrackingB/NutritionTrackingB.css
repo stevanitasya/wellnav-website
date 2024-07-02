@@ -1,5 +1,5 @@
 .personalize-section {
-  padding: 20px 0px 20px 0px;
+  padding: 25px 0px 20px 0px;
   background-color: #f0dd98;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,8 @@
 .chart-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: right;
+  margin-right: 60vh;
 }
 
 .chart-description {
@@ -21,15 +22,21 @@
   flex-direction: column;
   justify-content: center;
   margin-left: 2vh;
-  font-size: 15px;
+}
+.chart-meal-type {
+  font-size: 20px;
   font-weight: bold;
 }
-
+.chart-calorie-left {
+  font-size: 15px;
+  color: #8c8c8c;
+  font-weight: bold;
+}
 .chef-picture {
   max-width: 371px;
   position: absolute;
-  left: 290px;
-  transform: translateY(-125px);
+  left: 350px;
+  transform: translateY(-120px);
 }
 
 .warning-section {
@@ -39,7 +46,7 @@
 @media (max-width: 768px) {
   .chart-container {
     flex-direction: column;
-    align-items: center;
+    justify-content: right;
   }
 
   .chef-picture {
@@ -50,14 +57,16 @@
   }
 
   .chart-description {
-    text-align: center;
+    text-align: left;
     margin: 10px 0;
   }
 }
 @media (max-width: 450px) {
   .chart-container {
     flex-direction: column;
-    align-items: center;
+    align-items: right;
+    margin-left: 10vh;
+    margin-right: 5vh;
   }
 
   .chef-picture {
@@ -68,7 +77,7 @@
   }
 
   .chart-description {
-    text-align: center;
-    margin: 10px 0;
+    text-align: left;
+    margin-left: 1vh;
   }
 }
