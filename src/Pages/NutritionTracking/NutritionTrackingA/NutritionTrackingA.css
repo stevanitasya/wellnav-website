@@ -6,9 +6,8 @@
   margin-bottom: 15px;
 }
 
-.filter-button {
+.filter-section p {
   background-color: #dddcdb;
-
   border: none;
   padding: 5px 40px;
   cursor: pointer;
@@ -17,13 +16,14 @@
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
-.filter-section button:hover {
+.filter-section p:hover {
   background-color: #2a4b2d;
   color: #fffefe;
 }
 
-.filter-button.active {
+.filter-section.active {
   background-color: #f0dd98;
 }
 
@@ -82,24 +82,39 @@
 @media (max-width: 480px) {
   .choose-meal-title {
     flex-direction: column;
-    font-size: 20px;
+    font-size: 18px;
+    margin-left: 12vh;
+    text-align: left;
   }
+
   .filter-section {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-left: 15vh;
-    margin-right: 10vh;
-    justify-content: space-around;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    justify-content: start;
+    margin-left: 12vh;
+    margin-right: 10vh;
+    margin-bottom: -10px;
   }
-  .filter-button {
-    flex: 1 0 calc(100% - 10px);
+  .filter-section p {
     font-size: 12px;
+    padding: 5px 10px;
+    text-align: center;
   }
+
+  .filter-button.active {
+    background-color: #ddd;
+  }
+
+  .big-add-button {
+    text-align: center;
+    margin-top: 20px;
+  }
+
   .big-add-button button {
     font-size: 15px;
     width: 100px;
     height: 40px;
+    cursor: pointer;
   }
 }
