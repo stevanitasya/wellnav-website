@@ -50,6 +50,9 @@ body,
 .left-section {
   flex: 1;
   /* padding-right: 10vh; */
+  @media (max-width: 768px) {
+    flex:0;
+  }
 }
 
 .right-section {
@@ -71,8 +74,8 @@ body,
   color: #ffffff;
   @media (max-width: 768px) {
     margin-left: 4vh;
-    max-width:225px;
-    
+    width:90%;
+    padding:20px;
   }
 }
 
@@ -93,7 +96,9 @@ body,
   font-weight: 700;
   margin-bottom: 30px;
   color: white;
-  
+  @media (max-width: 768px){
+    margin-bottom: 10px;
+  }
 }
 
 .Waktu{
@@ -112,6 +117,7 @@ body,
   padding-left: 11vh;
   @media (max-width: 768px){
     margin: 0px;
+    padding-left: 5px;
   }
 }
 /* 
@@ -194,7 +200,7 @@ body,
     padding: 15px 60px;
     display: flex;
     justify-content: center;
-    margin-bottom: 22px;
+    margin-bottom: 0px;
   }
 }
 .form-section form button:hover {
@@ -230,8 +236,8 @@ body,
   padding: 5vh 10vh 19vh;
   margin-top: -24vh;
   @media (max-width: 768px){
-    margin-top: -12vh;
-    padding: 5vh 5vh 19vh;
+    margin-top: -18vh;
+    padding: 2vh 5vh 19vh;
   }
 }
 .log-section h3 {
@@ -239,6 +245,11 @@ body,
   margin-bottom: 4vh;
   margin-top: 2vh;
   font-weight: 600;
+  @media (max-width: 768px){
+    margin-bottom: 2vh;
+    font-size: 18px;
+    margin-top:0vh;
+  }
 }
 .Air-img {
   transform: translate(10%, -15%);
@@ -248,9 +259,10 @@ body,
   object-fit: cover;
   z-index: 1;
   @media (max-width: 768px){
+    width: 6vh;
     margin-left: 0vh;
     margin-top: 0vh;
-    transform: translate(300%, 45%);
+    transform: translate(450%, 60%);
   }
 }
 .log-water table {
@@ -265,7 +277,7 @@ body,
   padding: 10px 22vh;
   text-align: left;
   @media (max-width: 768px){
-    padding: 10px 6vh;
+    padding: 10px 3vh;
   }
 }
 
@@ -275,6 +287,9 @@ body,
   margin-top: 20px;
   @media (max-width: 768px){
     margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -290,9 +305,12 @@ body,
   border-radius: 20px;
   overflow: hidden;
   @media (max-width: 768px){
-    margin-left: 1vh;
+    margin-left: 0vh;
     margin-right: 0vh;
-    width: 15vh;
+    width: 9vh;
+    height:50vh;
+    transform: translate(0%, 20%);
+    margin-bottom: 0px;
   }
 }
 
@@ -310,6 +328,12 @@ body,
   padding: 10px;
   border-radius: 5px;
   color: #000000;
+  @media (max-width: 768px){
+    margin-left: 0vh;
+    transform: translate(0%,150%);
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .total-intake p {
@@ -317,12 +341,19 @@ body,
   font-size: 20px;
   font-weight: 700;
   margin-right: 10px;
+  @media (max-width: 768px){
+    font-size: 15px;
+    margin-right: 5px;
+  }
 }
 
 .total-intake h3 {
   margin: 0;
   font-size: 30px;
   font-weight: bold;
+  @media (max-width: 768px){
+font-size: 15px;
+  }
 }
 /* .total-intake {
   margin-bottom: 10px;

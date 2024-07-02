@@ -124,7 +124,7 @@ const WaterTracking = () => {
               <table>
                 <thead>
                   <tr>
-                    <th>Jumlah (ml)</th>
+                    <th>Jumlah</th>
                     <th>Waktu</th>
                   </tr>
                 </thead>
