@@ -237,6 +237,41 @@ body,
 
   .Food-Section2 p {
     font-size: 12px;
+    font-weight: 600;
     padding: 5px 20px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .Recommendation-Container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5vh;
+    margin-top: -5vh;
+  }
+
+  .Recommendation-Section {
+    padding: 10px;
+    text-align: left;
+    margin-top: 2vh;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .Recommendation-Section h1 {
+    padding-left: 7vh;
+    font-size: 20px;
+    margin-right: 5vh;
+  }
+  .Recommendation-Section p {
+    padding-left: 7vh;
+    font-size: 15px;
+  }
+  .Rekomendasi-img {
+    position: static;
+    transform: none;
+    width: 50%;
+    margin-top: 5vh;
+    margin-bottom: -15vh;
+    margin-left: -30vh;
   }
 }

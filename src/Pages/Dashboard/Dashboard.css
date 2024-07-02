@@ -277,7 +277,11 @@ body,
   .Dashboard-Container p {
     font-size: 14px;
   }
-
+  .Dashboard-Pengingat h1 {
+    margin-top: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
   .Dashboard-Req {
     position: relative;
     overflow: hidden;

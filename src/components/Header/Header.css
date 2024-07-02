@@ -125,7 +125,7 @@
   .Header {
     flex-direction: column;
     align-items: flex-start;
-    /* margin-left: -3vh; */
+    margin-left: -2vh;
   }
   .Header-Content {
     margin-bottom: 10px;
@@ -160,7 +160,7 @@
   .Profile-Icon {
     width: 100%;
     justify-content: flex-start;
-    margin-left: 60vh;
+    margin-left: 58vh;
     margin-top: -7vh;
   }
 }
@@ -168,7 +168,7 @@
   .Profile-Icon {
     width: 100%;
     justify-content: flex-start;
-    margin-left: 59vh;
+    margin-left: 57vh;
     margin-top: -7vh;
   }
 }
