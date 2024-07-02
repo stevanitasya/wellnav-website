@@ -92,7 +92,7 @@ body,
   padding: 10vh;
   border-radius: 20px;
 }
-
+.Dashboard-Reminder2 h1,
 .Dashboard-Nutrisi h1,
 .Dashboard-Reminder h1,
 .Dashboard-Kalori h1 {
@@ -124,7 +124,6 @@ body,
   margin-left: 0;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .Dashboard-Content {
     flex-direction: column;
@@ -138,26 +137,26 @@ body,
   .Dashboard-Req {
     margin-left: 0;
     margin-right: 0;
-    align-items: center;
+    align-items: left;
   }
 
   .Dashboard-Req img.DashboardSalad-img {
-    transform: translate(0, -32%);
-    max-width: 30vh;
+    transform: translate(90%, -32%);
+    max-width: 50vh;
   }
 
   .Dashboard-Req h1 {
-    text-align: center;
+    margin-left: 10vh;
   }
 
   .Dashboard-Req a {
-    margin-left: 0;
+    margin-left: 10vh;
   }
 
   .Dashboard-Fitur {
-    margin-left: 0;
+    margin-left: 10vh;
     margin-right: 0;
-    justify-content: center;
+    justify-content: left;
   }
 
   .Dashboard-Pengukur {
@@ -166,7 +165,7 @@ body,
   }
 
   .Dashboard-Reminder {
-    margin-left: 0;
+    margin-left: 10vh;
   }
 
   .Dashboard-Pengingat {
@@ -195,48 +194,127 @@ body,
   }
 
   .Dashboard-Req {
+    position: relative;
+    overflow: hidden;
     padding: 20px 10px;
     margin-left: 4vh;
   }
-
+  .Dashboard-Content {
+    display: column;
+  }
+  .Dashboard-Left,
+  .Dashboard-Right {
+    flex: 1;
+  }
   .Dashboard-Req h1 {
-    font-size: 22px;
-    margin-left: -10vh;
+    font-size: 20px;
+    margin-left: 1vh;
     text-align: left;
   }
 
   .Dashboard-Req a {
     font-size: 12px;
-    margin-left: -25vh;
+    margin-left: 2vh;
   }
-  .DashboardSalad-img {
-    margin-left: 40vh;
+  .Dashboard-Req img.DashboardSalad-img {
+    position: absolute;
+    width: 35vh;
+    max-height: auto;
+    object-fit: cover;
+    transform: translate(60%, -26%);
   }
   .Dashboard-Pengingat h1 {
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .Dashboard-Kalori {
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    margin-right: 15px;
+  }
+  .Dashboard-Reminder2 h1,
+  .Dashboard-Kalori h1 {
+    font-size: 15px;
+    margin-bottom: 10px;
   }
   .Dashboard-Reminder {
-    margin-top: 20px;
+    margin-left: 20px;
   }
+
   .Dashboard-Pengingat p {
     font-size: 14px;
+
+    margin-bottom: 20px;
   }
   .Dashboard-Pengingat {
     margin-left: 0;
     margin-right: 0;
     justify-content: left;
-    padding-right: 13vh;
+    padding-bottom: 3vh;
   }
   .Dashboard-Right {
     margin-right: 1vh;
     margin-left: -7vh;
   }
   .Dashboard-Pengukur {
-    padding: 5vh;
+    padding: 3vh;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
   }
 
   .Dashboard-Fitur {
-    flex-direction: column;
-    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+  }
+}
+@media (max-width: 390px) {
+  .Dashboard-Container h1 {
+    font-size: 20px;
+  }
+
+  .Dashboard-Container p {
+    font-size: 14px;
+  }
+  .Dashboard-Pengingat h1 {
+    margin-top: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .Dashboard-Req {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 10px;
+    margin-left: 4vh;
+  }
+  .Dashboard-Content {
+    display: column;
+  }
+  .Dashboard-Left,
+  .Dashboard-Right {
+    flex: 1;
+  }
+  .Dashboard-Req h1 {
+    font-size: 20px;
+    margin-left: 1vh;
+    text-align: left;
+  }
+
+  .Dashboard-Req a {
+    font-size: 12px;
+    margin-left: 2vh;
+  }
+  .Dashboard-Req img.DashboardSalad-img {
+    position: absolute;
+    width: 30vh;
+    max-height: auto;
+    object-fit: cover;
+    transform: translate(60%, -26%);
+  }
+  .Dashboard-Reminder2 h1,
+  .Dashboard-Kalori h1 {
+    font-size: 15px;
+    margin-bottom: 10px;
   }
 }

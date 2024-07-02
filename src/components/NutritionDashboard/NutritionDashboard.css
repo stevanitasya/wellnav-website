@@ -81,5 +81,21 @@
   .Dashboard-Nutrisi {
     margin-top: -5vh;
     margin-bottom: 5vh;
+    margin-left: -25px;
+    margin-right: -25px;
+  }
+  .Dashboard-Nutrisi h1 {
+    font-size: 15px;
+    margin-top: 9vh;
+  }
+  .Pelacakan-Item {
+    margin-left: -15px;
+  }
+}
+@media (max-width: 390px) {
+  .Dashboard-Nutrisi {
+    margin-top: -5vh;
+    margin-bottom: 18vh;
+    margin-left: -15px;
   }
 }

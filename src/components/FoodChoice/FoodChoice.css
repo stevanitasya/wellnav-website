@@ -70,7 +70,7 @@
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  margin-top: -20px; /* Dorong tombol ke bawah */
+  margin-top: -20px;
 }
 .add-button:hover {
   background-color: #2a4b2d;
@@ -78,4 +78,9 @@
 
 .add-button.selected {
   background-color: #2a4b2d;
+}
+@media (max-width: 480px) {
+  .food-details p {
+    margin-left: 3vh;
+  }
 }

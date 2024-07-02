@@ -56,7 +56,6 @@
   border-radius: 20px;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .KalenderDashboard-Container {
     margin-left: 0;
@@ -75,18 +74,20 @@
 
 @media (max-width: 480px) {
   .KalenderDashboard-Container {
-    margin-left: 10vh;
+    margin-left: 11vh;
     max-width: 75%;
   }
   .Kalender-month {
-    font-size: 18px;
+    font-size: 15px;
+    margin-left: 10px;
   }
 
   .Kalenderday-name {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .Kalenderday-number {
     font-size: 12px;
+    white-space: nowrap;
   }
 }
