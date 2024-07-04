@@ -82,15 +82,13 @@ function NutritionTrackingA() {
       <div className="choose-meal-title">Pilih {mealType} hari ini</div>
       <div className="filter-section">
         {filters.map((filter) => (
-          <button
+          <p
             key={filter}
-            className={`filter-button ${
-              activeFilter === filter ? "active" : ""
-            }`}
+            className={activeFilter === filter ? "active" : ""}
             onClick={() => handleFilterClick(filter)}
           >
             {filter}
-          </button>
+          </p>
         ))}
       </div>
       <FoodChoice

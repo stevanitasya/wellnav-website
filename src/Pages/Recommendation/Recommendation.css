@@ -181,32 +181,31 @@ body,
   .Recommendation-Section {
     padding: 10px;
     text-align: left;
-    margin-top: 5vh;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 50px;
+    padding-right: 20px;
   }
 
   .Recommendation-Section h1 {
-    padding-left: 15vh;
+    padding-left: 1vh;
     font-size: 20px;
     margin-right: 5vh;
   }
   .Recommendation-Section p {
-    padding-left: 15vh;
+    padding-left: 1vh;
     font-size: 15px;
   }
   .Rekomendasi-img {
     position: static;
     transform: none;
-    width: 50%;
-    margin-top: 5vh;
-    margin-bottom: -22vh;
-    margin-left: -35vh;
+    width: 65%;
+    margin-top: 3vh;
+    margin-left: -15vh;
   }
 
   .center-text {
-    margin-top: -15px;
-    text-align: left;
+    margin-top: -30px;
+    margin-bottom: 1px;
+    text-align: center;
     font-size: 18px;
   }
 
@@ -231,47 +230,13 @@ body,
   }
 
   .Food-Section2 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 5vh;
+    gap: 5px;
   }
 
   .Food-Section2 p {
     font-size: 12px;
-    font-weight: 600;
-    padding: 5px 20px;
-  }
-}
-@media only screen and (max-width: 400px) {
-  .Recommendation-Container {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 5vh;
-    margin-top: -5vh;
-  }
-
-  .Recommendation-Section {
-    padding: 10px;
-    text-align: left;
-    margin-top: 2vh;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-  .Recommendation-Section h1 {
-    padding-left: 7vh;
-    font-size: 20px;
-    margin-right: 5vh;
-  }
-  .Recommendation-Section p {
-    padding-left: 7vh;
-    font-size: 15px;
-  }
-  .Rekomendasi-img {
-    position: static;
-    transform: none;
-    width: 50%;
-    margin-top: 5vh;
-    margin-bottom: -15vh;
-    margin-left: -30vh;
+    padding: 2px 8px;
   }
 }
