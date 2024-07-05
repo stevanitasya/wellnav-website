@@ -4,7 +4,7 @@
   /* justify-content: space-between; */
   margin-left: 15vh;
   @media only screen and (max-width: 768px){
-    margin-left: 5vh;
+    margin-left: 3vh;
   }
 }
 .Landing-Header h1 {
