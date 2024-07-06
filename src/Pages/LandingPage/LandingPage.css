@@ -125,6 +125,14 @@
   max-width: 800px;
   padding: 0 20px;
   margin-left: 39vh;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0px;
+    margin-top:0px;
+    padding: 0px;
+      }
 }
 
 .Landing-Why img{
@@ -152,10 +160,7 @@
   font-size: 30px;
   font-weight: bold;
   color: #000000;
-  @media screen and (max-width: 768px) {
-transform: translate(-70%,-5%);
-
-  }
+ 
 }
 .Landing-Why .right-img {
   position: absolute;
