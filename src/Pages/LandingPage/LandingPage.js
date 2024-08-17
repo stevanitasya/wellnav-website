@@ -5,7 +5,8 @@ import Home from "../../Assets/Home.png";
 import FiturPelacakan from "../../Assets/FiturPelacakan.png";
 import FiturKalori from "../../Assets/FiturKalori.png";
 import FiturNotifikasi from "../../Assets/FiturNotifikasi.png";
-import FiturPelacakanAir from "../../Assets/FiturPelacakan Air.png";
+import FiturRekomendasi from "../../Assets/FiturRekomendasi.png";
+import FiturPelacakanAir from "../../Assets/FiturPelacakanAir.png";
 import String from "../../Assets/string.png";
 import "./LandingPage.css";
 
@@ -94,7 +95,8 @@ function LandingPage() {
               <h1>Pengukuran Kalori</h1>
               <p>
                 Informasi mengenai jumlah kalori, karbohidrat, dll. <br></br>
-                yang bertujuan untuk melacak dampak makanan terhadap tubuh.
+                yang bertujuan untuk melacak dampak makanan <br></br>terhadap
+                tubuh.
               </p>
             </div>
             <img src={FiturKalori} alt="FiturKalori" className="Kalori-img" />
@@ -123,7 +125,11 @@ function LandingPage() {
                 dikonsumsi oleh pengguna
               </p>
             </div>
-            <img src={FiturKalori} alt="FiturKalori" className="Kalori-img" />
+            <img
+              src={FiturRekomendasi}
+              alt="FiturRekomendasi"
+              className="FRekomendasi-img"
+            />
           </div>
 
           <div className="FiturContent-Left">
