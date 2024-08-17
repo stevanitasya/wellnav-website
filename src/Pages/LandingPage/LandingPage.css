@@ -126,6 +126,14 @@
   max-width: 800px;
   padding: 0 20px;
   margin-left: 39vh;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0px;
+    margin-top:0px;
+    padding: 0px;
+      }
 }
 
 .Landing-Why img {
@@ -154,6 +162,7 @@
   font-size: 30px;
   font-weight: lighter;
   color: #000000;
+<<<<<<< HEAD
   @media screen and (max-width: 450px) {
     transform: translate(-70%, -5%);
     font-size: 20px;
@@ -162,6 +171,9 @@
     transform: translate(-78%, -5%);
     font-size: 20px;
   }
+=======
+ 
+>>>>>>> 6982df298be1ab43f9a9c626de03c0e57b8d2058
 }
 .Landing-Why .right-img {
   position: absolute;
