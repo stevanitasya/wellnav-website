@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom"
 import SignInForm from "../../components/SignInForm/SignInForm";
 import "../SignIn/SignIn.css";
 
@@ -6,7 +7,7 @@ function SignIn() {
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const isVerified = query.get('verified');
-  
+
   return (
     <div>
       {isVerified && (
