@@ -73,27 +73,39 @@ const Dashboard = () => {
               <div className="Dashboard-Fitur">
                 {/* KALORI */}
                 <div className="Dashboard-Kalori">
-                  <h1>Jumlah Kalori</h1>
-                  <div className="Dashboard-Pengukur">
-                    <CalorieChart takenCalories={nutritionSummary.calories} />
-                  </div>
+                  <Link
+                    to="nutrition-tracking/food-choices/nutrition-data"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <h1>Jumlah Kalori</h1>
+                    <div className="Dashboard-Pengukur">
+                      <CalorieChart takenCalories={nutritionSummary.calories} />
+                    </div>
+                  </Link>
                 </div>
                 {/* REMINDER */}
+
                 <div className="Dashboard-Reminder">
-                  <div className="Dashboard-Reminder2">
-                    <h1>Pengingat</h1>
-                  </div>
-                  <div className="spacing-br">
-                    <div className="Dashboard-Pengingat">
-                      <h1>
-                        Sudahkah <br /> anda <br /> minum?
-                      </h1>
-                      <p>2 Liter/hari</p>
+                  <Link
+                    to="/Reminder-Notification"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <div className="Dashboard-Reminder2">
+                      <h1>Pengingat</h1>
                     </div>
-                  </div>
+                    <div className="spacing-br">
+                      <div className="Dashboard-Pengingat">
+                        <h1>
+                          Sudahkah <br /> anda <br /> minum?
+                        </h1>
+                        <p>2 Liter/hari</p>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
+
             {/* KANAN */}
             <div className="Dashboard-Right">
               <div className="Dashboard-Calender">
