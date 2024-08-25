@@ -30,8 +30,11 @@ const SignUpForm = () => {
     age: Yup.number()
       .required("Required")
       .positive("Invalid age")
-      .integer("Invalid age"),
-    healthCondition: Yup.string().required("Required"),
+      .integer("Invalid age") .min(12, "You must be at least 12 years old")
+      .max(50, "You must be 50 years old or less"),
+    healthCondition: Yup.string()
+      .required("Required")
+      .notOneOf(["Tidak Ada"], "You must have a health condition to register."),
   });
 
   const onSubmit = async (values, { setSubmitting, setErrors, setStatus }) => {
@@ -42,10 +45,13 @@ const SignUpForm = () => {
       setShowModal(true); // Show modal after successful registration
       setSubmitting(false);
     } catch (error) {
-      console.log(error.response.data);
-      setErrors({ submit: error.message });
+      if (error.response && error.response.data.error === 'Email is already registered.') {
+        setErrors({ email: 'Email is already registered.' });
+      } else {
+        setErrors({ submit: error.message });
+      }
       setSubmitting(false);
-    }
+    } 
   };
 
   const handleCloseModal = () => {
