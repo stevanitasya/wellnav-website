@@ -30,8 +30,8 @@ const SignUpForm = () => {
     age: Yup.number()
       .required("Required")
       .positive("Invalid age")
-      .integer("Invalid age") .min(12, "You must be at least 12 years old")
-      .max(50, "You must be 50 years old or less"),
+      .integer("Invalid age") 
+      .min(12, "You must be at least 12 years old"),
     healthCondition: Yup.string()
       .required("Required")
       .notOneOf(["Tidak Ada"], "You must have a health condition to register."),
