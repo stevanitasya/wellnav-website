@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "../SignUpForm/SignUpForm.css";
 import { useNavigate } from "react-router-dom";
-import VerificationModal from '../VerificationEmail/VerificationEmail'; // Import modal
+import VerificationModal from "../VerificationEmail/VerificationEmail"; // Import modal
 
 const SignUpForm = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5001";
 
   const initialValues = {
     username: "",
@@ -30,7 +31,7 @@ const SignUpForm = () => {
     age: Yup.number()
       .required("Required")
       .positive("Invalid age")
-      .integer("Invalid age") 
+      .integer("Invalid age")
       .min(12, "You must be at least 12 years old"),
     healthCondition: Yup.string()
       .required("Required")
@@ -39,19 +40,25 @@ const SignUpForm = () => {
 
   const onSubmit = async (values, { setSubmitting, setErrors, setStatus }) => {
     try {
-      const response = await axios.post(`${backendUrl}/api/users/signup`, values);
+      const response = await axios.post(
+        `${backendUrl}/api/users/signup`,
+        values
+      );
       console.log(response.data);
       setStatus({ success: true });
       setShowModal(true); // Show modal after successful registration
       setSubmitting(false);
     } catch (error) {
-      if (error.response && error.response.data.error === 'Email is already registered.') {
-        setErrors({ email: 'Email is already registered.' });
+      if (
+        error.response &&
+        error.response.data.error === "Email is already registered."
+      ) {
+        setErrors({ email: "Email is already registered." });
       } else {
         setErrors({ submit: error.message });
       }
       setSubmitting(false);
-    } 
+    }
   };
 
   const handleCloseModal = () => {
@@ -63,13 +70,7 @@ const SignUpForm = () => {
     navigate("/sign-in");
   };
 
-  const healthConditions = [
-    "Tidak Ada",
-    "GERD",
-    "Diabetes",
-    "Asam Urat",
-    "Darah tinggi",
-  ];
+  const healthConditions = ["GERD", "Diabetes", "Asam Urat", "Darah tinggi"];
 
   return (
     <>
@@ -89,7 +90,11 @@ const SignUpForm = () => {
                   placeholder="Username"
                   className="input-field"
                 />
-                <ErrorMessage name="username" component="div" className="error" />
+                <ErrorMessage
+                  name="username"
+                  component="div"
+                  className="error"
+                />
               </div>
               <div className="input-group-signup">
                 <Field
@@ -111,7 +116,11 @@ const SignUpForm = () => {
                   placeholder="Password"
                   className="input-field"
                 />
-                <ErrorMessage name="password" component="div" className="error" />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="error"
+                />
               </div>
               <div className="input-group-signup">
                 <Field
@@ -121,7 +130,11 @@ const SignUpForm = () => {
                   placeholder="Konfirmasi Password"
                   className="input-field"
                 />
-                <ErrorMessage name="confirmPassword" component="div" className="error" />
+                <ErrorMessage
+                  name="confirmPassword"
+                  component="div"
+                  className="error"
+                />
               </div>
             </div>
             <div className="input-row">
@@ -151,7 +164,11 @@ const SignUpForm = () => {
                     </option>
                   ))}
                 </Field>
-                <ErrorMessage name="healthCondition" component="div" className="error" />
+                <ErrorMessage
+                  name="healthCondition"
+                  component="div"
+                  className="error"
+                />
               </div>
             </div>
             <button
